@@ -18,7 +18,7 @@
     @include('commons.error_messages')
 
     @yield('content')
-    @include('commons.main')
+
 
   </div>
 

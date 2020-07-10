@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container">
-            <a href="" class="nav-link"><img src="{{ asset('image/logo.png') }}" width="250" alt="logo.png"></a>
+            <a href="/" class="nav-link"><img src="{{ asset('image/logo.png') }}" width="250" alt="logo.png"></a>
             <div class="collapse navbar-collapse justify-content-left" id="nav-bar">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
@@ -30,7 +30,7 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="" class="nav-link mr-3">マイページ</a></li>
-                    <button type="button" class="btn btn-danger">新規登録</button>
+                    <li class="nav-item">{!! link_to_route('signup', '新規登録', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
         </div>
