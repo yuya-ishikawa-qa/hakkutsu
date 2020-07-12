@@ -13,11 +13,15 @@
             <ul class="navbar-nav">
                 
                 @if(Auth::check())
+                    <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
+
                 
-               
                 @else
                 
-
+                    <li class="nav-item">{!! link_to_route('signup', '新規ユーザ登録', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
+                
                 @endif
             </ul>    
         </div>

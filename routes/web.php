@@ -11,9 +11,22 @@
 |
 */
 
+// ユーザ登録フォーム
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+// ユーザ登録機能
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+
+// ログインフォーム
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// ログイン機能
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+// ログアウト機能
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 
 Route::get('/register', function () {
     return view('auth.register');

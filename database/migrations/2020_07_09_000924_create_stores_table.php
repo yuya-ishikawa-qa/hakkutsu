@@ -14,8 +14,17 @@ class CreateStoresTable extends Migration
     public function up()
     {
         Schema::create('stores', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('store_name');
+            $table->string('postal');
+            $table->string('address');
+            $table->string('tel');
+            $table->string('mail');
+            $table->string('business_hours');
+            $table->text('description');
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->softDeletes();	
         });
     }
 
