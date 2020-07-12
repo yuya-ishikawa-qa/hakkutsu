@@ -51,8 +51,10 @@
       {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
 
-    {!! Form::submit('新規登録', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
-    {!! Form::close() !!}
+    <div class="signup_button m-5">
+      {!! Form::submit('新規登録', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+      {!! Form::close() !!}
+    </div>
 
   </div>
 </div>
