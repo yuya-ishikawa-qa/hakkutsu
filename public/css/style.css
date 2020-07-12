@@ -1,0 +1,112 @@
+
+
+.pagination > .column {
+  padding-top: 16px;
+}
+
+.pagination .pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination .pages > li {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 34px;
+  text-align: center;
+}
+
+.pagination .pages > li > a {
+  display: block;
+  width: 36px;
+  height: 36px;
+  transition: all .3s;
+  border-radius: 50%;
+  color: #606975;
+  line-height: 34px;
+  text-decoration: none;
+}
+
+.pagination .pages > li > a:hover {
+  border-color: #e1e7ec;
+  background-color: #EEF15E;
+}
+
+.pagination .pages > li.active > a {
+  border-color: #EEF15E;
+  background-color: #EEF15E;
+  color: #ffffff;
+}
+
+.pagination .btn > i {
+  margin-top: -5px;
+}
+
+.shop-sorting {
+  display: flex;
+}
+
+.shop-sorting label,
+.shop-sorting .form-control,
+.shop-sorting span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.shop-sorting span {
+  padding: 8px 0;
+}
+
+.shop-sorting label {
+
+  color: #9da9b9;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.shop-sorting .form-control {
+  width: 100%;
+  max-width: 186px;
+  margin-right: 10px;
+}
+
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.hidden--visually {
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.rating__label {
+  cursor: pointer;
+  color: gray;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.rating__icon::before {
+  content: "★";
+  font-size: 35px;
+}
+
+.rating__input:hover ~ .rating__label {
+  color: lightgray;
+}
+
+.rating__input:checked ~ .rating__label {
+  color: goldenrod;
+}
