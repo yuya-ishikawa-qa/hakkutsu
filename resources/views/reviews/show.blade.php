@@ -26,14 +26,12 @@
         </div>
         <div class="d-flex justify-content-between mt-5">
           <div>
-              <a class="btn btn-primary" href="{{ route('items.index')}}">この商品の取り扱い店舗
-              </a>
+              <a class="btn btn-primary" href="{{ route('items.index')}}">この商品の取り扱い店舗</a>
           </div>
           <div>
-              <a class="btn btn-primary" href="{{ route('items.index')}}">商品一覧
-              </a>
+              <a class="btn btn-primary" href="{{ route('items.index')}}">商品一覧</a>
           </div>
-
+　　
         </div>
 
 
