@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-@include('commons.main')
+
+<h1>Hello World</h1>
+
+
 
 @endsection
