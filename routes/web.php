@@ -38,18 +38,20 @@ Route::get('/store/management/request', function () {
 
 
 // 8-3表示用
-Route::get('/store/management/createstore', function () {
-    return view('store.management.createstore');
+// Route::get('/store/management/create', function () {
+//     return view('store.management.create');
+// });
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/store/management/create', 'StoresController@create');
 });
+
 // 8-4表示用
 Route::get('/store/management/confirmation', function () {
     return view('store.management.confirmation');
 });
 
-// 8-5表示用
-Route::get('/store/management/index', function () {
-    return view('store.management.index');
-});
+// 8-5表示用(storeデータ表示)
+Route::get('/store/management/index', 'StoresController@index');
 
 // 8-6表示用
 Route::get('/store/management/createitem', function () {
@@ -75,3 +77,13 @@ Route::get('/buy/index', function () {
 Route::get('/privacy', function () {
     return view('privacy');
 });
+
+//store作成、削除
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('stores', 'StoresController', ['only' => ['create', 'store', 'destroy']]);
+});
+
+
+
+
+

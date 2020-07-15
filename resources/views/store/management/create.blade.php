@@ -37,11 +37,11 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('business_hours', '【営業時間】') !!}
-                    {!! Form::textarea('business_hours', old('business_hours'), ['class' => 'form-control']) !!}
+                    {!! Form::text('business_hours', old('business_hours'), ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】') !!}
-                    {!! Form::textarea('description', old('description'),  ['rows' => 5,'cols' => 60]) !!}
+                    {!! Form::textarea('description', old('description'),  ['class' => 'form-control']) !!}
                 </div>
                 {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
@@ -51,59 +51,6 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <div class="border p-4">
-            <h1 class="h5 mb-4">
-                投稿の新規作成
-            </h1>
-        
-            <form method="POST" action="">
-                {{csrf_field()}}
-                <fieldset class="mb4">
-                    <div class=form-group">
-                    <label for="titile">
-                        タイトル
-                    </label>
-                    <input 
-                        id="title"
-                        name="title"
-                        class="form-control"
-                        value="{{old('title')}}"
-                        type="text" 
-                        >
-                        <div class="text-danger">
-                            {{$errors->first('title')}}
-                        </div>
-                        
-                    </div>
-                    <div>
-                        <label for="body">
-                        本文
-                        </label>
-                        <textarea
-                            id="body"
-                            name="body"
-                            class="form-control"
-                            value={{old('title')}}
-                            raws="4"
-                        >{{old('body')}}</textarea>
-                        <div class="text-danger">
-                            {{$errors->first('body')}}
-                        </div>
-                    </div>
-                    <div class="mt-5">
-                        <a class="btn btn-secondary" href="">
-                            キャンセル
-                        </a>
-                        
-                        <button type="submit" class="btn btn-primary">
-                            投稿する
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
 @endsection('content')
 
 

@@ -19,7 +19,7 @@
     <br>
     <br>
 
-    <a href="/store/management/createstore" >
+    <a href="/store/management/create" >
         <button type="submit" class="btn btn-warning col-md-6">
         新規出店はこちら
         </button>

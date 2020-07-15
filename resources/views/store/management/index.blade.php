@@ -2,8 +2,10 @@
 
 @section('content')
 
+<br><br>
 
-（店舗名表示）<br><br>
+
+{{$store->store_name}}	
 <削除><商品画像><商品名><価格><br>
 <a href="/store/management/index" >
         削除
@@ -16,7 +18,7 @@
 
 <div class="d-flex">
 
-    <a href="/store/management/createstore" >
+    <a href="/store/management/create" >
         <button type="submit" class="btn btn-warning col-md-6">
         店舗情報の編集
         </button>
@@ -31,6 +33,9 @@
         商品を追加する
         </button>
     </a>    
+
+
+    
 
 </div>
 
