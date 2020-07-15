@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <div class="text-center">
   <h3 class="login_title text-left d-inline-block mt-5">お客様情報の入力</h3>
 </div>

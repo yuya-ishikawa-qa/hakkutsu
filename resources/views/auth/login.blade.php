@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     <div class="text-center">
         <h3 class="login_title text-left d-inline-block mt-5">ログイン</h3>
     </div>
@@ -19,6 +21,7 @@
                     {!! Form::label('password', 'パスワード') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
+
 
                 <div class="login_button m-5">
                     {!! Form::submit('ログイン', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
