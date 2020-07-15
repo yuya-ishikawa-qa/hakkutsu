@@ -2,11 +2,7 @@
 
 @section('content')
 
-    <div class="center jumbotron bg-warning">
-        <div class="text-center text-white">
-            <h1>hakkutsu</h1>
-        </div>
-    </div>
+
 
     <div class="text-center">
         <h3 class="login_title text-left d-inline-block mt-5">ログイン</h3>
@@ -26,12 +22,13 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('ログイン', ['class' => 'btn btn btn-primary mt-2']) !!}
-            {!! Form::close() !!}
 
-            <p class="mt-3">{!! link_to_route('signup', '新規ユーザ登録する？') !!}</p>
-            
+                <div class="login_button m-5">
+                    {!! Form::submit('ログイン', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+                    {!! Form::close() !!}
+                </div>
+
         </div>
     </div>
-    
+
 @endsection
