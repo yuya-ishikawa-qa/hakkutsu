@@ -15,12 +15,20 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->string('store_name')->unique();
-            $table->text('description')->null();
+            $table->string('postal');
+            $table->string('address');
+            $table->string('tel');
+            $table->string('mail');
             $table->string('path');
-            $table->date('created_at');
-            $table->date('updated_at');
+            $table->string('business_hours');
+            $table->text('description')->null();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

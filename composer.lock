@@ -782,6 +782,9 @@
         {
             "name": "laravelcollective/html",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
             "version": "v5.8.1",
             "source": {
                 "type": "git",
@@ -792,6 +795,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/LaravelCollective/html/zipball/3a1c9974ea629eed96e101a24e3852ced382eb29",
                 "reference": "3a1c9974ea629eed96e101a24e3852ced382eb29",
+<<<<<<< HEAD
+=======
 =======
             "version": "v5.8.0",
             "source": {
@@ -804,6 +809,7 @@
                 "url": "https://api.github.com/repos/LaravelCollective/html/zipball/0e360143d3476fe4141d267a260c140569fa207b",
                 "reference": "0e360143d3476fe4141d267a260c140569fa207b",
 >>>>>>> feature/shunsuke/mock_app
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
                 "shasum": ""
             },
             "require": {
@@ -849,12 +855,17 @@
             "authors": [
                 {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
                 },
                 {
                     "name": "Taylor Otwell",
                     "email": "taylorotwell@gmail.com"
+<<<<<<< HEAD
+=======
 =======
                     "name": "Taylor Otwell",
                     "email": "taylorotwell@gmail.com"
@@ -863,6 +874,7 @@
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
 >>>>>>> feature/shunsuke/mock_app
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
                 }
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
@@ -870,8 +882,12 @@
 <<<<<<< HEAD
             "time": "2019-09-05T12:32:25+00:00"
 =======
+<<<<<<< HEAD
+            "time": "2019-09-05T12:32:25+00:00"
+=======
             "time": "2019-03-01T22:53:41+00:00"
 >>>>>>> feature/shunsuke/mock_app
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
         },
         {
             "name": "league/flysystem",
@@ -4020,6 +4036,18 @@
         },
         {
             "name": "myclabs/deep-copy",
+<<<<<<< HEAD
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myclabs/DeepCopy.git",
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5796d127b0c4ff505b77455148ea9d5269d99758",
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758",
+=======
             "version": "1.10.1",
             "source": {
                 "type": "git",
@@ -4030,6 +4058,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
                 "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
                 "shasum": ""
             },
             "require": {
@@ -4070,7 +4099,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
+            "time": "2020-06-28T07:02:41+00:00"
+=======
             "time": "2020-06-29T13:22:24+00:00"
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
         },
         {
             "name": "nunomaduro/collision",
@@ -5393,6 +5426,8 @@
         {
             "name": "webmozart/assert",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             "version": "1.9.1",
             "source": {
                 "type": "git",
@@ -5404,6 +5439,7 @@
                 "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
 =======
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
             "version": "1.9.0",
             "source": {
                 "type": "git",
@@ -5414,7 +5450,10 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/webmozart/assert/zipball/9dc4f203e36f2b486149058bade43c851dd97451",
                 "reference": "9dc4f203e36f2b486149058bade43c851dd97451",
+<<<<<<< HEAD
+=======
 >>>>>>> feature/shunsuke/mock_app
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
                 "shasum": ""
             },
             "require": {
@@ -5451,10 +5490,14 @@
                 "validate"
             ],
 <<<<<<< HEAD
+            "time": "2020-06-16T10:16:42+00:00"
+=======
+<<<<<<< HEAD
             "time": "2020-07-08T17:02:28+00:00"
 =======
             "time": "2020-06-16T10:16:42+00:00"
 >>>>>>> feature/shunsuke/mock_app
+>>>>>>> 63bef780a0cf8ab33a0c01f7458250e4d582bd5a
         }
     ],
     "aliases": [],
