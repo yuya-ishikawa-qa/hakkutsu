@@ -2,12 +2,13 @@
 @charset "utf-8";
 
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 body {
     color: #333;
     font-size: 1.6rem;
+}
 
 .pagination > .column {
   padding-top: 16px;
@@ -119,4 +120,60 @@ body {
 .rating__input:checked ~ .rating__label {
   color: goldenrod;
 
+}
+
+.button-hover {
+    background: #FECC16;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.button-hover:hover {
+    opacity: 0.7;
+}
+
+
+.delete-account {
+    background-color: #CC0000;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.delete-account:hover {
+    opacity: 0.7;
+}
+
+.continue {
+    background-color: #DDDDDD;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.continue:hover {
+    opacity: 0.7;
 }

@@ -80,14 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create', 'store', 'destroy']]);
 });
 
-
-
-
-
-
-
-
-
+//認証関連
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -107,8 +100,8 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 
 //お店関連
 //一覧表示
-Route::get('/stores', 'StoresController@index');
-Route::resource('/stores', 'StoresController');
+Route::get('/stores', 'StoreDisplayController@index');
+Route::resource('/stores', 'StoreDisplayController');
 
 //商品関連
 //一覧表示
@@ -118,4 +111,3 @@ Route::resource('/items', 'ItemsController');
 //レビュー関連
 Route::get('/reviews', 'ReviewsController@index');
 Route::resource('/reviews', 'ReviewsController');
-

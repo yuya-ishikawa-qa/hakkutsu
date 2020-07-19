@@ -28,190 +28,30 @@
     <!-- Page Content-->
 
     <div class="card-deck row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <a href="">
-              <button class="btn btn-secondary">お店の詳細</button>
-            </a>
-          </div>
+      @foreach($stores as $key => $store)
+      @if($loop->iteration % 3 == 1 && $loop->iteration !=1)
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
+        <div class="card-deck row mt-3">
+      @endif
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="{{asset('storage/images/'.$store->image_path)}}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">お店の名前：{{$store->store_name}}</h4>
+              <p class="card-text">
+                @if(isset($store->description))
+                  {{$store->description}}
+                @endif
+              </p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="">
+                  <button class="btn btn-secondary">お店の詳細</button>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">お店の名前</h4>
-            <p class="card-text">ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。</p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-secondary">お店の詳細</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      @endforeach
 
       <!-- Pagination-->
       <nav class="pagination">
@@ -229,6 +69,7 @@
       </nav>
 
     </div>
+  </div>
 
 
 
