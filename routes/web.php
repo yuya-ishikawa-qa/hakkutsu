@@ -43,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // 8-4表示用
-Route::get('/store/management/confirmation', function () {
-    return view('store.management.confirmation');
-});
+// Route::get('/store/management/confirmation', function () {
+//     return view('store.management.confirmation');
+// });
 
 // 8-5表示用(storeデータ表示)
 Route::get('/store/management/index', 'StoresController@index');
@@ -77,7 +77,9 @@ Route::get('/privacy', function () {
 
 //store作成、削除
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('stores', 'StoresController', ['only' => ['create', 'store', 'destroy']]);
+    Route::resource('stores', 'StoresController', ['only' => ['create', 'destroy']]);
+    Route::post('stores/management/store','StoresController@store');
+    Route::post('stores/management/confirmation','StoresController@confirm')->name('stores.confirm');
 });
 
 

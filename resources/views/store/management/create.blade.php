@@ -4,13 +4,17 @@
 
 
     
+<div class="text-right">
+
+{{ Auth::user()->name }}
+</div>
 
     <div class="text-center">
         <h1><i class="fas fa-store"></i>店舗登録</h1>
     </div>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::open([]) !!}
+            {!! Form::open(['url' => 'stores/management/confirmation', 'method' => 'post']) !!}
                 <div class="form-group">
                     {!! Form::label('store_name', '【店名】') !!}
                     {!! Form::text('store_name', old('store_name'), ['class' => 'form-control']) !!}
@@ -32,8 +36,8 @@
                     {!! Form::text('mail', old('mail'), ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('image', '【店舗イメージ】') !!}
-                    {!! Form::text('image', old('image'), ['class' => 'form-control']) !!}
+                    {!! Form::label('path', '【店舗イメージ】') !!}
+                    {!! Form::text('path', old('path'), ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('business_hours', '【営業時間】') !!}
@@ -45,9 +49,6 @@
                 </div>
                 {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
-            <a href="/store/management/confirmation" >
-                内容を確認する（作業用）
-            </a>
         </div>
     </div>
 
