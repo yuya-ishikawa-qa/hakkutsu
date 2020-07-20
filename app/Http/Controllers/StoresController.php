@@ -69,8 +69,6 @@ class StoresController extends Controller
                     'business_hours' => $data["business_hours"],
                     'description' => $data["description"]
                     ]); 
-                    // \Session::flash('flash_message', '保存しました。');
-                    // return redirect(route(('sample.create')));
             return redirect('store/management/request')->with('flash_message', '送信しました');
         }
 
