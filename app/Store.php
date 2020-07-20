@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kyslik\ColumnSortable\Sortable;
 
 class Store extends Model
 {
@@ -16,4 +17,7 @@ class Store extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    use Sortable;
+    public $sortable =['store_name','created_at','updated_at'];
 }

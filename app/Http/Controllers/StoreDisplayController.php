@@ -85,4 +85,11 @@ class StoreDisplayController extends Controller
     {
         //
     }
+
+    public function initialize()
+    {
+        $stores = Store::all();
+        $stores = Store::sortable()->paginate(9);
+        return view('stores.index', ['stores' => $stores]);
+    }
 }
