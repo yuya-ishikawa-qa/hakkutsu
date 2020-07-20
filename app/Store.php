@@ -18,6 +18,4 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    use Sortable;
-    public $sortable =['store_name','created_at','updated_at'];
 }

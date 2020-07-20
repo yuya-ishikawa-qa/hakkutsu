@@ -6,8 +6,21 @@
     <!-- Shop Toolbar-->
   　<div class="row justify-content-between">
         <div class="mb-2 ml-4 shop-sorting">
+          <p>総件数: {{ $stores -> total() }}件</p></div>
+            <form action="/" method="get">
+                表示件数：
+                <select id="" name="disp_list" onchange="submit();">
+                    <option value="">選択してください</option>
+                    <option value="5" selected="selected">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">50</option>
+                </select>
+            </form>
         </div>
-        {{ $stores->appends(request()->query())->links() }}
+        <div class="pagination">
+          {{ $stores->appends(['disp_list' => $_GET['disp_list']]) -> render()}}
+        </div>
     </div>
 
     <!-- Page Content-->

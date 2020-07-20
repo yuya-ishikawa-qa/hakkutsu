@@ -14,9 +14,9 @@ class StoreDisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $stores = Store::orderBy('id', 'desc')->paginate(15);
+        $stores = Store::paginate($request -> disp_list);
         return view('stores.index', ['stores'=>$stores]);
     }
 
@@ -86,10 +86,4 @@ class StoreDisplayController extends Controller
         //
     }
 
-    public function initialize()
-    {
-        $stores = Store::all();
-        $stores = Store::sortable()->paginate(9);
-        return view('stores.index', ['stores' => $stores]);
-    }
 }
