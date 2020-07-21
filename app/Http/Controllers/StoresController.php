@@ -17,7 +17,6 @@ class StoresController extends Controller
         
         $stores=$user->stores;
         foreach ($stores as $store) {
-            
         }
         return view('store.management.index', ['store'=>$store]);
     }
@@ -31,10 +30,12 @@ class StoresController extends Controller
             'user' => $user,
             'stores' => $stores,
         ];
-        
-        
         return view('store.management.create', $data);
+    }
+
+    public function show()
+    {
+        return view('stores.detail');
     }
     
 }
-
