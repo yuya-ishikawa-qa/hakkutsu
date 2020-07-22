@@ -26,16 +26,16 @@
                     {!! Form::label('mail', '【メールアドレス】: '. $data["mail"]) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('path', '【店舗イメージ】 '. $data["path"]) !!}
-                </div>
+                                 <p>【画像】：<img src ="/{{ $data['read_temp_path'] }}" width="450px"></p>
+
                 <div class="form-group">
                     {!! Form::label('business_hours', '【営業時間】: '. $data["business_hours"]) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $data["description"]) !!}
                 </div>
-        </div>            
-    </div>
+               </div>            
+
         <div class="container">
                 <div class="row  justify-content-center">
                     <div class="col-sm-6 mt-3">

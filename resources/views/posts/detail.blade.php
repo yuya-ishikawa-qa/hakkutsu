@@ -7,5 +7,5 @@
 @if ($image_url)
 <p>画像：<img src ="/{{ $image_url }}" width="450px"></p>
 @endif
-
+{{ $image_url }}
 @endsection

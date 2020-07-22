@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::open(['url' => 'stores/management/confirmation', 'method' => 'post']) !!}
+            {!! Form::open(['url' => 'stores/management/confirmation', 'method' => 'post','enctype'=>'multipart/form-data']) !!}
                 <div class="form-group">
                     {!! Form::label('store_name', '【店名】') !!}
                     {!! Form::text('store_name', old('store_name'), ['class' => 'form-control']) !!}
@@ -35,9 +35,9 @@
                     {!! Form::label('mail', '【メールアドレス】') !!}
                     {!! Form::text('mail', old('mail'), ['class' => 'form-control']) !!}
                 </div>
-                <div class="form-group">
-                    {!! Form::label('path', '【店舗イメージ】') !!}
-                    {!! Form::text('path', old('path'), ['class' => 'form-control']) !!}
+                <div class='form-group'>
+                    {!! Form::label('path','【店舗イメージ】') !!}
+                    {!! Form::file('path') !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('business_hours', '【営業時間】') !!}
