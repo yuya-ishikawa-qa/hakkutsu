@@ -20,7 +20,7 @@
                 </form>
             </div>
             <div class="pagination">
-              {{ $stores -> appends(['disp_list' => $_GET['disp_list']]) -> render() }}
+              {{ $stores -> appends(['disp_list' => (!empty($_GET['disp_list']))]) -> render() }}
             </div>
         </div>
 
