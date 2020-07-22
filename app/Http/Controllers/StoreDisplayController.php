@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreRequest;
-use App\StoreDisplay;
+use App\Http\Requests;
+
 use App\Store;
 
 class StoreDisplayController extends Controller
@@ -16,8 +18,8 @@ class StoreDisplayController extends Controller
      */
     public function index(Request $request)
     {
-        $stores = Store::paginate($request -> disp_list);
-        return view('stores.index', ['stores'=>$stores]);
+        $stores = Store::paginate($request->disp_list);
+        return view('stores.index', ['stores' => $stores]);
     }
 
     /**
