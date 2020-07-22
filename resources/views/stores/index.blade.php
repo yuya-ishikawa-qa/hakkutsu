@@ -44,7 +44,7 @@
                   </p>
                   </div>
                   <div class="card-footer bg-white">
-                    <a href="">
+                  <a href='stores/{{$store->id}}'>
                       <button class="btn btn-secondary">お店の詳細</button>
                     </a>
                   </div>
@@ -52,12 +52,7 @@
               </div>
           @endforeach
         </div>
-      <!-- Pagination-->
-        <div class="row justify-content-between">
-            <div class="mb-2 ml-4 shop-sorting">
-            </div>
-            {{ $stores->appends(request()->query())->links() }}
-        </div>
+
   </div>
 
 @endsection

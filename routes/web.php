@@ -101,6 +101,7 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 //お店関連
 //一覧表示
 Route::get('/stores', 'StoreDisplayController@index');
+Route::get('stores/{id}', 'StoreDisplayController@show');
 Route::resource('/stores', 'StoreDisplayController');
 
 //商品関連

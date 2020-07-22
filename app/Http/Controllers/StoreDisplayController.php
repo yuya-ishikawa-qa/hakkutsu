@@ -49,9 +49,11 @@ class StoreDisplayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id, Store $store)
     {
-        return view('stores.detail');
+        $store = Store::findOrFail($id);
+
+        return view('stores.detail',['store'=>$store]);
     }
 
     /**
