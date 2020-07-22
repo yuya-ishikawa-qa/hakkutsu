@@ -11,11 +11,11 @@
 
           <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-md-7">
               <img class="img-fluid" src="{{asset('storage/images/'.$store->image_path)}}" alt="">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5">
               <h3 class="my-3">店名：{{$store->store_name}}</h3>
               <h3 class="my-3">所在地：{{$store->address}}</h3>
               <h3 class="my-3">電話番号：{{$store->tel}}</h3>
