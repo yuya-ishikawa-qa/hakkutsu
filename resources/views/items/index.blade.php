@@ -12,11 +12,9 @@
               表示件数：
               <select id="" name="disp_list" onchange="submit();">
                 <option value="">選択してください</option>
-                <option value="5">5</option>
                 <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
+                <option value="15">20</option>
+                <option value="20">50</option>
             </select>
           </form>
       </div>
