@@ -106,8 +106,8 @@ Route::resource('/stores', 'StoreDisplayController');
 
 //商品関連
 //一覧表示
-Route::get('/items', 'ItemsController@index');
-Route::resource('/items', 'ItemsController');
+Route::get('/items', 'ItemsDisplayController@index');
+Route::resource('/items', 'ItemsDisplayController');
 
 //レビュー関連
 Route::get('/reviews', 'ReviewsController@index');

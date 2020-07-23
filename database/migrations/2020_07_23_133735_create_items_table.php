@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->bigInteger('store_id')->unsigned()->index();
             $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('tax_id')->unsigned();
-            $table->string('item_name')->unique();
+            $table->string('item_name');
             $table->string('status');
             $table->string('stock');
             $table->string('price');
