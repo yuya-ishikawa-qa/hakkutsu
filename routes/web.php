@@ -80,6 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create', 'destroy']]);
     Route::post('stores/management/store','StoresController@store');
     Route::post('stores/management/confirmation','StoresController@confirm')->name('stores.confirm');
+    Route::get('stores/{id}/editstore','StoresController@editstore')->name('stores.editstore');
 });
 
 

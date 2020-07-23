@@ -154,5 +154,11 @@ class StoresController extends Controller
             // return redirect('store/management/request')->with('flash_message', '送信しました');
         }
 
+        public function edit($id)
+        {
+            $post = Store::findOrFail($id);
+            return view('store.edit',['store' => $store,]);
+        }
+
    
 }

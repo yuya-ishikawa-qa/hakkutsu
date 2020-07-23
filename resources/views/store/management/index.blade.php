@@ -6,6 +6,31 @@
 
 <div class="p-3 mb-2 bg-warning text-dark">店舗情報
 ・商品情報</div>
+
+@foreach ($store as $stor)
+
+        dd($store);
+            <div class="card mt-4">
+                <div class="card-header mb-2">
+                     {{ $stor}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        {{$stor}}
+                    </p>
+                    <a class="card-link" href={{route('stores.editstore',['store' => $store])}}>
+                        編集する
+                    </a>
+                </div>
+                <div class="card-footer">
+                    <span class="mr-2">
+                        投稿日時
+                    </span>
+                </div>
+            </div>
+            
+        @endforeach
+        
 <br>
 <h1>店舗情報</h1>
 <p>【店名】:{{$store->store_name}}</p>
