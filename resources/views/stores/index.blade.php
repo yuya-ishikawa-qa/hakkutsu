@@ -7,7 +7,7 @@
       　<div class="row justify-content-between">
             <div class="mb-2 ml-4 shop-sorting">
               <p>総件数: {{ $stores -> total() }}件</p>
-                <form action="/" method="get">
+                <form action="/stores" method="get">
                     表示件数：
                     <select id="" name="disp_list" onchange="submit();">
                       <option value="">選択してください</option>

@@ -6,7 +6,7 @@
         <div class="row">
 
           <h3 class="my-4">店舗コード：
-            <small>*****</small>
+            <small>{{$store->id}}</small>
           </h3>
 
           <div class="row">
