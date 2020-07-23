@@ -5,8 +5,6 @@
 <div class="container">
   <div class="row">
 
-    　　　　
-
     <!-- Page Content-->
     <div class="container padding-bottom-3x mb-1">
       <div class="row">

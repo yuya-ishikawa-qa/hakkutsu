@@ -36,7 +36,7 @@
       <div class="bg-white rounded shadow-sm">
         <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid card-img-top">
         <div class="p-4">
-          <h5> <a href="#" class="text-dark">商品名：{{$item->item_name}}</a></h5>
+        <h5> <a href="items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
           <p class="small text-muted mb-0">
             @if(isset($item->description))
               {{$item->description}}

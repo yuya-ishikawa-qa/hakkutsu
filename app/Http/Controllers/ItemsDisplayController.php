@@ -51,6 +51,8 @@ class ItemsDisplayController extends Controller
      */
     public function show(Request $request,$id, Item $item)
     {
+        $item = Item::findOrFail($id);
+
         return view('items.detail',['item'=>$item]);
     }
 
