@@ -137,7 +137,12 @@ class StoresController extends Controller
             $store->description = $description;
             $store->user_id = $user_id;
             $store->save();
-            return view('store/management/request')->with('image_path',$read_path);
+            return redirect('store/management/request')->with([
+                'image_path'=>$read_path,
+                'flash_message'=> '送信しました',
+            ]);
+            
+            // return redirect('store/management/request')->with('image_path',$read_path);
             // return view('image_complete');
 
             // DB::table('stores')->insert([
