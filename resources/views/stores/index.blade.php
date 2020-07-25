@@ -10,18 +10,14 @@
                 <form action="/stores" method="get">
                     表示件数：
                     <select id="" name="disp_list" onchange="submit();">
-                      <option value="">選択してください</option>
-                      <option value="5">5</option>
-                      <option value="10">10</option>
-                      <option value="20">20</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
+                      <option>選択してください</option>
+                      <option>10</option>
+                      <option>15</option>
+                      <option>20</option>
                   </select>
                 </form>
             </div>
-            <div class="pagination">
-              {{ $stores -> appends(['disp_list' => (!empty($_GET['disp_list']))]) -> render() }}
-            </div>
+              {{ $stores -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
 
       <!-- Page Content-->
@@ -52,7 +48,9 @@
               </div>
           @endforeach
         </div>
-
+        <div class="d-flex justify-content-end">
+          {{ $stores -> appends(request() -> input() )-> links('pagination::default') }}
+        </div>
   </div>
 
 @endsection

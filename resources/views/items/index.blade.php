@@ -7,20 +7,18 @@
 　<!-- Shop Toolbar-->
     <div class="row justify-content-between">
       <div class="mb-2 ml-4 shop-sorting">
-        <p>総件数: {{ $items -> total() }}件</p>
+        <p class="mr-4">総件数: {{ $items -> total() }}件</p>
           <form action="/items" method="get">
               表示件数：
               <select id="" name="disp_list" onchange="submit();">
-                <option value="">選択してください</option>
-                <option value="10">10</option>
-                <option value="15">20</option>
-                <option value="20">50</option>
+                <option>選択してください</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
             </select>
           </form>
       </div>
-      <div class="pagination">
-        {{ $items -> appends(['disp_list' => (!empty($_GET['disp_list']))]) -> render() }}
-      </div>
+        {{ $items -> appends(request() -> input() )-> links('pagination::default') }}
     </div>
 
   <!-- Gallery item -->
@@ -53,23 +51,9 @@
     </div>
     @endforeach
   </div>
-
-
-  <!-- Pagination-->
-  <div class="pagination">
-    <div class="column">
-      <ul class="pages">
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li>...</li>
-        <li><a href="#">12</a></li>
-        <a class="btn btn-outline-secondary btn-sm" href="#">次へ<i class="icon-arrow-right"></i></a>
-      </ul>
-    </div>
+  <div class="d-flex justify-content-end">
+    {{ $items -> appends(request() -> input() )-> links('pagination::default') }}
   </div>
-
 </div>
 
 

@@ -52,8 +52,12 @@ class ItemsDisplayController extends Controller
     public function show(Request $request,$id, Item $item)
     {
         $item = Item::findOrFail($id);
+        $newItemInformation = Item::where('id', '!=', $id)->inRandomOrder()->take(4)->get();
 
-        return view('items.detail',['item'=>$item]);
+        return view('items.detail')->with([
+            'item' => $item,
+            'newItemInformation' => $newItemInformation,
+        ]);
     }
 
     /**
