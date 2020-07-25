@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoresTable extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,20 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('store_name')->unique();
-            $table->string('postal');
-            $table->string('address');
-            $table->string('tel');
-            $table->string('mail');
+            $table->bigInteger('store_id')->unsigned()->index();
+            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('tax_id')->unsigned();
+            $table->string('item_name');
+            $table->string('status');
+            $table->string('stock');
+            $table->string('price');
             $table->string('image_path');
-            $table->string('business_hours');
             $table->text('description')->null();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -39,6 +37,6 @@ class CreateStoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::dropIfExists('items');
     }
 }

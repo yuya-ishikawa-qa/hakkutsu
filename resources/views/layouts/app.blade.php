@@ -23,16 +23,11 @@
 <body>
   @include('commons.header')
 
-  <div class="container">
-
     @include('commons.error_messages')
 
     @yield('breadcrumbs')
 
     @yield('content')
-
-
-  </div>
 
   @include('commons.footer')
 

@@ -2,12 +2,6 @@
 
 @section('content')
 
-    <div class="jumbotron jumbotron-fluid bg-success">
-        <div class="text-center text-white">
-            <h2>お問い合わせ</h2>
-        </div>
-    </div>
-
     {{-- エラーメッセージ --}}
 @if (count($errors) > 0)
 <ul class="alert alert-danger" role="alert">
