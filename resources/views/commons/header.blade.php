@@ -1,5 +1,3 @@
-
-
 <header class="mb-5">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
@@ -32,18 +30,18 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
-                @if (Auth::check())
+                    @if (Auth::check())
 
+                    <li class="nav-item">{!! link_to_route('mypage.index', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
-                    <!-- <li class="nav-item"><a href="" class="nav-link mr-3">マイページ</a></li> -->
 
-                @else
+                    @else
 
                     <li class="nav-item">{!! link_to_route('signup', '新規登録', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
 
-                @endif
-                    <li class="nav-item">{!! link_to_route('users.show', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
+                    @endif
+
                 </ul>
             </div>
         </div>

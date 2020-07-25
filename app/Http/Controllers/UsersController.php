@@ -16,13 +16,4 @@ class UsersController extends Controller
         ]);
     }
 
-    public function show()
-    {
-        return view('users.show');
-    }
-    
-    public function destroy()
-    {
-        return view('users.destroy');
-    }
 }
