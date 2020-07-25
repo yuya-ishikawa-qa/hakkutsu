@@ -38,7 +38,7 @@
 <p>【所在地】:{{$store->address}}</p>
 <p>【電話番号】:{{$store->tel}}</p>
 <p>【メールアドレス】:{{$store->mail}}</p>
-<p>【店舗イメージ】：<img src="/{{$store->path}}" width="200px"></p>
+<p>【店舗イメージ】：<img src="/{{$store->image_path}}" width="200px"></p>
 <p>【営業時間】:{{$store->business_hours}}</p>
 <p>【店舗の説明】:{{$store->description}}</p>
 <p>===========================================</p>

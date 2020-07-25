@@ -62,12 +62,12 @@ class StoresController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'tel' => ['required', 'string', 'max:50'],
             'mail' => ['required', 'string', 'max:50'],
-            'path' => ['required', 'image'],
+            'image_path' => ['required', 'image'],
             'business_hours' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
         ]);
-        $post_data = $request->except('path');
-        $path = $request->file('path');
+        $post_data = $request->except('image_path');
+        $path = $request->file('image_path');
         $temp_path = $path->store('public/temp');
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         //str_replaceメソッドで、public/をstorage/に置き換え
@@ -127,7 +127,7 @@ class StoresController extends Controller
             $user_id = auth()->id();
             
             $store = new Store();
-            $store->path = $read_path;
+            $store->image_path = $read_path;
             $store->store_name = $store_name;
             $store->address = $address;
             $store->tel = $tel;
@@ -137,7 +137,7 @@ class StoresController extends Controller
             $store->description = $description;
             $store->user_id = $user_id;
             $store->save();
-            return view('store/management/request')->with('path',$read_path);
+            return view('store/management/request')->with('image_path',$read_path);
             // return view('image_complete');
 
             // DB::table('stores')->insert([

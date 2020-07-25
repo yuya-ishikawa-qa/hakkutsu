@@ -18,7 +18,7 @@ class StoresTableSeeder extends Seeder
             'address' => 'address1',
             'tel' => 'tel1',
             'mail' => 'mail1',
-            'path' => 'path1',
+            'image_path' => 'path1',
             'business_hours' => 'business_hours1',
             'description' => 'description1'
         ]);
@@ -29,7 +29,7 @@ class StoresTableSeeder extends Seeder
             'address' => 'address2',
             'tel' => 'tel2',
             'mail' => 'mail2',
-            'path' => 'path2',
+            'image_path' => 'path2',
             'business_hours' => 'business_hours2',
             'description' => 'description2'
         ]);
@@ -40,7 +40,7 @@ class StoresTableSeeder extends Seeder
             'address' => 'address3',
             'tel' => 'tel3',
             'mail' => 'mail3',
-            'path' => 'path3',
+            'image_path' => 'path3',
             'business_hours' => 'business_hours3',
             'description' => 'description3'
         ]);
@@ -51,7 +51,7 @@ class StoresTableSeeder extends Seeder
             'address' => 'address4',
             'tel' => 'tel4',
             'mail' => 'mail4',
-            'path' => 'path4',
+            'image_path' => 'path4',
             'business_hours' => 'business_hours4',
             'description' => 'description4' 
         ]);
@@ -62,7 +62,7 @@ class StoresTableSeeder extends Seeder
             'address' => 'address5',
             'tel' => 'tel5',
             'mail' => 'mail5',
-            'path' => 'path5',
+            'image_path' => 'path5',
             'business_hours' => 'business_hours5',
             'description' => 'description5'
         ]);

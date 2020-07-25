@@ -36,8 +36,8 @@
                     {!! Form::text('mail', old('mail'), ['class' => 'form-control']) !!}
                 </div>
                 <div class='form-group'>
-                    {!! Form::label('path','【店舗イメージ】') !!}
-                    {!! Form::file('path') !!}
+                    {!! Form::label('image_path','【店舗イメージ】') !!}
+                    {!! Form::file('image_path') !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('business_hours', '【営業時間】') !!}

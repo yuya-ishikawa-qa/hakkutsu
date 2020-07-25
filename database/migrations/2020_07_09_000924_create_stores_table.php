@@ -21,7 +21,7 @@ class CreateStoresTable extends Migration
             $table->string('address');
             $table->string('tel');
             $table->string('mail');
-            $table->string('path');
+            $table->string('image_path');
             $table->string('business_hours');
             $table->text('description')->null();
             $table->timestamp('updated_at')->useCurrent()->nullable();
