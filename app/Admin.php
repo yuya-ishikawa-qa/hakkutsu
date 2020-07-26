@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable //ここを変更
 {
     use Notifiable;
+
+    protected $gurard = 'admin';
  
     /**
      * The attributes that are mass assignable.

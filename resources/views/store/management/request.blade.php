@@ -23,7 +23,7 @@
         <button type="submit" class="btn btn-warning col-md-6">
         新規出店はこちら
         </button>
-    </a>    
+    </a>
 
 </div>
 

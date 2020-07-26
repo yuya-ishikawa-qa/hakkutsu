@@ -37,7 +37,7 @@ Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destro
 // 8-2表示用
 Route::get('/store/management/request', function () {
     return view('store.management.request');
-});
+})->name('store.request');
 
 
 // 8-3表示用
@@ -110,8 +110,6 @@ Route::resource('/reviews', 'ReviewsController');
 
 
 
-
-
 Auth::routes();
  
 /*
@@ -127,7 +125,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('mypage', 'MypageController@index')->name('mypage.index');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
  
 /*
@@ -135,13 +133,11 @@ Route::group(['middleware' => 'auth:user'], function() {
 | 3) Admin 認証不要
 |--------------------------------------------------------------------------
 */
-// Route::group(['prefix' => 'admin'], function() {
-//     Route::get('/', function () {
-//         return redirect('/admin/home');
-//     });
-    Route::get('admin/login','Admin\LoginController@showLoginForm')->name('admin.login');
-    Route::post('admin/login','Admin\LoginController@login');
-
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/',         function () { return redirect('/admin/home'); });
+    Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login',    'Admin\LoginController@login');
+});
  
 /*
 |--------------------------------------------------------------------------
