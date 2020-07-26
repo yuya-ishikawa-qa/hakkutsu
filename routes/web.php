@@ -11,46 +11,33 @@
 |
 */
 
-//トップページ
+// トップページ
 Route::get('/', function () {
     return view('toppage');
 });
 
-
-//ユーザー新規登録
+// 新規登録フォーム
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('users/show', 'UsersController@show')->name('users.show');
-Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
-Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
 
+// ログイン機能
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Auth::routes();
-//ユーザーログイン
-Route::group(['prefix' => 'user'], function(){
-    Route::get('home', 'UserHomeController@index')->name('user_auth.home');
-    Route::get('login', 'UserAuth\LoginController@showLoginForm')->name('user_auth.login');
-    Route::post('login', 'UserAuth\LoginController@login')->name('user_auth.login');
-    Route::post('logout', 'UserAuth\LoginController@logout')->name('user_auth.logout');
-    Route::get('register', 'UserAuth\RegisterController@showRegisterForm')->name('user_auth.register');
-    Route::post('register', 'UserAuth\RegisterController@register')->name('user_auth.register');
-});
-//管理者ログイン
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('home', 'AdminHomeController@index')->name('admin_auth.home');
-    Route::get('login', 'AdminAuth\LoginController@showLoginForm')->name('admin_auth.login');
-    Route::post('login', 'AdminAuth\LoginController@login')->name('admin_auth.login');
-    Route::post('logout', 'AdminAuth\LoginController@logout')->name('admin_auth.logout');
-    Route::get('register', 'AdminAuth\RegisterController@showRegisterForm')->name('admin_auth.register');
-    Route::post('register', 'AdminAuth\RegisterController@register')->name('admin_auth.register');
-});
-Route::get('/home', 'HomeController@index')->name('home');
+// マイページ
+Route::get('mypage', 'MypageController@index')->name('mypage.index');
+Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
+Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
+Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
+Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
+
 
 
 // 8-2表示用
 Route::get('/store/management/request', function () {
     return view('store.management.request');
-});
+})->name('store.request');
 
 
 // 8-3表示用
@@ -109,7 +96,7 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 
 //お店関連
 //一覧表示
-Route::get('/stores', 'StoresController@index');
+Route::get('/stores', 'StoresController@index')->name('stores.index');
 Route::resource('/stores', 'StoresController');
 
 //商品関連
@@ -120,14 +107,11 @@ Route::resource('/items', 'ItemsController');
 //レビュー関連
 Route::get('/reviews', 'ReviewsController@index');
 Route::resource('/reviews', 'ReviewsController');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+ 
+Route::group(['middleware' => 'auth:user'], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+});

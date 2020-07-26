@@ -40,10 +40,6 @@ return [
             'driver' => 'session', //認証方法
             'provider' => 'users', //providersの利用するもの
         ],
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
     ],
 
     /*
@@ -66,12 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',             //認証へのアクセス方法
-            'model' => App\Models\Admin::class, //参照するテーブル
+            'model' => App\User::class,
         ],
     ],
 
@@ -95,11 +86,6 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
-        ],
-        'admins' => [
-            'provider' => 'admins',
-            'table' => 'password_resets',  //参照するテーブル
-            'expire' => 60,                //パスワードリセットの制限時間(分)
         ],
     ],
 
