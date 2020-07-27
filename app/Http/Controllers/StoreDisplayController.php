@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Store;
+use App\Item;
 
 class StoreDisplayController extends Controller
 {
@@ -49,13 +50,17 @@ class StoreDisplayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id, Store $store)
+    public function show(Request $request,$id, Store $store ,Item $item)
     {
         $store = Store::findOrFail($id);
 
-        return view('stores.detail',['store'=>$store]);
-    }
+        $newItemInformation = Item::where('store_id', '=', $id)->latest()->take(4)->get();
 
+        return view('stores.detail')->with([
+            'store' => $store,
+            'newItemInformation' => $newItemInformation,
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

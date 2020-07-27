@@ -12,4 +12,9 @@ class Item extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['store_id','order_id','tax_id','item_name','status','stock','price','image_path','description',];
+
+    public function store()
+    {
+        return $this -> belongsTo('App\Models\Store');
+    }
 }

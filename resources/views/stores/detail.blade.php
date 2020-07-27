@@ -31,37 +31,23 @@
               <p>{{$store->description}}</p>
             </div>
             <div class="col-md-6 mt-5">
-              <a class="btn btn-primary w-100" href="{{ route('stores.index')}}">商品一覧はこちら</a>
+              <a class="btn btn-outline-success w-100" href="{{ route('items.index')}}">商品一覧はこちら</a>
+              <a class="btn btn-outline-primary w-100 mt-3" href="{{ route('stores.index')}}">店舗一覧はこちら</a>
             </div>
           </div>
 
           <!-- 商品の新着 -->
-          <h3 class="my-5">商品の新着</h3>
+          <h3 class="my-5">{{$store->store_name}}の新着商品</h3>
 
           <div class="row">
 
-            <div class="col-md-3 col-sm-6 mb-4">
-              <img class="img-fluid" src="https://picsum.photos/500/300" alt="">
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#">
-                <img class="img-fluid" src="https://picsum.photos/500/300" alt="">
-              </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#">
-                <img class="img-fluid" src="https://picsum.photos/500/300" alt="">
-              </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#">
-                <img class="img-fluid" src="https://picsum.photos/500/300" alt="">
-              </a>
-            </div>
-
+            @foreach ($newItemInformation as $item)
+              <div class="col-md-3 col-sm-6 mb-4">
+                <a href="/items/{{$item->id}}">
+                  <img class="img-fluid" src="{{asset('storage/images/'.$item->image_path)}}" alt="">
+                </a>
+              </div>
+              @endforeach
           </div>
 
         </div>
