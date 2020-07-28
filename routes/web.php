@@ -19,6 +19,8 @@ Route::get('/', function () {
 // 新規登録フォーム
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
+
 
 // ログイン機能
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -26,7 +28,8 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // マイページ
-Route::get('mypage', 'MypageController@index')->name('mypage.index');
+Route::get('mypage/index', 'MypageController@index')->name('mypage.index');
+Route::get('mypage/show', 'MypageController@show')->name('mypage.show');
 Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
 Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
 Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
@@ -54,7 +57,7 @@ Route::get('/store/management/confirmation', function () {
 });
 
 // 8-5表示用(storeデータ表示)
-Route::get('/store/management/index', 'StoresController@index');
+Route::get('/store/management/index', 'StoresController@index')->name('store.index');
 
 // 8-6表示用
 Route::get('/store/management/createitem', function () {
@@ -79,6 +82,11 @@ Route::get('/buy/index', function () {
 // 7-1表示用
 Route::get('/privacy', function () {
     return view('privacy');
+});
+
+// 特定商取引法
+Route::get('/law', function () {
+    return view('law');
 });
 
 //store作成、削除

@@ -11,6 +11,11 @@ class MypageController extends Controller
         return view('mypage.index');
     }
 
+    public function show()
+    {
+        return view('mypage.show');
+    }
+
     public function edit()
     {
         return view('mypage.edit');
