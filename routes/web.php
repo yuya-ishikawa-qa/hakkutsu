@@ -28,72 +28,36 @@ Route::get('/', function () {
     return view('toppage');
 });
 
+
+//りょうた作成
 // 8-2表示用
 Route::get('/store/management/request', function () {
     return view('store.management.request');
 });
-
-// 8-3表示用
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/store/management/create', 'StoresController@create');
-});
-
-// 8-5表示用(storeデータ表示)
-Route::get('/store/management/index', 'StoresController@index');
-
-// 8-6表示用
-Route::get('/store/management/createitem', function () {
-    return view('store.management.createitem');
-});
-
 // 9-1表示用
 Route::get('/cart/index', function () {
     return view('cart.index');
 });
-
 // 9-2表示用
 Route::get('/cart/delivery', function () {
     return view('cart.delivery');
 });
-
 // 9-3表示用
 Route::get('/buy/index', function () {
     return view('buy.index');
 });
-
 // 7-1表示用
 Route::get('/privacy', function () {
     return view('privacy');
 });
-
-//store作成、削除
+//stores用
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('stores', 'StoresController', ['only' => ['create', 'destroy','edit','update']]);
-    Route::post('stores/management/store','StoresController@store');
-    // Route::post('stores/management/update','StoresController@update');
-    Route::post('stores/management/confirmation','StoresController@confirm')->name('stores.confirm');
-    Route::post('stores/management/confirmation2','StoresController@confirm2')->name('stores.confirm2');
-
-    // Route::get('stores/{id}/editstore','StoresController@editstore')->name('stores.editstore');
+    Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
+    Route::get('/stores/management', 'StoresController@management');
+    Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
+    // Route::post('stores/management/confirmation2','StoresController@confirm2')->name('stores.confirm2');
 });
-
-
-
-// 画像投稿お試し用ファイル
-//投稿フォームページ
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/post', 'PostController@showCreateForm')->name('posts.create');
-    Route::post('/post', 'PostController@create');
-});
-
-//投稿確認ページ
-Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
-// 画像投稿お試し用ファイル
-
-
-
-
-
+//←りょうた作成
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');

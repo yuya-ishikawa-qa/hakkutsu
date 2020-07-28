@@ -12,20 +12,19 @@
 <br>
 <div class="d-flex">
 
-    <a href="/store/management/index" >
+    <a href="/stores/management" >
         <button type="submit" class="btn btn-warning col-md-6">
         既存の方はこちら
         </button>
     </a>
     <br>
     <br>
-    <a href="/store/management/create" >
+    <a href="/stores/create" >
         <button type="submit" class="btn btn-warning col-md-6">
         新規出店はこちら
         </button>
     </a>    
 
 </div>
-
 
 @endsection
