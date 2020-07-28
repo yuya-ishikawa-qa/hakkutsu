@@ -33,19 +33,10 @@ Route::get('/store/management/request', function () {
     return view('store.management.request');
 });
 
-
 // 8-3表示用
-// Route::get('/store/management/create', function () {
-//     return view('store.management.create');
-// });
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/store/management/create', 'StoresController@create');
 });
-
-// 8-4表示用
-// Route::get('/store/management/confirmation', function () {
-//     return view('store.management.confirmation');
-// });
 
 // 8-5表示用(storeデータ表示)
 Route::get('/store/management/index', 'StoresController@index');
@@ -77,10 +68,13 @@ Route::get('/privacy', function () {
 
 //store作成、削除
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('stores', 'StoresController', ['only' => ['create', 'destroy']]);
+    Route::resource('stores', 'StoresController', ['only' => ['create', 'destroy','edit','update']]);
     Route::post('stores/management/store','StoresController@store');
+    // Route::post('stores/management/update','StoresController@update');
     Route::post('stores/management/confirmation','StoresController@confirm')->name('stores.confirm');
-    Route::get('stores/{id}/editstore','StoresController@editstore')->name('stores.editstore');
+    Route::post('stores/management/confirmation2','StoresController@confirm2')->name('stores.confirm2');
+
+    // Route::get('stores/{id}/editstore','StoresController@editstore')->name('stores.editstore');
 });
 
 
@@ -131,4 +125,3 @@ Route::resource('/items', 'ItemsController');
 //レビュー関連
 Route::get('/reviews', 'ReviewsController@index');
 Route::resource('/reviews', 'ReviewsController');
-

@@ -15,11 +15,13 @@ class StoresController extends Controller
     {
         $id = Auth::id();
         $user=User::find($id);
+        $stores = $user->stores()->orderBy('id', 'asc')->paginate(9);
         
-        $stores=$user->stores;
-        foreach ($stores as $store) {
-        }
-        return view('store.management.index', ['store'=>$store]);
+        $data=[
+            'user' => $user,
+            'stores' => $stores,
+        ];
+        return view('store.management.index', $data);
     }
 
     public function create()
@@ -71,38 +73,26 @@ class StoresController extends Controller
         $temp_path = $path->store('public/temp');
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         //str_replaceメソッドで、public/をstorage/に置き換え
-        $store_name = $post_data['store_name'];
-        $postal = $post_data['postal'];
-        $address = $post_data['address'];
-        $tel = $post_data['tel'];
-        $mail = $post_data['mail'];
-        $business_hours = $post_data['business_hours'];
-        $description = $post_data['description'];
         
         $data = array(
             'temp_path' => $temp_path,
             'read_temp_path' => $read_temp_path, 
-            'store_name' => $store_name,
-            'postal' => $postal,
-            'address' => $address,
-            'tel' => $tel,
-            'mail' => $mail,
-            'business_hours' => $business_hours,
-            'description' => $description,
+            'store_name' => $post_data['store_name'],
+            'postal' => $post_data['postal'],
+            'address' => $post_data['address'],
+            'tel' => $post_data['tel'],
+            'mail' => $post_data['mail'],
+            'business_hours' => $post_data['business_hours'],
+            'description' => $post_data['description'],
         );
         $request->session()->put('data', $data);
-        return view('store.management.confirmation', compact('data'));
+        return view('store.management.confirmation')->with('data',$data);
     }
     // 完了フォーム
         public function store(Request $request)
         {
-            
+
             $data = $request->session()->get('data');
-            // dd($request);
-            // dd($data);
-            // dd($request->session());
-            // ->attributes()
-            // dd($data['temp_path']);
             $temp_path = $data['temp_path'];
             $read_temp_path = $data['read_temp_path'];
             
@@ -117,53 +107,80 @@ class StoresController extends Controller
             $read_path = str_replace('public/', 'storage/', $storage_path);
             //publicをstorage/img/public/に置き換え、保存ファイルに移動
             
-            $store_name = $data['store_name'];
-            $postal = $data['postal'];
-            $address = $data['address'];
-            $tel = $data['tel'];
-            $mail = $data['mail'];
-            $business_hours = $data['business_hours'];
-            $description = $data['description'];
-            $user_id = auth()->id();
-            
             $store = new Store();
             $store->image_path = $read_path;
-            $store->store_name = $store_name;
-            $store->address = $address;
-            $store->tel = $tel;
-            $store->mail = $mail;
-            $store->business_hours = $business_hours;
-            $store->postal = $postal;
-            $store->description = $description;
-            $store->user_id = $user_id;
+            $store->store_name = $data['store_name'];
+            $store->address = $data['address'];
+            $store->tel = $data['tel'];
+            $store->mail = $data['mail'];
+            $store->business_hours = $data['business_hours'];
+            $store->postal = $data['postal'];
+            $store->description = $data['description'];
+            $store->user_id = auth()->id();
             $store->save();
             return redirect('store/management/request')->with([
                 'image_path'=>$read_path,
                 'flash_message'=> '送信しました',
             ]);
-            
-            // return redirect('store/management/request')->with('image_path',$read_path);
-            // return view('image_complete');
-
-            // DB::table('stores')->insert([
-            //         'user_id' => auth()->id(),
-            //         'store_name' => $data["store_name"],
-            //         'postal' => $data["postal"],
-            //         'address' => $data["address"],
-            //         'tel' => $data["tel"],
-            //         'mail' => $data["mail"],
-            //         'path' => $data["path"],
-            //         'business_hours' => $data["business_hours"],
-            //         'description' => $data["description"]
-            //         ]); 
-            // return redirect('store/management/request')->with('flash_message', '送信しました');
         }
 
         public function edit($id)
-        {
-            $post = Store::findOrFail($id);
-            return view('store.edit',['store' => $store,]);
+        {   
+            $user = \Auth::user();
+            $store = Store::findOrFail($id);
+
+            $data=[
+                'user' => $user,
+                'store' => $store,
+            ];
+
+            return view('store.management.editstore',$data);
         }
 
-   
+
+
+        public function update(Request $request,$id)
+        {
+            // 画像がアップロードされたら保存する
+        if ($request->image_path) {
+            $path = $request->file('image_path');
+            $storage_path = $path->store('public/stores_image');
+            $read_path = str_replace('public/', 'storage/', $storage_path);
+            //publicをstorage/img/public/に置き換え、保存ファイルに移動
+            $store = Store::findOrFail($id);
+            $store->image_path = $read_path;
+            $store->save();
+            }
+
+        $this->validate($request,[
+            'store_name' => ['required', 'string', 'max:255'],
+            'postal' => ['required', 'string', 'max:20'],
+            'address' => ['required', 'string', 'max:255'],
+            'tel' => ['required', 'string', 'max:50'],
+            'mail' => ['required', 'string', 'max:50'],
+            'image_path' => ['image'],
+            'business_hours' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+        ]);
+
+        $post_data = $request->except('image_path');
+        $params = array(
+            'store_name' => $post_data['store_name'],
+            'postal' => $post_data['postal'],
+            'address' => $post_data['address'],
+            'tel' => $post_data['tel'],
+            'mail' => $post_data['mail'],
+            'business_hours' => $post_data['business_hours'],
+            'description' => $post_data['description'],
+        );  
+            $store = Store::findOrFail($id);
+            $store->fill($params)->save();
+        
+            return redirect('store/management/request')->with([
+                'flash_message'=> '変更しました。',
+            ]);
+
+        }
+        
+            
 }
