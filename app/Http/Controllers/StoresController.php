@@ -9,6 +9,7 @@ use App\User;
 use App\Store; 
 use DB;
 
+
 class StoresController extends Controller
 {
     public function management()
@@ -31,7 +32,7 @@ class StoresController extends Controller
             'user' => $user,
             'stores' => $stores,
         ];
-        return view('stores.create', $data);
+        return view('stores.create');
     }
 
     public function show()
@@ -154,3 +155,4 @@ class StoresController extends Controller
             ]);
         }   
 }
+

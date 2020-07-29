@@ -2,57 +2,50 @@
 @charset "utf-8";
 
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 body {
     color: #333;
     font-size: 1.6rem;
-
-.pagination > .column {
-  padding-top: 16px;
 }
 
-.pagination .pages {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.paginationWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+  margin-bottom: 40px;
+  font-size: 1.4rem;
 }
 
-.pagination .pages > li {
+.paginationWrap ul.pagination {
   display: inline-block;
-  width: 36px;
-  height: 36px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 34px;
-  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-.pagination .pages > li > a {
-  display: block;
-  width: 36px;
-  height: 36px;
-  transition: all .3s;
-  border-radius: 50%;
-  color: #606975;
-  line-height: 34px;
+.paginationWrap ul.pagination li {
+display: inline;
+margin-right: 4px;
+}
+
+.paginationWrap ul.pagination li a {
+  color: #333;
+  padding: 2px 10px;
   text-decoration: none;
 }
 
-.pagination .pages > li > a:hover {
-  border-color: #e1e7ec;
+.paginationWrap ul.pagination li a.active {
   background-color: #EEF15E;
+  color: white;
+  border-radius: 40px;
+  width: 20px;
+  height: 20px;
 }
 
-.pagination .pages > li.active > a {
-  border-color: #EEF15E;
+.paginationWrap ul.pagination li a:hover:not(.active) {
   background-color: #EEF15E;
-  color: #ffffff;
-}
-
-.pagination .btn > i {
-  margin-top: -5px;
+  border-radius: 40px;
 }
 
 .shop-sorting {
@@ -119,4 +112,60 @@ body {
 .rating__input:checked ~ .rating__label {
   color: goldenrod;
 
+}
+
+.button-hover {
+    background: #FECC16;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.button-hover:hover {
+    opacity: 0.7;
+}
+
+
+.delete-account {
+    background-color: #CC0000;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.delete-account:hover {
+    opacity: 0.7;
+}
+
+.continue {
+    background-color: #DDDDDD;
+    display: inline-block;
+    width: 50%;
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-shadow: none;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.continue:hover {
+    opacity: 0.7;
 }

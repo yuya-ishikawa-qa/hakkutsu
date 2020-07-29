@@ -55,10 +55,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
     Route::get('/stores/management', 'StoresController@management');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
-    // Route::post('stores/management/confirmation2','StoresController@confirm2')->name('stores.confirm2');
 });
 //←りょうた作成
 
+//認証関連
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -78,14 +78,18 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 
 //お店関連
 //一覧表示
-Route::get('/stores', 'StoresController@index');
-Route::resource('/stores', 'StoresController');
+Route::get('/stores', 'StoreDisplayController@index');
+Route::get('stores/{id}', 'StoreDisplayController@show');
+// Route::resource('/stores', 'StoreDisplayController');
+//↑storescontrollerとぶつかったのでコメントアウトしました
 
 //商品関連
 //一覧表示
-Route::get('/items', 'ItemsController@index');
-Route::resource('/items', 'ItemsController');
+Route::get('/items', 'ItemsDisplayController@index');
+Route::get('items/{id}', 'ItemsDisplayController@show');
+Route::resource('/items', 'ItemsDisplayController');
 
 //レビュー関連
 Route::get('/reviews', 'ReviewsController@index');
 Route::resource('/reviews', 'ReviewsController');
+
