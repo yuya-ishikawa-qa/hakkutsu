@@ -1,63 +1,84 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="p-3 mb-2 bg-warning text-dark text-center">会員登録</h3>
+            <div class="card">
+                <div class="card-body">
+
+                    @csrf
+
+                    <div class="row mt-5 mb-5">
+                        <div class="col-sm-6 offset-sm-3">
+
+                            {!! Form::open(['route' => 'signup']) !!}
+                            <div class="form-group">
+                                {!! Form::label('name', 'お名前') !!}
+                                {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('name_kana', 'お名前（フリガナ）') !!}
+                                {!! Form::text('name_kana', old('name_kana'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('postal_code', '郵便番号') !!}
+                                {!! Form::text('postal_code', old('postal_code'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('address_1', '住所１') !!}
+                                {!! Form::text('address_1', old('address_1'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('address_2', '住所２') !!}
+                                {!! Form::text('address_2', old('address_2'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('address_3', '住所３') !!}
+                                {!! Form::text('address_3', old('address_3'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('tel', '電話番号') !!}
+                                {!! Form::text('tel', old('tel'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('email', 'メールアドレス') !!}
+                                {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('email_confirmation', 'メールアドレス（確認）') !!}
+                                {!! Form::email('email_confirmation', old('email_confirmation'), ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('password', 'パスワード') !!}
+                                {!! Form::password('password', ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('password_confirmation', 'パスワード（確認）') !!}
+                                {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                            </div>
 
 
+                            {!! Form::submit('登録する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+                            {!! Form::close() !!}
 
-<div class="text-center">
-  <h3 class="login_title text-left d-inline-block mt-5">お客様情報の入力</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="row mt-5 mb-5">
-  <div class="col-sm-6 offset-sm-3">
-
-    {!! Form::open(['route' => 'signup.post']) !!}
-    <div class="form-group">
-      {!! Form::label('name', 'お名前') !!}
-      {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('name_kana', 'お名前（フリガナ）') !!}
-      {!! Form::text('name_kana', old('name_kana'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('address', '住所') !!}
-      {!! Form::text('address', old('address'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('phone_number', '電話番号') !!}
-      {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('email', 'メールアドレス') !!}
-      {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('email_confirmation', 'メールアドレス（確認）') !!}
-      {!! Form::email('email_confirmation', old('email_confirmation'), ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('password', 'パスワード') !!}
-      {!! Form::password('password', ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-      {!! Form::label('password_confirmation', 'パスワード（確認）') !!}
-      {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="signup_button m-5">
-      {!! Form::submit('新規登録', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
-      {!! Form::close() !!}
-    </div>
-
-  </div>
-</div>
-
 @endsection
