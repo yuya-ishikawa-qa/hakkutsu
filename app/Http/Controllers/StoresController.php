@@ -14,7 +14,7 @@ class StoresController extends Controller
     {
         $id = Auth::id();
         $user=User::find($id);
-        
+
         $stores=$user->stores;
         foreach ($stores as $store) {
         }
@@ -25,7 +25,7 @@ class StoresController extends Controller
     {
         $user = \Auth::user();
         $stores = $user->stores()->orderBy('id', 'desc')->paginate(9);
-        
+
         $data=[
             'user' => $user,
             'stores' => $stores,
@@ -33,9 +33,4 @@ class StoresController extends Controller
         return view('store.management.create', $data);
     }
 
-    public function show()
-    {
-        return view('stores.detail');
-    }
-    
 }
