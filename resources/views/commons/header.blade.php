@@ -32,12 +32,12 @@
 
                     @if (Auth::check())
 
-                    <li class="nav-item">{!! link_to_route('mypage.index', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('mypage.index', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
 
                     @else
 
-                    <li class="nav-item">{!! link_to_route('signup', '新規登録', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('signup', '会員登録', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
 
                     @endif

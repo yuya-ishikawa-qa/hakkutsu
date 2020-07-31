@@ -27,7 +27,7 @@ class CreateStoresTable extends Migration
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
