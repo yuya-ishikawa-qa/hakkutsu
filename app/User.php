@@ -16,7 +16,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'name_kana',
+        'postal_code',
+        'address_1',
+        'address_2',
+        'address_3',
+        'tel',
+        'email',
+        'password',
     ];
 
     /**
@@ -27,6 +35,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     public function stores()
     {
         return $this->hasMany(Store::class);
