@@ -15,10 +15,10 @@ class ReviewsController extends Controller
 {
     public function index()
     {
-        $posts = Review::with('item', 'user')->paginate(5);
+        $reviews = Review::with('item', 'user')->paginate(5);
 
         return view('reviews.index')->with([
-            'posts' => $posts,
+            'reviews' => $reviews,
         ]);
 
     }
@@ -35,11 +35,11 @@ class ReviewsController extends Controller
 
     public function show(Request $request, $id)
     {
-        $post = Review::with('item', 'user')->find($id);
+        $review = Review::with('item', 'user')->find($id);
         $randomItemInformation = Item::select('image_path')->inRandomOrder()->take(4)->get();
 
         return view('reviews.show')->with([
-            'post' => $post,
+            'review' => $review,
             'randomItemInformation' => $randomItemInformation,
         ]);
     }
