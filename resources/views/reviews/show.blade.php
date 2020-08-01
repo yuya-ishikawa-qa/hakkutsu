@@ -8,17 +8,17 @@
     <div class="row">
 
       <div class="col-md-8">
-        <img class="img-fluid" src="https://picsum.photos/750/500" alt="">
+        <img class="img-fluid item-primary-display" src="{{asset('storage/images/'.$post->item->image_path)}}" alt="">
       </div>
 
       <div class="col-md-4">
-        <h3 class="my-3">タイトル：{{ $review->title }}</h3>
+        <h3 class="my-3">タイトル：{{ $post->title }}</h3>
         <h3 class="my-3">投稿者名：</h3>
         <h3 class="my-3">商品名：</h3>
-        <h3 class="my-3">投稿日時：投稿日時：{{ $review->created_at}}</h3>
-        <p>{{ $review->body }}</p>
+        <h3 class="my-3">投稿日時：投稿日時：{{ $post->created_at}}</h3>
+        <p>{{ $post->body }}</p>
         <div class="mt-5">
-          <form method="POST" action="{{route ('reviews.destroy', ['review' => $review])}}">
+          <form method="POST" action="{{route ('reviews.destroy', ['post' => $post])}}">
             {{csrf_field()}}
             {{ method_field('DELETE')}}
             <button class="btn btn-danger">削除</button>
@@ -31,7 +31,6 @@
           <div>
               <a class="btn btn-primary" href="{{ route('items.index')}}">商品一覧</a>
           </div>
-　　
         </div>
 
 
@@ -47,7 +46,7 @@
       @foreach ($randomItemInformation as $item)
       <div class="col-md-3 col-sm-6 mb-4">
         <a href="/items/{{$item->id}}">
-        <img class="img-fluid" src="{{asset('storage/images/'.$item->image_path)}}" alt="">
+        <img class="img-fluid item-four-display" src="{{asset('storage/images/'.$item->image_path)}}" alt="">
       </div>
       @endforeach
 

@@ -15,11 +15,12 @@ class ReviewsController extends Controller
 {
     public function index()
     {
-        $posts = Review::with('item')->paginate(5);
+        $posts = Review::with('item', 'user')->paginate(5);
 
         return view('reviews.index')->with([
             'posts' => $posts,
         ]);
+
     }
 
     public function create()
@@ -32,15 +33,13 @@ class ReviewsController extends Controller
 
     }
 
-    public function show(Request $request,Store $store,Item $item,$id)
+    public function show(Request $request, $id)
     {
-        $review = Review::findOrFail($id);
-        $store = Store::findOrFail($id);
+        $post = Review::with('item', 'user')->find($id);
         $randomItemInformation = Item::select('image_path')->inRandomOrder()->take(4)->get();
 
         return view('reviews.show')->with([
-            'review' => $review,
-            'store' => $store,
+            'post' => $post,
             'randomItemInformation' => $randomItemInformation,
         ]);
     }

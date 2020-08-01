@@ -7,19 +7,20 @@
             レビューを新規作成する
           </a>
       </div>
+
       @foreach ($posts as $post)
       <div class="card mt-5">
         <div class="card-header mb-2">
-          <a class="card-link" href="reviews/{{$post->id}}">商品名：{{ $post->item_name }}</a>
+          <a class="card-link" href="reviews/{{$post->id}}">商品名：{{ $post->item->item_name }}</a>
         </div>
           <div class="card-body row no-gutters">
             <div class="col-lg-6 z-depth-2">
-              <img class="img-fluid" src="{{asset('storage/images/'.$post->image_path)}}" alt="Sample image">
+              <img class="img-fluid item-display" src="{{asset('storage/images/'.$post->item->image_path)}}" alt="Sample image">
             </div>
             <div class="card-text col-lg-6">
               <p>{{ $post->title }}</p>
               <p>{{ $post->body }}</p>
-              <a class="card-link" href="posts/{{$post->id}}">
+              <a class="card-link" href="reviews/{{$post->id}}">
               詳細を見る
               </a>
             </div>

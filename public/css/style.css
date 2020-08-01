@@ -175,3 +175,15 @@ margin-right: 4px;
   width: 400px;
   height: 250px;
 }
+
+.item-primary-display {
+  object-fit: cover;
+  width: 700px;
+  height: 500px;
+}
+
+.item-four-display {
+  object-fit: cover;
+  width: 300px;
+  height: 200px;
+}
