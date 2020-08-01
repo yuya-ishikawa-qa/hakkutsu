@@ -11,29 +11,37 @@
 |
 */
 
-// ユーザ登録フォーム
-Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-// ユーザ登録機能
-Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-
-// ログインフォーム
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-// ログイン機能
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-// ログアウト機能
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
+// トップページ
 Route::get('/', function () {
-
     return view('toppage');
 });
+
+// 新規登録フォーム
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
+
+
+// ログイン機能
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+// マイページ
+Route::get('mypage/index', 'MypageController@index')->name('mypage.index');
+Route::get('mypage/show', 'MypageController@show')->name('mypage.show');
+Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
+Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
+Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
+Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
 
 
 //りょうた作成
 // 8-2表示用
 Route::get('/store/management/request', function () {
     return view('store.management.request');
-});
+})->name('store.request');
+
 // 9-1表示用
 Route::get('/cart/index', function () {
     return view('cart.index');
@@ -50,7 +58,12 @@ Route::get('/buy/index', function () {
 Route::get('/privacy', function () {
     return view('privacy');
 });
-//stores用
+// 特定商取引法
+Route::get('/law', function () {
+    return view('law');
+});
+
+//store作成、削除
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
     Route::get('/stores/management', 'StoresController@management');
@@ -78,7 +91,7 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 
 //お店関連
 //一覧表示
-Route::get('/stores', 'StoreDisplayController@index');
+Route::get('/stores', 'StoreDisplayController@index')->name('stores.index');
 Route::get('stores/{id}', 'StoreDisplayController@show');
 // Route::resource('/stores', 'StoreDisplayController');
 //↑storescontrollerとぶつかったのでコメントアウトしました
