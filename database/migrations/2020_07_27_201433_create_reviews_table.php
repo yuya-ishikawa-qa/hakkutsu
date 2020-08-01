@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,14 @@ class CreateTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title',20);
-            $table->text('body');
-            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('item_id')->unsigned();
+            $table->string('title',60)->null();
+            $table->integer('stars')->default(0);
+            $table->string('body')->null();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->softDeletes();
         });
     }
 

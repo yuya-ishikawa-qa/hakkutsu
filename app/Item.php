@@ -15,6 +15,19 @@ class Item extends Model
 
     public function store()
     {
-        return $this -> belongsTo('App\Models\Store');
+        return $this -> belongsTo(Store::class);
+    }
+
+    /**
+     * userに所属する役目を取得
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function reviews()
+    {
+        return $this -> hasMany(Review::class);
     }
 }

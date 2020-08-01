@@ -100,16 +100,17 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 
 //お店関連
 //一覧表示
-Route::get('/stores', 'StoreDisplayController@index');
-Route::get('stores/{id}', 'StoreDisplayController@show');
+Route::get('/stores', 'StoreDisplayController@index')->name('stores.index');
+Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
 Route::resource('/stores', 'StoreDisplayController');
 
 //商品関連
 //一覧表示
-Route::get('/items', 'ItemsDisplayController@index');
-Route::get('items/{id}', 'ItemsDisplayController@show');
+Route::get('/items', 'ItemsDisplayController@index')->name('items.index');
+Route::get('items/{id}', 'ItemsDisplayController@show')->name('items.detail');
 Route::resource('/items', 'ItemsDisplayController');
 
 //レビュー関連
-Route::get('/reviews', 'ReviewsController@index');
 Route::resource('/reviews', 'ReviewsController');
+Route::get('/reviews', 'ReviewsController@index')->name('reviews.index');
+Route::get('/reviews/{id}', 'ReviewsController@show')->name('reviews.show');

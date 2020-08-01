@@ -169,3 +169,9 @@ margin-right: 4px;
 .continue:hover {
     opacity: 0.7;
 }
+
+.item-display {
+  object-fit: cover;
+  width: 400px;
+  height: 250px;
+}
