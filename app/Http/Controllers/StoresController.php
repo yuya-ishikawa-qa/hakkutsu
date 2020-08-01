@@ -8,16 +8,17 @@ use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Store; 
 use DB;
-
+use App\Http\Requests\StoreRequest;
+use App\Http\Requests\StoreupdateRequest;
 
 class StoresController extends Controller
 {
     public function management()
     {
         $id = Auth::id();
-        $user=User::find($id);
+        $user = User::find($id);
         $stores = $user->stores()->orderBy('id', 'asc')->paginate(9);
-        $data=[
+        $data = [
             'user' => $user,
             'stores' => $stores,
         ];
@@ -40,67 +41,56 @@ class StoresController extends Controller
         return view('stores.detail');
     }
 
-    public function confirm(Request $request)
+    public function confirm(StoreRequest $request)
     {
-        $this->validate($request,[
-            'store_name' => ['required', 'string', 'max:255'],
-            'postal' => ['required', 'string', 'max:20'],
-            'address' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'string', 'max:50'],
-            'mail' => ['required', 'string', 'max:50'],
-            'image_path' => ['required', 'image'],
-            'business_hours' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-        ]);
         $post_data = $request->except('image_path');
         $path = $request->file('image_path');
         $temp_path = $path->store('public/temp');
-        $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         //str_replaceメソッドで、public/をstorage/に置き換え
-        
+        $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         $data = array(
             'temp_path' => $temp_path,
             'read_temp_path' => $read_temp_path, 
-            'store_name' => $post_data['store_name'],
-            'postal' => $post_data['postal'],
-            'address' => $post_data['address'],
-            'tel' => $post_data['tel'],
-            'mail' => $post_data['mail'],
-            'business_hours' => $post_data['business_hours'],
-            'description' => $post_data['description'],
         );
-        $request->session()->put('data', $data);
-        return view('stores.confirm')->with('data',$data);
+        $request->session()->put([
+            'data' => $data,
+            'post_data' => $post_data,
+        ]);
+        return view('stores.confirm')->with([
+            'post_data' => $post_data,
+            'data' => $data,
+        ]);
     }
     // 完了フォーム
         public function store(Request $request)
         {
             $data = $request->session()->get('data');
+            $post_data = $request->session()->get('post_data');
             $temp_path = $data['temp_path'];
             $read_temp_path = $data['read_temp_path'];
-            $filename = str_replace('public/temp/', '', $temp_path);
             //ファイル名は$temp_pathから"public/temp/を空白で除いたもの
-            $storage_path = 'public/stores_image/'.$filename;
+            $filename = str_replace('public/temp/', '', $temp_path);
             //画像を保存するパスは"public/stores_image/xxx.jpeg"
+            $storage_path = 'public/stores_image/'.$filename;
             $request->session()->forget('data');
-            Storage::move($temp_path, $storage_path);
             //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
-            $read_path = str_replace('public/', 'storage/', $storage_path);
+            Storage::move($temp_path, $storage_path);
             //publicをstorage/img/public/に置き換え、保存ファイルに移動
-            
+            $read_path = str_replace('public/', 'storage/', $storage_path);
+
             $store = new Store();
             $store->image_path = $read_path;
-            $store->store_name = $data['store_name'];
-            $store->address = $data['address'];
-            $store->tel = $data['tel'];
-            $store->mail = $data['mail'];
-            $store->business_hours = $data['business_hours'];
-            $store->postal = $data['postal'];
-            $store->description = $data['description'];
+            $store->store_name = $post_data['store_name'];
+            $store->address = $post_data['address'];
+            $store->tel = $post_data['tel'];
+            $store->mail = $post_data['mail'];
+            $store->business_hours = $post_data['business_hours'];
+            $store->postal = $post_data['postal'];
+            $store->description = $post_data['description'];
             $store->user_id = auth()->id();
             $store->save();
             return redirect('store/management/request')->with([
-                'flash_message'=> '送信しました',
+                'flash_message' => '送信しました',
             ]);
         }
 
@@ -115,24 +105,14 @@ class StoresController extends Controller
             return view('stores.edit',$data);
         }
 
-        public function update(Request $request,$id)
+        public function update(StoreupdateRequest $request,$id)
         {
-            $this->validate($request,[
-                'store_name' => ['required', 'string', 'max:255'],
-                'postal' => ['required', 'string', 'max:20'],
-                'address' => ['required', 'string', 'max:255'],
-                'tel' => ['required', 'string', 'max:50'],
-                'mail' => ['required', 'string', 'max:50'],
-                'image_path' => ['image'],
-                'business_hours' => ['required', 'string', 'max:255'],
-                'description' => ['required', 'string', 'max:255'],
-            ]);
-                // 画像がアップロードされたら保存する
+                // 画像がアップロードされたら保存
             if ($request->image_path) {
                 $path = $request->file('image_path');
                 $storage_path = $path->store('public/stores_image');
-                $read_path = str_replace('public/', 'storage/', $storage_path);
                 //publicをstorage/img/public/に置き換え、保存ファイルに移動
+                $read_path = str_replace('public/', 'storage/', $storage_path);
                 $store = Store::findOrFail($id);
                 $store->image_path = $read_path;
                 $store->save();
@@ -151,7 +131,7 @@ class StoresController extends Controller
             $store = Store::findOrFail($id);
             $store->fill($params)->save();
             return redirect('store/management/request')->with([
-                'flash_message'=> '変更しました。',
+                'flash_message' => '変更しました。',
             ]);
         }   
 }
