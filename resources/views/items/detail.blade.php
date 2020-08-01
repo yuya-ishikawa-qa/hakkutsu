@@ -11,21 +11,7 @@
         <div class="col-md-6">
           <div class="product-gallery">
             <div class="gallery-wrapper">
-              <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid">
-            </div>
-            <div class="product-carousel owl-carousel gallery-wrapper d-flex mt-4">
-              <div class="gallery-item mr-2" data-hash="three">
-                <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid">
-                </>
-              </div>
-              <div class="gallery-item mx-2" data-hash="three">
-                <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid">
-                </>
-              </div>
-              <div class="gallery-item mx-2" data-hash="three">
-                <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid">
-                </>
-              </div>
+              <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid item-primary-display">
             </div>
           </div>
         </div>
@@ -58,22 +44,22 @@
               </a>
             </div>
           </div>
-          <div class="row mt-5">
-              <div class="col-md-4 mt-4 text-center">
-                <a href="{{route('reviews.create')}}">
-                  <button class="btn btn-secondary">商品レビューを投稿</button>
-                </a>
-              </div>
-              <div class="col-md-4 mt-4 text-center">
-                <a href="{{route('reviews.index')}}">
-                  <button class="btn btn-secondary">商品レビューを見る</button>
-                </a>
-              </div>
-              <div class="col-md-4 mt-4 text-center">
-                <a href="{{route('items.index')}}">
-                  <button class="btn btn-secondary">商品一覧に戻る</button>
-                </a>
-              </div>
+        </div>
+        <div class="col-md-12 d-flex mt-5">
+          <div class="col-md-4 mt-4 text-center">
+            <a href="{{route('reviews.create')}}">
+              <button class="btn btn-outline-secondary w-75">商品レビューを投稿</button>
+            </a>
+          </div>
+          <div class="col-md-4 mt-4 text-center">
+            <a href="{{route('reviews.index')}}">
+              <button class="btn btn-outline-secondary w-75">商品レビューを見る</button>
+            </a>
+          </div>
+          <div class="col-md-4 mt-4 text-center">
+            <a href="{{route('items.index')}}">
+              <button class="btn btn-outline-secondary w-75">商品一覧に戻る</button>
+            </a>
           </div>
         </div>
       </div>
@@ -85,11 +71,10 @@
         @foreach ($newItemInformation as $item)
         <div class="col-md-3 col-sm-6 mb-4">
         <a href="{{$item->id}}">
-            <img class="img-fluid" src="{{asset('storage/images/'.$item->image_path)}}" alt="item">
+            <img class="img-fluid item-four-display" src="{{asset('storage/images/'.$item->image_path)}}" alt="item">
           </a>
         </div>
         @endforeach
-
       </div>
       <!-- /.row -->
 
