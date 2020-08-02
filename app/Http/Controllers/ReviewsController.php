@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+
 use App\Review;
+use App\Store;
+use App\Item;
 
 class ReviewsController extends Controller
 {
     public function index()
     {
-        $reviews = Review::orderBy('created_at', 'desc')->paginate(5);
-        return view('reviews.index',['reviews' => $reviews]);
+        $reviews = Review::with('item', 'user')->paginate(5);
+
+        return view('reviews.index')->with([
+            'reviews' => $reviews,
+        ]);
+
     }
 
     public function create()
@@ -20,39 +30,28 @@ class ReviewsController extends Controller
 
     public function store(Request $request)
     {
-        $params = $request->validate([
-            'title' => 'required|max:20',
-            'body' => 'required|max:140',
-            ]);
 
-        Review::create($params);
-
-        return redirect()->route('reviews.index');
     }
 
-    public function show($review_id)
+    public function show(Request $request, $id)
     {
-        $review = Review::findOrFail($review_id);
-        return view('reviews.show', ['review' => $review]);
+        $review = Review::with('item', 'user')->find($id);
+        $randomItemInformation = Item::select('image_path')->inRandomOrder()->take(4)->get();
+
+        return view('reviews.show')->with([
+            'review' => $review,
+            'randomItemInformation' => $randomItemInformation,
+        ]);
     }
 
     public function edit($review_id)
     {
-        $review = Review::findOrFail($review_id);
-        return view('reviews.edit', ['review' => $review]);
+
     }
 
     public function update($review_id, Request $request)
     {
-        $params = $request->validate([
-            'title' => 'required|max:20',
-            'body' => 'required|max:140',
-            ]);
 
-        $review = Review::findOrFail($review_id);
-        $review->fill($params)->save();
-
-        return redirect()->route('reviews.index');
     }
 
     public function destroy($review_id)

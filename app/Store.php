@@ -11,11 +11,15 @@ class Store extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['user_id','store_name','postal','address','tel','mail','image_path','business_hours','description',];
-
+    protected $fillable = ['user_id','store_name','postal','address','tel','mail','business_hours','description',];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 
 }
