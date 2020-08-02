@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class Store_updateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'store_name' => 'required|string|max:255',
+            'store_name' => 'required|unique:stores,'. $this->post->id,|string|max:255',
             'postal' => 'required|string|max:20',
             'address' => 'required|string|max:255',
             'tel' => 'required|string|max:50',
@@ -33,8 +33,5 @@ class StoreRequest extends FormRequest
             'description' => 'required|string|max:255',
             'image_path' =>  'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-        
-           
-        
     }
 }

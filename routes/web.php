@@ -36,54 +36,28 @@ Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy')
 Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
 
 
-
+//りょうた作成
 // 8-2表示用
 Route::get('/store/management/request', function () {
     return view('store.management.request');
 })->name('store.request');
 
-
-// 8-3表示用
-// Route::get('/store/management/create', function () {
-//     return view('store.management.create');
-// });
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/store/management/create', 'StoresController@create');
-});
-
-// 8-4表示用
-Route::get('/store/management/confirmation', function () {
-    return view('store.management.confirmation');
-});
-
-// 8-5表示用(storeデータ表示)
-Route::get('/store/management/index', 'StoresController@index')->name('store.index');
-
-// 8-6表示用
-Route::get('/store/management/createitem', function () {
-    return view('store.management.createitem');
-});
-
 // 9-1表示用
 Route::get('/cart/index', function () {
     return view('cart.index');
 });
-
 // 9-2表示用
 Route::get('/cart/delivery', function () {
     return view('cart.delivery');
 });
-
 // 9-3表示用
 Route::get('/buy/index', function () {
     return view('buy.index');
 });
-
 // 7-1表示用
 Route::get('/privacy', function () {
     return view('privacy');
 });
-
 // 特定商取引法
 Route::get('/law', function () {
     return view('law');
@@ -91,8 +65,11 @@ Route::get('/law', function () {
 
 //store作成、削除
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('stores', 'StoresController', ['only' => ['create', 'store', 'destroy']]);
+    Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
+    Route::get('/stores/management', 'StoresController@management');
+    Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
 });
+//←りょうた作成
 
 //認証関連
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
@@ -116,7 +93,8 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 //一覧表示
 Route::get('/stores', 'StoreDisplayController@index')->name('stores.index');
 Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
-Route::resource('/stores', 'StoreDisplayController');
+// Route::resource('/stores', 'StoreDisplayController');
+//↑storescontrollerとぶつかったのでコメントアウトしました
 
 //商品関連
 //一覧表示
@@ -126,5 +104,7 @@ Route::resource('/items', 'ItemsDisplayController');
 
 //レビュー関連
 Route::resource('/reviews', 'ReviewsController');
+
 Route::get('/reviews', 'ReviewsController@index')->name('reviews.index');
 Route::get('/reviews/{id}', 'ReviewsController@show')->name('reviews.show');
+

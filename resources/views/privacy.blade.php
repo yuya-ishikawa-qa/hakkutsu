@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="p-3 mb-2 bg-warning text-dark">プライバシーポリシー</div>
+<div class = "p-3 mb-2 bg-warning text-dark">プライバシーポリシー</div>
 <br>
 
 
