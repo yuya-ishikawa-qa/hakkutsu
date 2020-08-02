@@ -16,13 +16,44 @@ class UsersController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
+        $users = User::find($id);
+
+        return view('users.show', [
+            'users' => $users,
+        ]);
         return view('users.show');
     }
 
-    public function destroy()
+    public function edit($id)
     {
+        $users = User::find($id);
+
+        return view('users.edit', [
+            'users' => $users,
+        ]);
+        return view('users.edit');
+    }
+
+    public function update($id)
+    {
+        $users = User::find($id);
+
+        return view('users.update', [
+            'users' => $users,
+        ]);
+        return view('users.update');
+    }
+
+    public function destroy($id)
+    {
+        $users = User::find($id);
+
+        return view('users.destroy', [
+            'users' => $users,
+        ]);
         return view('users.destroy');
     }
+
 }

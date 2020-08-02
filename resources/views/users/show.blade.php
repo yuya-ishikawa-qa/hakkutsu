@@ -4,17 +4,21 @@
 
 <section class="title">
   <div class="container">
-    <h1 class="font-weight-bold m-5">マイページ</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ</a></li>
+      </ol>
+    </nav>
+
+    <h3 class="p-3 mb-2 bg-warning text-dark text-center">マイページ</h3>
+    <h2 class="font-weight-bold m-5">
+      @if(Auth::check())
+      {{ Auth::user()->name }}
+      @endif
+      様
+    </h2>
   </div>
 </section>
-
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb bg-transparent">
-    <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ</a></li>
-  </ol>
-</nav>
-
 
 
 <section class="member-information">
@@ -22,10 +26,13 @@
     <ul class="member-side">
       <a href="">
         <li class="button-hover">
+          {!! link_to_route('store.request', '出店依頼はこちら') !!}
+        </li>
+        <li class="button-hover">
           {!! link_to_route('signup', '会員登録内容の変更') !!}
         </li>
         <li class="button-hover">
-          {!! link_to_route('users.destroy', '退会手続き') !!}
+          {!! link_to_route('mypage.destroy', '退会手続き') !!}
         </li>
       </a>
     </ul>

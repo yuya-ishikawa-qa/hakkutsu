@@ -17,19 +17,19 @@ Route::get('/', function () {
 });
 
 // 新規登録フォーム
-Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
+// Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+// Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+// Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
 
 
 // ログイン機能
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+// Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// Route::post('login', 'Auth\LoginController@login')->name('login.post');
+// Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // マイページ
 Route::get('mypage/index', 'MypageController@index')->name('mypage.index');
-Route::get('mypage/show', 'MypageController@show')->name('mypage.show');
+Route::get('mypage/show/{id}', 'MypageController@show')->name('mypage.show');
 Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
 Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
 Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
@@ -100,9 +100,13 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('users/show', 'UsersController@show')->name('users.show');
-Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
-Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+
+// ユーザー
+Route::get('users/{id}/show', 'UsersController@show')->name('users.show');
+Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
+Route::put('users/{id}/update', 'UsersController@update')->name('users.update');
+Route::get('users/{id}/destroy', 'UsersController@destroy')->name('users.destroy');
+Route::delete('users/{id}/destroy', 'UsersController@destroy')->name('users.destroy');
 
 //お問い合わせ関連
 //入力ページ

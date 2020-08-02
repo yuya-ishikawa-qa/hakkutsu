@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class MypageController extends Controller
 {
@@ -11,8 +12,13 @@ class MypageController extends Controller
         return view('mypage.index');
     }
 
-    public function show()
+    public function show($id)
     {
+        $mypage = User::find($id);
+
+        return view('mypage.show', [
+            'mypage' => $mypage,
+        ]);
         return view('mypage.show');
     }
 
