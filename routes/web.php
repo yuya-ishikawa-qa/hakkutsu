@@ -16,25 +16,21 @@ Route::get('/', function () {
     return view('toppage');
 });
 
-// 新規登録フォーム
-// Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-// Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-// Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
-
+// ユーザー登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 // ログイン機能
-// Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-// Route::post('login', 'Auth\LoginController@login')->name('login.post');
-// Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // マイページ
-Route::get('mypage/index', 'MypageController@index')->name('mypage.index');
-Route::get('mypage/show/{id}', 'MypageController@show')->name('mypage.show');
-Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
-Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
-Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
-Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
-
+Route::get('users/index', 'UsersController@index')->name('users.index');
+Route::get('users/edit', 'UsersController@edit')->name('users.edit');
+Route::put('users/update', 'UsersController@update')->name('users.update');
+Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
+Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
 
 //りょうた作成
 // 8-2表示用
@@ -70,20 +66,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
 });
 //←りょうた作成
-
-//認証関連
-Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-// ユーザー
-Route::get('users/{id}/show', 'UsersController@show')->name('users.show');
-Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
-Route::put('users/{id}/update', 'UsersController@update')->name('users.update');
-Route::get('users/{id}/destroy', 'UsersController@destroy')->name('users.destroy');
-Route::delete('users/{id}/destroy', 'UsersController@destroy')->name('users.destroy');
 
 //お問い合わせ関連
 //入力ページ

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\User;
-use App\Store; 
+use App\Store;
 use DB;
 use App\Http\Requests\StoreRequest;
 use App\Http\Requests\StoreupdateRequest;
@@ -50,7 +50,7 @@ class StoresController extends Controller
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         $data = array(
             'temp_path' => $temp_path,
-            'read_temp_path' => $read_temp_path, 
+            'read_temp_path' => $read_temp_path,
         );
         $request->session()->put([
             'data' => $data,
@@ -95,7 +95,7 @@ class StoresController extends Controller
         }
 
         public function edit($id)
-        {   
+        {
             $user = \Auth::user();
             $store = Store::findOrFail($id);
             $data=[
@@ -127,12 +127,12 @@ class StoresController extends Controller
                 'mail' => $post_data['mail'],
                 'business_hours' => $post_data['business_hours'],
                 'description' => $post_data['description'],
-            );  
+            );
             $store = Store::findOrFail($id);
             $store->fill($params)->save();
             return redirect('store/management/request')->with([
                 'flash_message' => '変更しました。',
             ]);
-        }   
+        }
 }
 

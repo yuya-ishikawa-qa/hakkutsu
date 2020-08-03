@@ -33,7 +33,7 @@
                     @if (Auth::check())
 
                     <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('mypage.index', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('users.index', 'マイページ', [], ['class' => 'nav-link']) !!}</li>
 
                     @else
 

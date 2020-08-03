@@ -2,58 +2,48 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
     public function index()
     {
-        $users = User::orderBy('id','desc')->paginate(9);
+        $id = Auth::id();
+        $user = User::findOrFail($id);
 
-        return view('store.management.index', [
-            'users' => $users,
-        ]);
+        return view('users.index', $user);
+    }
+    public function show()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+
+        return view('users.show', $user);
+    }
+    public function edit()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+
+        return view('users.edit', $user);
+    }
+    public function update()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+
+        return view('users.update', $user);
     }
 
-    public function show($id)
+    public function destroy()
     {
-        $users = User::find($id);
+        $id = Auth::id();
+        $user = User::findOrFail($id);
 
-        return view('users.show', [
-            'users' => $users,
-        ]);
-        return view('users.show');
-    }
-
-    public function edit($id)
-    {
-        $users = User::find($id);
-
-        return view('users.edit', [
-            'users' => $users,
-        ]);
-        return view('users.edit');
-    }
-
-    public function update($id)
-    {
-        $users = User::find($id);
-
-        return view('users.update', [
-            'users' => $users,
-        ]);
-        return view('users.update');
-    }
-
-    public function destroy($id)
-    {
-        $users = User::find($id);
-
-        return view('users.destroy', [
-            'users' => $users,
-        ]);
-        return view('users.destroy');
+        return view('users.destroy', $user);
     }
 
 }
