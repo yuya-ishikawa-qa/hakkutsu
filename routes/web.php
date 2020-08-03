@@ -66,8 +66,17 @@ Route::get('/law', function () {
 //store作成、削除
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
-    Route::get('/stores/management', 'StoresController@management');
+    Route::get('/stores/management', 'StoresController@management')->name('stores.management');
+    Route::get('/stores/{id}/itemlist', 'StoresController@itemlist')->name('stores.itemlist');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
+    // Route::get('/stores/{id}/createitem', 'StoresController@createitem')->name('stores.createitem');
+});
+
+//item作成、削除
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('items', 'ItemsController', ['only' => ['store', 'destroy','edit','update']]);
+    Route::get('/stores/{id}/items/create', 'ItemsController@create')->name('items.create');
+    Route::post('/stores/{id}/items/confirm','ItemsController@confirm')->name('items.confirm');
 });
 //←りょうた作成
 
@@ -100,7 +109,8 @@ Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
 //一覧表示
 Route::get('/items', 'ItemsDisplayController@index')->name('items.index');
 Route::get('items/{id}', 'ItemsDisplayController@show')->name('items.detail');
-Route::resource('/items', 'ItemsDisplayController');
+// Route::resource('/items', 'ItemsDisplayController');
+//↑Itemscontrollerとぶつかったのでコメントアウトしました
 
 //レビュー関連
 Route::resource('/reviews', 'ReviewsController');
