@@ -25,12 +25,14 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-// マイページ
+// マイページ関連
 Route::get('users/index', 'UsersController@index')->name('users.index');
+Route::get('users/store', 'UsersController@store')->name('users.store');
 Route::get('users/edit', 'UsersController@edit')->name('users.edit');
 Route::put('users/update', 'UsersController@update')->name('users.update');
 Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
 Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+
 
 //りょうた作成
 // 8-2表示用
@@ -65,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/stores/management', 'StoresController@management');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
 });
-//←りょうた作成
+
 
 //お問い合わせ関連
 //入力ページ
@@ -79,8 +81,6 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 //一覧表示
 Route::get('/stores', 'StoreDisplayController@index')->name('stores.index');
 Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
-// Route::resource('/stores', 'StoreDisplayController');
-//↑storescontrollerとぶつかったのでコメントアウトしました
 
 //商品関連
 //一覧表示

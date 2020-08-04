@@ -16,6 +16,7 @@ class UsersController extends Controller
 
         return view('users.index', $user);
     }
+
     public function show()
     {
         $id = Auth::id();
@@ -23,6 +24,12 @@ class UsersController extends Controller
 
         return view('users.show', $user);
     }
+
+    public function store(StoreUser $request)
+    {
+        return redirect('/' . $user->id)->with('my_status', __('Created new user.'));
+    }
+
     public function edit()
     {
         $id = Auth::id();
@@ -30,20 +37,15 @@ class UsersController extends Controller
 
         return view('users.edit', $user);
     }
-    public function update()
-    {
-        $id = Auth::id();
-        $user = User::findOrFail($id);
 
-        return view('users.update', $user);
+    public function update(Request $request, User $user)
+    {
+        return redirect('/' . $user->id)->with('my_status', __('Updated a user.'));
     }
 
-    public function destroy()
+    public function destroy(User $user)
     {
-        $id = Auth::id();
-        $user = User::findOrFail($id);
-
-        return view('users.destroy', $user);
+        return redirect('/')->with('my_status', __('Deleted a user.'));
     }
 
 }
