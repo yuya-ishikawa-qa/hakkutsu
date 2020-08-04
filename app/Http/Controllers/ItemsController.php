@@ -46,6 +46,7 @@ class ItemsController extends Controller
     {
         $store = Store::findOrFail($id);
         $post_data = $request->except('image_path');
+        // dd($post_data);
         $path = $request->file('image_path');
         $temp_path = $path->store('public/temp');
         //str_replaceメソッドで、public/をstorage/に置き換え

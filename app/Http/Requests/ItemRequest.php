@@ -26,8 +26,8 @@ class ItemRequest extends FormRequest
         return [
             'item_name' => 'required|string|max:255',
             'status' => 'required|string|max:20',
-            'stock' => 'required|string|max:255',
-            'price' => 'required|string|max:50',
+            'stock' => 'required|integer',
+            'price' => 'required|integer',
             'description' => 'required|string|max:255',
             'tax_id' => 'required|string|max:255',
             'image_path' =>  'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
