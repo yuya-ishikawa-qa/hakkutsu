@@ -7,13 +7,6 @@
 </div>
 @endif
 
-<main class="mt-4">
-  @yield('content')
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-transparent">
-      <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home</a></li>
-    </ol>
-  </nav>
 
   <section class="top">
     <div class="container">

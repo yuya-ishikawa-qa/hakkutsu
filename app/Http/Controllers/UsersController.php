@@ -25,9 +25,9 @@ class UsersController extends Controller
         return view('users.show', $user);
     }
 
-    public function store(StoreUser $request)
+    public function store(User $request)
     {
-        return redirect('/' . $user->id)->with('my_status', __('Created new user.'));
+        return redirect('users.index')->with('my_status', __('Created new user.'));
     }
 
     public function edit()
@@ -43,9 +43,19 @@ class UsersController extends Controller
         return redirect('/' . $user->id)->with('my_status', __('Updated a user.'));
     }
 
-    public function destroy(User $user)
+    public function delete_confirm(User $user)
     {
-        return redirect('/')->with('my_status', __('Deleted a user.'));
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+
+        return view('users.delete_confirm', $user);
+    }
+
+    public function destroy($id)
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return redirect('/')->with('my_status', __('退会しました'));
     }
 
 }

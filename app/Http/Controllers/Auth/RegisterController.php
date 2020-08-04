@@ -48,14 +48,12 @@ class RegisterController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  mixed  $user
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     protected function registered(Request $request)
     {
         // 登録したら、そのユーザーのプロフィール・ページへ移動
-        return redirect('users/index')->with('my_status',
-            __('会員登録が完了しました')
-        );
+        return redirect('users')->with('my_status', __('会員登録が完了しました'));
     }
 
     /**

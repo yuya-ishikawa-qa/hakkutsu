@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'users/index';
+    protected $redirectTo = 'users';
     /**
      * Create a new controller instance.
      *
@@ -49,7 +49,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request)
     {
         // ログインしたら、ユーザー自身のプロフィールページへ移動
-        return redirect('users/index')->with('my_status', __('ログインしました'));
+        return redirect('users')->with('my_status', __('ログインしました'));
     }
 
 

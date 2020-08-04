@@ -26,12 +26,11 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // マイページ関連
-Route::get('users/index', 'UsersController@index')->name('users.index');
-Route::get('users/store', 'UsersController@store')->name('users.store');
-Route::get('users/edit', 'UsersController@edit')->name('users.edit');
-Route::put('users/update', 'UsersController@update')->name('users.update');
-Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
-Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
+    Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+});
 
 
 //りょうた作成

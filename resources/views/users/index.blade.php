@@ -41,7 +41,7 @@
           {!! link_to_route('signup', '会員登録内容の変更') !!}
         </li>
         <li class="button-hover">
-          {!! link_to_route('users.destroy', '退会手続き') !!}
+          {!! link_to_route('users.delete_confirm', '退会手続き') !!}
         </li>
       </a>
     </ul>
