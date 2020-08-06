@@ -67,19 +67,19 @@ Route::get('/law', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
     Route::get('/stores/management', 'StoresController@management')->name('stores.management');
-    Route::get('/stores/{id}/itemlist', 'StoresController@itemlist')->name('stores.itemlist');
+    Route::get('/stores/itemlist/{id}', 'StoresController@itemlist')->name('stores.itemlist');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
     // Route::get('/stores/{id}/createitem', 'StoresController@createitem')->name('stores.createitem');
 });
 
 //item作成、削除
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('items', 'ItemsController', ['only' => ['store', 'destroy']]);
-    Route::get('/stores/{store_id}/items/create', 'ItemsController@create')->name('items.create');
-    Route::post('/stores/{id}/items/confirm','ItemsController@confirm')->name('items.confirm');
-    Route::get('/stores/{id1}/items/{id2}/edit', 'ItemsController@edit')->name('items.edit');
-    Route::put('/stores/{id1}/items/{id2}/update', 'ItemsController@update')->name('items.update');
-    Route::delete('/stores/{id1}/items/{id2}/destroy', 'ItemsController@destroy')->name('items.destroy');
+    Route::resource('items', 'ItemsController', ['only' => ['store']]);
+    Route::get('/items/create/{store_id}', 'ItemsController@create')->name('items.create');
+    Route::post('/items/confirm/{store_id}','ItemsController@confirm')->name('items.confirm');
+    Route::get('/items/edit/{store_id}/{item_id}', 'ItemsController@edit')->name('items.edit');
+    Route::put('items/update/{store_id}/{item_id}', 'ItemsController@update')->name('items.update');
+    Route::delete('/items/destroy/{store_id}/{item_id}', 'ItemsController@destroy')->name('items.destroy');
 });
 //←りょうた作成
 

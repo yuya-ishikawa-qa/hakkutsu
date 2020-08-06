@@ -49,9 +49,9 @@
               Hakkutsu
             </div>
           </div>
-          <button class="btn btn-primary" href={{route('items.edit',['store' => $store,'item'=> $item])}}>
+          <a class="btn btn-primary" href={{route('items.edit',['store' => $store,'item'=> $item])}}>
                     編集する
-          </button>
+          </a>
           <form
                 style="display: inline-block;"
                 method="POST"

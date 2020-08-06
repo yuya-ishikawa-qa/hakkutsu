@@ -30,6 +30,7 @@ class ItemsController extends Controller
         $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
         $user = \Auth::user();
         $store = Store::findOrFail($store_id);
+        // dd($store);
         $items = $store->items();
         $data = [
             'user' => $user,
@@ -40,11 +41,11 @@ class ItemsController extends Controller
         return view('items.create',$data);
     }
 
-    public function confirm(ItemRequest $request,$id)
+    public function confirm(ItemRequest $request,$store_id)
     {
         $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
         // dd($taxes[1]);
-        $store = Store::findOrFail($id);
+        $store = Store::findOrFail($store_id);
         $post_data = $request->except('image_path');
         // dd($post_data);
         $path = $request->file('image_path');
@@ -110,12 +111,12 @@ class ItemsController extends Controller
             ]);
         }
 
-        public function edit($id1,$id2)
+        public function edit($store_id,$item_id)
         {   
             $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
             $user = \Auth::user();
-            $store = Store::findOrFail($id1);
-            $item = Item::findOrFail($id2);
+            $store = Store::findOrFail($store_id);
+            $item = Item::findOrFail($item_id);
             // dd($item);
             $data=[
                 'user' => $user,
@@ -127,7 +128,7 @@ class ItemsController extends Controller
             return view('items.edit',$data);
         }
 
-        public function update(ItemupdateRequest $request,$id1,$id2)
+        public function update(ItemupdateRequest $request,$store_id,$item_id)
         {
                 // 画像がアップロードされたら保存
             if ($request->image_path) {
@@ -135,7 +136,7 @@ class ItemsController extends Controller
                 $storage_path = $path->store('public/stores_image');
                 //publicをstorage/img/public/に置き換え、保存ファイルに移動
                 $read_path = str_replace('public/', 'storage/', $storage_path);
-                $item = Item::findOrFail($id);
+                $item = Item::findOrFail($item_id);
                 $item->image_path = $read_path;
                 $item->save();
                 }
@@ -149,19 +150,19 @@ class ItemsController extends Controller
                 'description' => $post_data['description'],
                 'tax_id' => $post_data['tax_id'],
             );  
-            $item = Item::findOrFail($id2);
+            $item = Item::findOrFail($item_id);
             $item->fill($params)->save();
-            return redirect('store/management/request')->with([
-                'flash_message' => '変更しました。',
+            return redirect()->route('stores.management')->with([
+                'flash_message' => '商品を編集しました',
             ]);
         } 
 
-        public function destroy($id1,$id2)
+        public function destroy($store_id,$item_id)
         {   
             // $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
             // $user = \Auth::user();
-            $store = Store::findOrFail($id1);
-            $item = Item::findOrFail($id2);
+            $store = Store::findOrFail($store_id);
+            $item = Item::findOrFail($item_id);
             // dd($item);
             $item->delete();
             return redirect()->route('stores.management')->with([
@@ -170,12 +171,4 @@ class ItemsController extends Controller
 ;
             // return redirect('stores.itemlist',$store);
         }
-            // dd($store);
-            // return redirect()->route('stores.itemlist')->with([
-            //     'store' => '$store',
-            // ]);
-        // }
-        // return redirect(/stores/{id}/itemlist)->route('stores.itemlist')->with([
-        //     'store' => '$store',
-        // ]);
 }
