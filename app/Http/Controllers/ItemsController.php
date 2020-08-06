@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Store;
 use App\Item;
+use App\Tax;
 use DB;
 use App\Http\Requests\ItemRequest;
+use App\Http\Requests\ItemupdateRequest;
 
 class ItemsController extends Controller
 {
@@ -25,12 +27,7 @@ class ItemsController extends Controller
 
     public function create($id)
     {
-        // $user = \Auth::user();
-        // $stores = $user->stores();
-        // $data=[
-        //     'user' => $user,
-        //     'stores' => $stores,
-        // ];
+        $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
         $user = \Auth::user();
         $store = Store::findOrFail($id);
         $items = $store->items();
@@ -38,12 +35,15 @@ class ItemsController extends Controller
             'user' => $user,
             'store' => $store,
             'items' => $items,
+            'taxes' => $taxes,
         ];
         return view('items.create',$data);
     }
 
     public function confirm(ItemRequest $request,$id)
     {
+        $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
+        // dd($taxes[1]);
         $store = Store::findOrFail($id);
         $post_data = $request->except('image_path');
         // dd($post_data);
@@ -55,12 +55,22 @@ class ItemsController extends Controller
             'temp_path' => $temp_path,
             'read_temp_path' => $read_temp_path, 
             'store' => $store,
+            'taxes' => $taxes,
         );
-        // dd($data);
+        
+        // dd($store);
+        // dd($post_data['tax_id']);
         $request->session()->put([
             'data' => $data,
             'post_data' => $post_data,
         ]);
+        //確認画面でtax_idが1なら8%,それ以外なら10%を表示 
+        if($post_data['tax_id'] == '1'){
+            $post_data['tax_id'] = '8%';
+        }else{
+            $post_data['tax_id'] = '10%';
+        }
+
         return view('items.confirm')->with([
             'post_data' => $post_data,
             'data' => $data,
@@ -99,4 +109,50 @@ class ItemsController extends Controller
                 'flash_message' => '送信しました',
             ]);
         }
+
+        public function edit($id1,$id2)
+        {   
+            $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
+            $user = \Auth::user();
+            $store = Store::findOrFail($id1);
+            $item = Item::findOrFail($id2);
+            // dd($item);
+            $data=[
+                'user' => $user,
+                'store' => $store,
+                'item' => $item,
+                'taxes' => $taxes,
+            ];
+            // dd($data);
+            return view('items.edit',$data);
+        }
+
+        public function update(ItemupdateRequest $request,$id1,$id2)
+        {
+                // 画像がアップロードされたら保存
+            if ($request->image_path) {
+                $path = $request->file('image_path');
+                $storage_path = $path->store('public/stores_image');
+                //publicをstorage/img/public/に置き換え、保存ファイルに移動
+                $read_path = str_replace('public/', 'storage/', $storage_path);
+                $item = Item::findOrFail($id);
+                $item->image_path = $read_path;
+                $item->save();
+                }
+
+            $post_data = $request->except('image_path');
+            $params = array(
+                'item_name' => $post_data['item_name'],
+                'status' => $post_data['status'],
+                'stock' => $post_data['stock'],
+                'price' => $post_data['price'],
+                'description' => $post_data['description'],
+                'tax_id' => $post_data['tax_id'],
+            );  
+            $item = Item::findOrFail($id2);
+            $item->fill($params)->save();
+            return redirect('store/management/request')->with([
+                'flash_message' => '変更しました。',
+            ]);
+        } 
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ItemRequest extends FormRequest
+class ItemupdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,8 +30,7 @@ class ItemRequest extends FormRequest
             'price' => 'required|integer',
             'description' => 'required|string|max:255',
             'tax_id' => 'required|string|max:255',
-            'image_path' =>  'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
-        
+            'image_path' =>  'file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

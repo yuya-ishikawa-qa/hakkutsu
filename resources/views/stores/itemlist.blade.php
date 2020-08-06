@@ -49,6 +49,16 @@
               Hakkutsu
             </div>
           </div>
+          <div class = "card-footer">
+                <a class = "card-link" href={{route('items.edit',['store'=> $store,'item'=> $item])}}>
+                    商品編集する
+                </a>
+          </div>
+          <div class = "card-footer">
+                <a class = "card-link" href={{route('items.edit',['store'=> $store,'item'=> $item])}}>
+                    商品編集する
+                </a>
+          </div>
         </div>
       </div>
     </div>
@@ -64,16 +74,5 @@
           新規の出品はこちら
   </a>
 </div>
-<div class = "card-footer">
-                <a class = "card-link" href={{route('stores.edit',['store'=> $store])}}>
-                        店舗編集する
-                    </a>
-                </div>
-
-
-<!-- "/stores/{id}/items/create" > -->
-<a class = "card-link" href={{route('stores.edit',['store'=> $store])}}>
-                        店舗編集する
-                    </a>
 
 @endsection
