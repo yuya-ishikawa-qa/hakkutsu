@@ -33,8 +33,5 @@ class StoreRequest extends FormRequest
             'description' => 'required|string|max:255',
             'image_path' =>  'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-        
-           
-        
     }
 }

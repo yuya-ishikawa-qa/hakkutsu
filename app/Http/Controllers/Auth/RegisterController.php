@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;	// 追加
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
 
-    protected $redirectTo = 'mypage/index';
+    protected $redirectTo = 'users/index';
 
     /**
      * Create a new controller instance.
@@ -39,6 +41,20 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+
+    /**
+     * ユーザー登録後の処理
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request)
+    {
+        // 登録したら、そのユーザーのプロフィール・ページへ移動
+        return redirect('users')->with('my_status', __('会員登録が完了しました'));
     }
 
     /**
@@ -57,7 +73,10 @@ class RegisterController extends Controller
             'address_2' => ['required', 'string', 'max:255'],
             'address_3' => ['required', 'string', 'max:255'],
             'tel' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => [
+            	'required', 'string', 'email', 'max:255', 
+            	Rule::unique('users', 'email')->whereNull('deleted_at'),
+            ],
             'password' => ['required', 'string', 'min:7', 'confirmed'],
         ]);
     }

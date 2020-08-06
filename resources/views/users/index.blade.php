@@ -2,19 +2,32 @@
 
 @section('content')
 
+{{-- フラッシュ・メッセージ --}}
+@if (session('my_status'))
+<div class="container mt-2">
+  <div class="alert alert-success">
+    {{ session('my_status') }}
+  </div>
+</div>
+@endif
+
 <section class="title">
   <div class="container">
-    <h1 class="font-weight-bold m-5">マイページ</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ</a></li>
+      </ol>
+    </nav>
+
+    <h3 class="p-3 mb-2 bg-warning text-dark text-center">マイページ</h3>
+    <h3 class="font-weight-bold m-5">
+      @if(Auth::check())
+      {{ Auth::user()->name }}
+      @endif
+      様
+    </h3>
   </div>
 </section>
-
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb bg-transparent">
-    <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ</a></li>
-  </ol>
-</nav>
-
 
 
 <section class="member-information">
@@ -28,7 +41,7 @@
           {!! link_to_route('signup', '会員登録内容の変更') !!}
         </li>
         <li class="button-hover">
-          {!! link_to_route('mypage.destroy', '退会手続き') !!}
+          {!! link_to_route('users.delete_confirm', '退会手続き') !!}
         </li>
       </a>
     </ul>
