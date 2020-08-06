@@ -8,6 +8,11 @@
 <div class = "text-right">
 {{ Auth::user()->name }}
 </div>
+@if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+@endif
 
   @foreach ($stores as $store)
             <div class = "card mt-4">

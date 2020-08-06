@@ -13,7 +13,7 @@
         <p class="mr-4">総件数: {{ $items -> total() }}件</p>
           <form action="/items" method="get">
               表示件数：
-              <select id="" name="disp_list" onchange="submit();">
+              <select id="" name="disp_list" onchange="submit">
                 <option>選択してください</option>
                 <option>10</option>
                 <option>15</option>
@@ -33,9 +33,9 @@
       @endif
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="bg-white rounded shadow-sm">
-        <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="item-display img-fluid card-img-top ">
+        <img src="{{asset($item->image_path)}}" alt="" class="item-display img-fluid card-img-top ">
         <div class="p-4">
-        <h5> <a href="items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
+        <h5> <a href="/items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
           <p class="small text-muted mb-0">
             @if(isset($item->description))
               {{$item->description}}
@@ -49,16 +49,18 @@
               Hakkutsu
             </div>
           </div>
-          <div class = "card-footer">
-                <a class = "card-link" href={{route('items.edit',['store'=> $store,'item'=> $item])}}>
-                    商品編集する
-                </a>
-          </div>
-          <div class = "card-footer">
-                <a class = "card-link" href={{route('items.edit',['store'=> $store,'item'=> $item])}}>
-                    商品編集する
-                </a>
-          </div>
+          <button class="btn btn-primary" href={{route('items.edit',['store' => $store,'item'=> $item])}}>
+                    編集する
+          </button>
+          <form
+                style="display: inline-block;"
+                method="POST"
+                action="{{route('items.destroy',['store'=> $store,'item'=> $item])}}"
+          >
+                    {{csrf_field()}}
+                    {{method_field('DELETE')}}
+                    <button class="btn btn-danger">削除する</button>
+          </form>
         </div>
       </div>
     </div>
@@ -69,8 +71,10 @@
   </div>
 </div>
 
-<div class = "card-footer">
-  <a  class = "card-link" href= {{route('items.create',['store' => $store])}}>              
+<!-- <div class = "card-footer"> -->
+<!-- <div class="row justify-content-between"> -->
+<div class = "text-center">
+  <a button class="btn btn-primary btn-lg" href= {{route('items.create',['store' => $store])}}>              
           新規の出品はこちら
   </a>
 </div>

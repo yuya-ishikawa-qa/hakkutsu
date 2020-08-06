@@ -41,7 +41,7 @@
                 </div>
                 <div class = "form-group">
                     {!! Form::label('tax_id', '【消費税率】') !!}</br>
-                    {{ Form::select('tax_id', $taxes, null, ['class' => 'form', 'id' => 'tax_id']) }}
+                    {{ Form::select('tax_id', $taxes, null, ['class' => 'form', 'id' => 'tax_id', 'placeholder' => '選択してください']) }}
                     <!-- {!! Form::select('tax_id', ['1' => '8%', '2' => '10%'], old('tax_id'), ['placeholder' => '選択してください']) !!} -->
                 </div>
                 {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}

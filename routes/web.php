@@ -74,11 +74,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 //item作成、削除
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('items', 'ItemsController', ['only' => ['store', 'destroy','update']]);
-    Route::get('/stores/{id}/items/create', 'ItemsController@create')->name('items.create');
+    Route::resource('items', 'ItemsController', ['only' => ['store', 'destroy']]);
+    Route::get('/stores/{store_id}/items/create', 'ItemsController@create')->name('items.create');
     Route::post('/stores/{id}/items/confirm','ItemsController@confirm')->name('items.confirm');
     Route::get('/stores/{id1}/items/{id2}/edit', 'ItemsController@edit')->name('items.edit');
     Route::put('/stores/{id1}/items/{id2}/update', 'ItemsController@update')->name('items.update');
+    Route::delete('/stores/{id1}/items/{id2}/destroy', 'ItemsController@destroy')->name('items.destroy');
 });
 //←りょうた作成
 

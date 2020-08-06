@@ -25,11 +25,11 @@ class ItemsController extends Controller
         return view('items.detail');
     }
 
-    public function create($id)
+    public function create($store_id)
     {
         $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
         $user = \Auth::user();
-        $store = Store::findOrFail($id);
+        $store = Store::findOrFail($store_id);
         $items = $store->items();
         $data = [
             'user' => $user,
@@ -105,8 +105,8 @@ class ItemsController extends Controller
             $item->store_id = $store->id;
             // $store->user_id = auth()->id();
             $item->save();
-            return redirect('store/management/request')->with([
-                'flash_message' => '送信しました',
+            return redirect()->route('stores.management')->with([
+                'flash_message' => '出品しました',
             ]);
         }
 
@@ -155,4 +155,27 @@ class ItemsController extends Controller
                 'flash_message' => '変更しました。',
             ]);
         } 
+
+        public function destroy($id1,$id2)
+        {   
+            // $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
+            // $user = \Auth::user();
+            $store = Store::findOrFail($id1);
+            $item = Item::findOrFail($id2);
+            // dd($item);
+            $item->delete();
+            return redirect()->route('stores.management')->with([
+                'flash_message' => '商品を削除しました。',
+            ]);
+;
+            // return redirect('stores.itemlist',$store);
+        }
+            // dd($store);
+            // return redirect()->route('stores.itemlist')->with([
+            //     'store' => '$store',
+            // ]);
+        // }
+        // return redirect(/stores/{id}/itemlist)->route('stores.itemlist')->with([
+        //     'store' => '$store',
+        // ]);
 }
