@@ -71,10 +71,8 @@
   </div>
 </div>
 
-<!-- <div class = "card-footer"> -->
-<!-- <div class="row justify-content-between"> -->
 <div class = "text-center">
-  <a button class="btn btn-primary btn-lg" href= {{route('items.create',['store' => $store])}}>              
+  <a class="btn btn-primary btn-lg" href= {{route('items.create',['store' => $store])}}>              
           新規の出品はこちら
   </a>
 </div>

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="p-3 mb-2 bg-warning text-dark">出店依頼はこちら</div>
+<div class="p-3 mb-2 bg-warning text-dark">出品確認画面</div>
 <br>
 
 <div class="text-right">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
     {!! Form::close() !!}
-    <a href="/stores/create" >
+    <a href={{route('items.create',['store'=> $data["store"]])}} >
         <div class="row  justify-content-center">
             <div class="col-sm-6 mt-3">
                 <button type="submit" class="btn btn-secondary btn-block">

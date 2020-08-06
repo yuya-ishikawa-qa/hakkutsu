@@ -5,7 +5,6 @@
 <div class="text-right">
 ユーザー名:{{ Auth::user()->name }}<br>
 店名:{{ $store->store_name}}
-消費税{{$taxes[1]}}
 </div>
     <div class = "text-center">
         <h1><i class = "fas fa-store"></i>商品登録</h1>
@@ -42,7 +41,6 @@
                 <div class = "form-group">
                     {!! Form::label('tax_id', '【消費税率】') !!}</br>
                     {{ Form::select('tax_id', $taxes, null, ['class' => 'form', 'id' => 'tax_id', 'placeholder' => '選択してください']) }}
-                    <!-- {!! Form::select('tax_id', ['1' => '8%', '2' => '10%'], old('tax_id'), ['placeholder' => '選択してください']) !!} -->
                 </div>
                 {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}

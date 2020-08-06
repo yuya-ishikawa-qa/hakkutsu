@@ -45,7 +45,7 @@
                     {{ Form::select('tax_id', $taxes, $item->tax_id, ['class' => 'form', 'id' => 'tax_id']) }}
                     <!-- {!! Form::select('tax_id', ['1' => '8%', '2' => '10%'], old('tax_id'), ['placeholder' => '選択してください']) !!} -->
                 </div>
-                {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('商品を変更する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>

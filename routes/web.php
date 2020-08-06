@@ -69,7 +69,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/stores/management', 'StoresController@management')->name('stores.management');
     Route::get('/stores/itemlist/{id}', 'StoresController@itemlist')->name('stores.itemlist');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
-    // Route::get('/stores/{id}/createitem', 'StoresController@createitem')->name('stores.createitem');
 });
 
 //item作成、削除

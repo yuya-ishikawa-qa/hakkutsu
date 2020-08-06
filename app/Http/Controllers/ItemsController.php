@@ -30,7 +30,6 @@ class ItemsController extends Controller
         $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
         $user = \Auth::user();
         $store = Store::findOrFail($store_id);
-        // dd($store);
         $items = $store->items();
         $data = [
             'user' => $user,
@@ -44,10 +43,8 @@ class ItemsController extends Controller
     public function confirm(ItemRequest $request,$store_id)
     {
         $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
-        // dd($taxes[1]);
         $store = Store::findOrFail($store_id);
         $post_data = $request->except('image_path');
-        // dd($post_data);
         $path = $request->file('image_path');
         $temp_path = $path->store('public/temp');
         //str_replaceメソッドで、public/をstorage/に置き換え
@@ -58,9 +55,6 @@ class ItemsController extends Controller
             'store' => $store,
             'taxes' => $taxes,
         );
-        
-        // dd($store);
-        // dd($post_data['tax_id']);
         $request->session()->put([
             'data' => $data,
             'post_data' => $post_data,
@@ -71,7 +65,6 @@ class ItemsController extends Controller
         }else{
             $post_data['tax_id'] = '10%';
         }
-
         return view('items.confirm')->with([
             'post_data' => $post_data,
             'data' => $data,
@@ -94,7 +87,6 @@ class ItemsController extends Controller
             Storage::move($temp_path, $storage_path);
             //publicをstorage/img/public/に置き換え、保存ファイルに移動
             $read_path = str_replace('public/', 'storage/', $storage_path);
-
             $item = new Item();
             $item->image_path = $read_path;
             $item->item_name = $post_data['item_name'];
@@ -104,7 +96,6 @@ class ItemsController extends Controller
             $item->description = $post_data['description'];
             $item->tax_id = $post_data['tax_id'];
             $item->store_id = $store->id;
-            // $store->user_id = auth()->id();
             $item->save();
             return redirect()->route('stores.management')->with([
                 'flash_message' => '出品しました',
@@ -117,14 +108,12 @@ class ItemsController extends Controller
             $user = \Auth::user();
             $store = Store::findOrFail($store_id);
             $item = Item::findOrFail($item_id);
-            // dd($item);
             $data=[
                 'user' => $user,
                 'store' => $store,
                 'item' => $item,
                 'taxes' => $taxes,
             ];
-            // dd($data);
             return view('items.edit',$data);
         }
 
@@ -140,7 +129,6 @@ class ItemsController extends Controller
                 $item->image_path = $read_path;
                 $item->save();
                 }
-
             $post_data = $request->except('image_path');
             $params = array(
                 'item_name' => $post_data['item_name'],
@@ -159,16 +147,11 @@ class ItemsController extends Controller
 
         public function destroy($store_id,$item_id)
         {   
-            // $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
-            // $user = \Auth::user();
             $store = Store::findOrFail($store_id);
             $item = Item::findOrFail($item_id);
-            // dd($item);
             $item->delete();
             return redirect()->route('stores.management')->with([
                 'flash_message' => '商品を削除しました。',
             ]);
-;
-            // return redirect('stores.itemlist',$store);
         }
 }
