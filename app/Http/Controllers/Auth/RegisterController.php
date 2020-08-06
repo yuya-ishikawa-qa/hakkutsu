@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;	// 追加
 
 class RegisterController extends Controller
 {
@@ -72,7 +73,10 @@ class RegisterController extends Controller
             'address_2' => ['required', 'string', 'max:255'],
             'address_3' => ['required', 'string', 'max:255'],
             'tel' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => [
+            	'required', 'string', 'email', 'max:255', 
+            	Rule::unique('users', 'email')->whereNull('deleted_at'),
+            ],
             'password' => ['required', 'string', 'min:7', 'confirmed'],
         ]);
     }

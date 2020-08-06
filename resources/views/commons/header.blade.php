@@ -5,19 +5,11 @@
             <a href="/" class="nav-link"><img src="{{ asset('image/logo.png') }}" width="250" alt="logo.png"></a>
             <div class="collapse navbar-collapse justify-content-left" id="nav-bar">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            カテゴリーから探す
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">肉</a>
-                            <a class="dropdown-item" href="#">魚</a>
-                            <a class="dropdown-item" href="#">野菜</a>
-                            <a class="dropdown-item" href="#">果物</a>
-                        </div>
-                    </li>
                     <li class="nav-item">{!! link_to_route('stores.index', '店舗から探す', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('contact.index', 'お問い合わせ', [], ['class' => 'nav-link']) !!}</li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="キーワードから検索" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                    </form>
                 </ul>
             </div>
 
@@ -44,12 +36,9 @@
 
                 </ul>
             </div>
+            <div class="shopping_cart">
+                <a href="cart/index" class="nav-link"><img src="{{ asset('image/shopping_cart.png') }}" width="50" alt="shopping_cart.png"></a>
+            </div>
         </div>
-        <form class="form-inline my-2 my-lg-0 mr-5">
-            <input class="form-control mr-sm-2" type="search" placeholder="キーワードから検索" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-        </form>
     </nav>
-
-
 </header>

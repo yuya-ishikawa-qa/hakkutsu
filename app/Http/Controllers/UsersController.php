@@ -55,6 +55,8 @@ class UsersController extends Controller
     {
         $id = Auth::id();
         $user = User::findOrFail($id);
+        $user = User::find($id);
+        $user->delete();
         return redirect('/')->with('my_status', __('退会しました'));
     }
 
