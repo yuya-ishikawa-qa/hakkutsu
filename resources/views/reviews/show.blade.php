@@ -18,11 +18,13 @@
         <h3 class="my-3">投稿日時：投稿日時：{{ $review->created_at}}</h3>
         <p>{{ $review->body }}</p>
         <div class="mt-5">
+          @if(Auth::id() == $review->user_id)
           <form method="REVIEW" action="{{route ('reviews.destroy', ['review' => $review])}}">
             {{csrf_field()}}
             {{ method_field('DELETE')}}
             <button class="btn btn-danger">削除</button>
           </form>
+          @endif
         </div>
         <div class="d-flex justify-content-between mt-5">
           <div>

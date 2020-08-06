@@ -103,8 +103,6 @@ Route::get('items/{id}', 'ItemsDisplayController@show')->name('items.detail');
 Route::resource('/items', 'ItemsDisplayController');
 
 //レビュー関連
-Route::resource('/reviews', 'ReviewsController');
-
-Route::get('/reviews', 'ReviewsController@index')->name('reviews.index');
-Route::get('/reviews/{id}', 'ReviewsController@show')->name('reviews.show');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('reviews', 'ReviewsController', ['only' => ['index','create','store','show','destroy']]);
+});

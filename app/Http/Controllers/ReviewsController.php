@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
 use App\Review;
 use App\Store;
+use App\User;
 use App\Item;
 
 class ReviewsController extends Controller
@@ -20,17 +23,40 @@ class ReviewsController extends Controller
         return view('reviews.index')->with([
             'reviews' => $reviews,
         ]);
-
     }
 
     public function create()
     {
-        return view('reviews.create');
+        $q = \Request::query();
+        $item = Item::where('item_id', '=', $q)->select('item_name');
+        $user = \Auth::user();
+        $reviews = $user->reviews();
+
+        $data=[
+            'user' => $user,
+            'reviews' => $reviews,
+            'q' => $q,
+        ];
+        // dd($data);
+
+        return view('reviews.create')->with([
+            'data' => $data,
+            'item' => $item,
+        ]);
     }
 
     public function store(Request $request)
     {
+        $review = new Review();
+        $review->user_id = auth()->id();
+        $review->item_id = $request->input('item_id');
+        $review->title = $request->input('title');
+        $review->body = $request->input('body');
+        $review->save();
 
+        return redirect('reviews.index')->with([
+            'flash_message' => '送信しました',
+        ]);
     }
 
     public function show(Request $request, $id)
@@ -54,11 +80,14 @@ class ReviewsController extends Controller
 
     }
 
-    public function destroy($review_id)
+    public function destroy($id)
     {
-        $review = Review::findOrFail($review_id);
-        $review->delete();
+        $review = Review::find($id);
 
-        return redirect()->route('reviews.index');
+        if (\Auth::id() == $review->user_id) {
+            $review->delete();
+        }
+
+        return back();
     }
 }
