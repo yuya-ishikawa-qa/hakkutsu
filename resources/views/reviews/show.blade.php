@@ -15,11 +15,11 @@
         <h3 class="my-3">タイトル：{{ $review->title }}</h3>
         <h3 class="my-3">投稿者名：</h3>
         <h3 class="my-3">商品名：</h3>
-        <h3 class="my-3">投稿日時：投稿日時：{{ $review->created_at}}</h3>
+        <h3 class="my-3">投稿日時：{{ $review->created_at}}</h3>
         <p>{{ $review->body }}</p>
         <div class="mt-5">
           @if(Auth::id() == $review->user_id)
-          <form method="REVIEW" action="{{route ('reviews.destroy', ['review' => $review])}}">
+          <form method="POST" action="{{route ('reviews.destroy', ['review' => $review])}}">
             {{csrf_field()}}
             {{ method_field('DELETE')}}
             <button class="btn btn-danger">削除</button>

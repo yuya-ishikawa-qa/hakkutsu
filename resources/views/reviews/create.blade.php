@@ -11,17 +11,11 @@
     {{csrf_field()}}
 
     <div class="form-group mb-5">
-      <h3>商品コード：{{$data->item_id}}</h3>
-      <div class="text-danger">
-        {{$errors->first('title')}}
-      </div>
+      <h3>商品コード：{{$data}}</h3>
     </div>
 
     <div class="form-group mb-5">
-      <h3>商品名：</h3>
-      <div class="text-danger">
-        {{$errors->first('title')}}
-      </div>
+      <h3>商品名：{{$item->item_name}}</h3>
     </div>
 
     <div class="form-group mb-5">
@@ -40,8 +34,8 @@
       </div>
     </div>
 
-    <input type="hidden" id="item_id" name="item_id" value="{{old('item_id')}}">
-    <input type="hidden" id="user_id" name="user_id" value="{{old('user_id')}}">
+    <input type="hidden" id="item_id" name="item_id" value="{{$data}}">
+    <input type="hidden" id="user_id" name="user_id" value="{{('user_id')}}">
 
     <div class="mt-5">
       <a class="btn btn-secondary" href="{{route('reviews.index')}}">

@@ -25,23 +25,17 @@ class ReviewsController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $q = \Request::query();
-        $item = Item::where('item_id', '=', $q)->select('item_name');
+        $data = $request->item_id;
+        $item = Item::where('id', '=', $data)->select('item_name')->first();
         $user = \Auth::user();
-        $reviews = $user->reviews();
-
-        $data=[
-            'user' => $user,
-            'reviews' => $reviews,
-            'q' => $q,
-        ];
-        // dd($data);
+        //dd($item);
 
         return view('reviews.create')->with([
             'data' => $data,
             'item' => $item,
+            'user' => $user,
         ]);
     }
 
@@ -54,7 +48,7 @@ class ReviewsController extends Controller
         $review->body = $request->input('body');
         $review->save();
 
-        return redirect('reviews.index')->with([
+        return redirect('reviews')->with([
             'flash_message' => '送信しました',
         ]);
     }
@@ -88,6 +82,6 @@ class ReviewsController extends Controller
             $review->delete();
         }
 
-        return back();
+        return redirect('reviews');
     }
 }
