@@ -77,7 +77,8 @@ class RegisterController extends Controller
             	'required', 'string', 'email', 'max:255', 
             	Rule::unique('users', 'email')->whereNull('deleted_at'),
             ],
-            'password' => ['required', 'string', 'min:7', 'confirmed'],
+            // 8文字以上＆英数字(アルファベット・数字は最低1文字以上は使用する)
+            'password' => ['required', 'string', 'regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i'],
         ]);
     }
 

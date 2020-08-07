@@ -17,12 +17,12 @@
 
                             <div class="form-group">
                                 {!! Form::label('email', 'メールアドレス') !!}
-                                {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                                {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => 'sample@sample.com']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('password', 'パスワード') !!}
-                                {!! Form::password('password', ['class' => 'form-control']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字８文字以上で入力']) !!}
                             </div>
 
                             <div class="form-group row">
