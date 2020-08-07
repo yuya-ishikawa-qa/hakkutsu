@@ -31,6 +31,7 @@ class ItemsController extends Controller
         $user = \Auth::user();
         $store = Store::findOrFail($store_id);
         $items = $store->items();
+
         $data = [
             'user' => $user,
             'store' => $store,
@@ -49,6 +50,7 @@ class ItemsController extends Controller
         $temp_path = $path->store('public/temp');
         //str_replaceメソッドで、public/をstorage/に置き換え
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
+
         $data = array(
             'temp_path' => $temp_path,
             'read_temp_path' => $read_temp_path, 
@@ -59,6 +61,7 @@ class ItemsController extends Controller
             'data' => $data,
             'post_data' => $post_data,
         ]);
+
         //確認画面でtax_idが1なら8%,それ以外なら10%を表示 
         if($post_data['tax_id'] == '1'){
             $post_data['tax_id'] = '8%';
@@ -87,6 +90,7 @@ class ItemsController extends Controller
             Storage::move($temp_path, $storage_path);
             //publicをstorage/img/public/に置き換え、保存ファイルに移動
             $read_path = str_replace('public/', 'storage/', $storage_path);
+
             $item = new Item();
             $item->image_path = $read_path;
             $item->item_name = $post_data['item_name'];
@@ -129,6 +133,7 @@ class ItemsController extends Controller
                 $item->image_path = $read_path;
                 $item->save();
                 }
+                
             $post_data = $request->except('image_path');
             $params = array(
                 'item_name' => $post_data['item_name'],

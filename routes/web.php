@@ -16,24 +16,21 @@ Route::get('/', function () {
     return view('toppage');
 });
 
-// 新規登録フォーム
+// ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('signup/edit', 'Auth\RegisterController@edit')->name('signup.edit');
-
 
 // ログイン機能
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-// マイページ
-Route::get('mypage/index', 'MypageController@index')->name('mypage.index');
-Route::get('mypage/show', 'MypageController@show')->name('mypage.show');
-Route::get('mypage/edit', 'MypageController@edit')->name('mypage.edit');
-Route::post('mypage/edit', 'MypageController@edit')->name('mypage.edit');
-Route::get('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
-Route::delete('mypage/destroy', 'MypageController@destroy')->name('mypage.destroy');
+// マイページ関連
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
+    Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+});
 
 
 //りょうた作成
@@ -82,16 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 //←りょうた作成
 
-//認証関連
-Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('users/show', 'UsersController@show')->name('users.show');
-Route::get('users/destroy', 'UsersController@destroy')->name('users.destroy');
-Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
-
 //お問い合わせ関連
 //入力ページ
 Route::get('/contact', 'ContactController@index')->name('contact.index');
@@ -104,8 +91,6 @@ Route::post('/contact/thanks', 'ContactController@complete')->name('contact.comp
 //一覧表示
 Route::get('/stores', 'StoreDisplayController@index')->name('stores.index');
 Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
-// Route::resource('/stores', 'StoreDisplayController');
-//↑storescontrollerとぶつかったのでコメントアウトしました
 
 //商品関連
 //一覧表示

@@ -14,7 +14,7 @@
     <div class = "row justify-content-center">
         <div class = "col-12 col-sm-8">
                 <p class = "pl-2">この内容でよろしければ「送信する」ボタンを押してください。</p>
-            {!! Form::open(['route' => 'stores.store', 'method' => 'post']) !!}    
+            {!! Form::open(['route' => 'stores.store', 'method' => 'post']) !!}
             <div class = "form-group">
                     {!! Form::label('store_name', '【店名】: '. $post_data["store_name"]) !!}
                 </div>
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $post_data["description"]) !!}
                 </div>
-               </div>            
+               </div>
 
         <div class = "container">
                 <div class="row  justify-content-center">
@@ -54,7 +54,7 @@
                 <button type="submit" class="btn btn-secondary btn-block">
                     修正する
                 </button>
-            </div>    
+            </div>
         </div>
      </a>
 </div>

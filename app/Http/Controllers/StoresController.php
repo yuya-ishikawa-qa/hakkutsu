@@ -57,7 +57,7 @@ class StoresController extends Controller
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
         $data = array(
             'temp_path' => $temp_path,
-            'read_temp_path' => $read_temp_path, 
+            'read_temp_path' => $read_temp_path,
         );
         $request->session()->put([
             'data' => $data,
@@ -102,7 +102,7 @@ class StoresController extends Controller
         }
 
         public function edit($id)
-        {   
+        {
             $user = \Auth::user();
             $store = Store::findOrFail($id);
             $data=[
@@ -134,13 +134,14 @@ class StoresController extends Controller
                 'mail' => $post_data['mail'],
                 'business_hours' => $post_data['business_hours'],
                 'description' => $post_data['description'],
-            );  
+            );
             $store = Store::findOrFail($id);
             $store->fill($params)->save();
             return redirect('store/management/request')->with([
                 'flash_message' => '変更しました。',
             ]);
         }   
+
         public function itemlist($id)
         {
             $user = \Auth::user();
@@ -154,24 +155,4 @@ class StoresController extends Controller
             return view('stores.itemlist', $data);
         }
 
-
-//         public function createitem($id)
-//         {
-//             // $user = \Auth::user();
-//             // $stores = $user->stores();
-//             // $data=[
-//             //     'user' => $user,
-//             //     'stores' => $stores,
-//             // ];
-//             $user = \Auth::user();
-//             $store = Store::findOrFail($id);
-//             $items = $store->items();
-//             $data = [
-//                 'user' => $user,
-//                 'store' => $store,
-//                 'items' => $items,
-//             ];
-//             return view('items.create',$data);
-//         }
-// 
 }

@@ -2,15 +2,6 @@
 
 @section('content')
 
-    {{-- エラーメッセージ --}}
-@if (count($errors) > 0)
-<ul class="alert alert-danger" role="alert">
-    @foreach ($errors->all() as $error)
-    <li class="ml-4">{{ $error }}</li>
-    @endforeach
-</ul>
-@endif
-
 @section('breadcrumbs', Breadcrumbs::render('contact'))
 
 {{-- 本体 --}}
@@ -47,11 +38,11 @@
                 </div>
             </div>
 
-                <div class="row  justify-content-center">
-                    <div class="col-sm-12 mt-3">
-                        {!! Form::submit('お問い合わせ内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
-                    </div>
+            <div class="row  justify-content-center">
+                <div class="col-sm-12 mt-3">
+                    {!! Form::submit('お問い合わせ内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
                 </div>
+            </div>
 
             {{ Form::close() }}
 
@@ -59,8 +50,8 @@
     </div>
 </div>
 
-        </div>
-    </div>
+</div>
+</div>
 
 
 @endsection

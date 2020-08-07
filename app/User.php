@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes; // 論理削除
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes; // 論理削除
 
     /**
      * The attributes that are mass assignable.
