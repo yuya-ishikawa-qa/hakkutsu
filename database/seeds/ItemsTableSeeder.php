@@ -13,7 +13,6 @@ class ItemsTableSeeder extends Seeder
     {
         DB::table('items')->insert([
             'store_id' => '1',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '旬のさくらんぼ',
             'status' => 'status',
@@ -24,7 +23,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '1',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '煌めき',
             'status' => 'status',
@@ -35,7 +33,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '1',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'とっても甘いサクランボ',
             'status' => 'status',
@@ -46,7 +43,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '1',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '紅さやか',
             'status' => 'status',
@@ -57,7 +53,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '2',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '静岡そだち（和牛）',
             'status' => 'status',
@@ -68,7 +63,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '2',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '味付きBBQ',
             'status' => 'status',
@@ -79,7 +73,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '2',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '黒毛和牛',
             'status' => 'status',
@@ -90,7 +83,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '2',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '串焼きBBQ',
             'status' => 'status',
@@ -101,7 +93,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '3',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'ワインに合うチーズ３選',
             'status' => 'status',
@@ -112,7 +103,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '3',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '超美おいしい牛乳',
             'status' => 'status',
@@ -123,7 +113,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '3',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '世界の逸品（チーズ）',
             'status' => 'status',
@@ -134,7 +123,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '3',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'フルーツチーズ',
             'status' => 'status',
@@ -145,7 +133,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '世界のオレンジ詰め合わせ',
             'status' => 'status',
@@ -156,7 +143,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'OrangeOil',
             'status' => 'status',
@@ -167,7 +153,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'はっさく（１箱・約１５個入）',
             'status' => 'status',
@@ -178,7 +163,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'OrangeJuice',
             'status' => 'status',
@@ -189,7 +173,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => '俺のオレンジ特製 Orange',
             'status' => 'status',
@@ -200,7 +183,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '4',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'みかん',
             'status' => 'status',
@@ -211,7 +193,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '12',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'Naousa',
             'status' => 'status',
@@ -222,7 +203,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '12',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'お手頃ワイン',
             'status' => 'status',
@@ -233,7 +213,6 @@ class ItemsTableSeeder extends Seeder
         ]);
         DB::table('items')->insert([
             'store_id' => '12',
-            'order_id' => '1',
             'tax_id' => '1',
             'item_name' => 'Moet',
             'status' => 'status',
