@@ -29,12 +29,10 @@ class ReviewsController extends Controller
     {
         $data = $request->item_id;
         $item = Item::where('id', '=', $data)->select('item_name')->first();
-        $user = \Auth::user();
 
         return view('reviews.create')->with([
             'data' => $data,
             'item' => $item,
-            'user' => $user,
         ]);
     }
 
