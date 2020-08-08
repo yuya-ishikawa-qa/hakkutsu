@@ -26,13 +26,13 @@
           </form>
           @endif
         </div>
-          <div class="mt-5">
+          <div class="mt-5 mx-1">
                 <a class="btn btn-outline-primary w-100" href="{{ route('stores.index')}}">店舗一覧はこちら</a>
           </div>
-          <div class="mt-5">
+          <div class="mt-5 mx-1">
                 <a class="btn btn-outline-success w-100" href="{{ route('items.index')}}">商品一覧はこちら</a>
           </div>
-          <div class="mt-5">
+          <div class="mt-5 mx-1">
                 <a class="btn btn-outline-secondary w-100" href="{{ route('reviews.index')}}">商品レビュー一覧に戻る</a>
   　　　　　</div>
         </div>

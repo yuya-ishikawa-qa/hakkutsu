@@ -27,8 +27,7 @@
     </div>
     <div class="form-group mb-5">
       <h3>レビュー</h3>
-      <textarea id="body" name="body" class="form-control" rows="4">{{old('body')}}
-      </textarea>
+      <textarea id="body" name="body" class="form-control" rows="4">{{old('body')}}</textarea>
       <div class="text-danger">
         {{$errors->first('body')}}
       </div>
@@ -37,11 +36,11 @@
     <input type="hidden" id="item_id" name="item_id" value="{{$data}}">
     <input type="hidden" id="user_id" name="user_id" value="{{('user_id')}}">
 
-    <div class="mt-5">
-      <a class="btn btn-secondary" href="{{route('reviews.index')}}">
+    <div class="my-2 d-flex justify-content-around">
+      <a class="btn btn-outline-secondary btn-lg" href="{{route('reviews.index')}}">
         キャンセル
       </a>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" class="btn btn-outline-primary btn-lg">
         投稿する
       </button>
     </div>
