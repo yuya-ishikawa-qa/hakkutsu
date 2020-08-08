@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-12 d-flex mt-5">
           <div class="col-md-4 mt-4 text-center">
-            <a href="{{route('reviews.create')}}">
+            <a href="{{ route('reviews.create', ['item_id' => $item->id ]) }}">
               <button class="btn btn-outline-secondary w-75">商品レビューを投稿</button>
             </a>
           </div>

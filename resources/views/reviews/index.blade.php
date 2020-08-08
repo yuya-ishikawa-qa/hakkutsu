@@ -2,12 +2,6 @@
 
 @section('content')
   <div class="container mt-4">
-      <div class="mb-4">
-          <a href="{{route('reviews.create')}}" class="btn btn-primary">
-            レビューを新規作成する
-          </a>
-      </div>
-
       @foreach ($reviews as $review)
       <div class="card mt-5">
         <div class="card-header mb-2">
@@ -27,7 +21,7 @@
           </div>
         <div class="card-footer">
           <span class="mr-2">
-            投稿日時：{{ $review->created_at}}
+            投稿日時：{{ $review->created_at->format('Y年m月d日')}}
           </span>
         </div>
       </div>
