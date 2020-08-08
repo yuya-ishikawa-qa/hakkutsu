@@ -13,9 +13,9 @@
 
       <div class="col-md-4">
         <h3 class="my-3">タイトル：{{ $review->title }}</h3>
-        <h3 class="my-3">投稿者名：</h3>
-        <h3 class="my-3">商品名：</h3>
-        <h3 class="my-3">投稿日時：{{ $review->created_at}}</h3>
+        <h3 class="my-3">投稿者名：{{ $user->name}}</h3>
+        <h3 class="my-3">商品名：{{ $item->item_name}}</h3>
+        <h3 class="my-3">投稿日時：{{ $review->created_at->format('Y年m月d日')}}</h3>
         <p>{{ $review->body }}</p>
         <div class="mt-5">
           @if(Auth::id() == $review->user_id)
@@ -26,13 +26,11 @@
           </form>
           @endif
         </div>
-        <div class="d-flex justify-content-between mt-5">
-          <div>
-              <a class="btn btn-primary" href="{{ route('stores.index')}}">この商品の取り扱い店舗</a>
-          </div>
-          <div>
-              <a class="btn btn-primary" href="{{ route('items.index')}}">商品一覧</a>
-          </div>
+        <div class="d-flex mt-5">
+              <a class="btn btn-outline-primary w-100" href="{{ route('stores.index')}}">店舗一覧はこちら</a>
+        </div>
+        <div class="d-flex mt-5">
+              <a class="btn btn-outline-success w-100" href="{{ route('items.index')}}">商品一覧はこちら</a>
         </div>
 
 

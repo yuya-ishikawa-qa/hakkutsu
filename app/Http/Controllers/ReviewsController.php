@@ -30,7 +30,6 @@ class ReviewsController extends Controller
         $data = $request->item_id;
         $item = Item::where('id', '=', $data)->select('item_name')->first();
         $user = \Auth::user();
-        //dd($item);
 
         return view('reviews.create')->with([
             'data' => $data,
@@ -56,11 +55,15 @@ class ReviewsController extends Controller
     public function show(Request $request, $id)
     {
         $review = Review::with('item', 'user')->find($id);
+        $item = Item::where('id', '=', $id)->select('item_name')->first();
         $randomItemInformation = Item::select('image_path')->inRandomOrder()->take(4)->get();
+        $user = \Auth::user();
 
         return view('reviews.show')->with([
             'review' => $review,
+            'item' => $item,
             'randomItemInformation' => $randomItemInformation,
+            'user' => $user,
         ]);
     }
 

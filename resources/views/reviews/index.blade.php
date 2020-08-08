@@ -21,7 +21,7 @@
           </div>
         <div class="card-footer">
           <span class="mr-2">
-            投稿日時：{{ $review->created_at}}
+            投稿日時：{{ $review->created_at->format('Y年m月d日')}}
           </span>
         </div>
       </div>

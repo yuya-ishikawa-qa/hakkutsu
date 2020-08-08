@@ -17,7 +17,6 @@ class Review extends Model
         'item_id',
         'title',
         'body',
-        'stars',
         ];
 
         public function item()
