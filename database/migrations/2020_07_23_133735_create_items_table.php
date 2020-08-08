@@ -14,9 +14,8 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->bigInteger('store_id')->unsigned()->index();
-            $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('tax_id')->unsigned();
             $table->string('item_name');
             $table->string('status');
@@ -27,6 +26,8 @@ class CreateItemsTable extends Migration
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
+
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
     }
 
