@@ -56,17 +56,17 @@
 
                             <div class="form-group">
                                 {!! Form::label('email_confirmation', 'メールアドレス（確認）') !!}
-                                {!! Form::email('email_confirmation', old('email_confirmation'), ['class' => 'form-control']) !!}
+                                {!! Form::email('email_confirmation', old('email_confirmation'), ['class' => 'form-control', 'placeholder' => '再度入力してください']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('password', 'パスワード') !!}
-                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字８文字以上で入力']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字６文字以上で入力']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('password_confirmation', 'パスワード（確認）') !!}
-                                {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                                {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => '再度入力してください']) !!}
                             </div>
 
 

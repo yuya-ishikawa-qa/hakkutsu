@@ -66,19 +66,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'name_kana' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
-            'address_1' => ['required', 'string', 'max:255'],
-            'address_2' => ['required', 'string', 'max:255'],
-            'address_3' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'string', 'max:255'],
-            'email' => [
-            	'required', 'string', 'email', 'max:255', 
-            	Rule::unique('users', 'email')->whereNull('deleted_at'),
-            ],
+            'name' => 'required | string | max:255',
+            'name_kana' => 'required | string | max:255',
+            'postal_code' => 'required | string | max:255',
+            'address_1' => 'required | string | max:255',
+            'address_2' => 'required | string | max:255',
+            'address_3' => 'required | string | max:255',
+            'tel' => 'required | string | max:255',
+            'email' => 'required | string | email | max:255', 
+            Rule::unique('users', 'email')->whereNull('deleted_at'),
             // 8文字以上＆英数字(アルファベット・数字は最低1文字以上は使用する)
-            'password' => ['required', 'string', 'regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i'],
+            'password' => 'required | string | min:6 | confirmed | regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/i',
         ]);
     }
 
