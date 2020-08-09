@@ -87,6 +87,7 @@ class StoresController extends Controller
     
         public function store(Request $request)
         {
+            dd($request);
             //セッションから必要なデータを取得
             $data = $request->session()->get('data');
             $post_data = $request->session()->get('post_data');
@@ -168,7 +169,7 @@ class StoresController extends Controller
                 'business_hours' => $post_data['business_hours'],
                 'description' => $post_data['description'],
             );
-            
+
             $store = Store::findOrFail($id);
             //データベースをまとめて更新
             $store->fill($params)->save();
