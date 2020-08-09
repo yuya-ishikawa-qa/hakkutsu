@@ -13,8 +13,7 @@
           <div class="row mt-5 mb-5">
             <div class="col-sm-6 offset-sm-3">
               <p class="pl-2">この内容でよろしければ「登録する」ボタンを押してください。</p>
-              {!! Form::open(['route' => ['users.edit', Auth::user()->id], 'method' => 'get']) !!}
-              <!-- {!! Form::open(['route' => ['users.destroy', Auth::user()->id], 'method' => 'delete']) !!} -->
+              {!! Form::open(['route' => 'signup', 'method' => 'post']) !!}
               <div class="form-group">
                 {!! Form::label('name', '【お名前】：' . $data['name']) !!}
               </div>

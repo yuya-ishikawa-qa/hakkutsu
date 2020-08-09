@@ -30,7 +30,7 @@ class UsersController extends Controller
         return redirect('users.index')->with('my_status', __('Created new user.'));
     }
 
-    public function edit()
+    public function edit(User $user)
     {
         $id = Auth::id();
         $user = User::findOrFail($id);

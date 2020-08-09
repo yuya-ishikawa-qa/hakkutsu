@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\User;
-use App\Store; 
+use App\Store;
 use App\Item;
 use DB;
 use App\Http\Requests\StoreRequest;
@@ -68,7 +68,7 @@ class StoresController extends Controller
             'data' => $data,
         ]);
     }
-    
+
         public function store(Request $request)
         {
             $data = $request->session()->get('data');
@@ -140,7 +140,7 @@ class StoresController extends Controller
             return redirect('store/management/request')->with([
                 'flash_message' => '変更しました。',
             ]);
-        }   
+        }
 
         public function itemlist($id)
         {

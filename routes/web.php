@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 // ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup/confirm','StoresController@confirm')->name('signup.confirm');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 // ログイン機能
@@ -28,6 +29,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 // マイページ関連
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('users/edit', 'UsersController@edit')->name('users.edit');
     Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
 });
@@ -55,10 +57,7 @@ Route::get('/buy/index', function () {
 Route::get('/privacy', function () {
     return view('privacy');
 });
-// 特定商取引法
-Route::get('/law', function () {
-    return view('law');
-});
+
 
 //store作成、削除
 Route::group(['middleware' => 'auth'], function () {

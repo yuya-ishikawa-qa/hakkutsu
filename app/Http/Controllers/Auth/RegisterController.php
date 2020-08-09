@@ -76,10 +76,10 @@ class RegisterController extends Controller
             'email' => 'required | string | email | max:255', 
             Rule::unique('users', 'email')->whereNull('deleted_at'),
             // 8文字以上＆英数字(アルファベット・数字は最低1文字以上は使用する)
-            'password' => 'required | string | min:6 | confirmed | regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/i',
+            'password' => 'required | string | min:6 | confirmed',
         ]);
     }
-
+    // regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/i
     /**
      * Create a new user instance after a valid registration.
      *
@@ -99,5 +99,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function confirm(StoreRequest $request)
+    {
+        $data = $request->session()->all();
     }
 }
