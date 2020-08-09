@@ -18,7 +18,6 @@ class CreateReviewsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('item_id')->unsigned();
             $table->string('title',60)->null();
-            $table->integer('stars')->default(0);
             $table->string('body')->null();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
