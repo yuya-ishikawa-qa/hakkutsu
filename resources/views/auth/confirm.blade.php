@@ -13,7 +13,7 @@
           <div class="row mt-5 mb-5">
             <div class="col-sm-6 offset-sm-3">
               <p class="pl-2">この内容でよろしければ「登録する」ボタンを押してください。</p>
-              {!! Form::open(['route' => 'signup', 'method' => 'post']) !!}
+              {!! Form::open(['route' => 'signup.post', 'method' => 'post']) !!}
               <div class="form-group">
                 {!! Form::label('name', '【お名前】：' . $data['name']) !!}
               </div>
@@ -47,7 +47,7 @@
               </div>
 
 
-              {!! Form::submit('登録する', ['name' => 'action', 'class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+              {!! Form::submit('登録する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
               {!! Form::close() !!}
 
 

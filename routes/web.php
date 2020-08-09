@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 // ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
-Route::post('signup/confirm','StoresController@confirm')->name('signup.confirm');
-Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+Route::post('signup_confirm','Auth\RegisterController@signup_confirm')->name('signup.confirm');
+Route::post('signup', 'Auth\RegisterController@store')->name('signup.post');
 
 // ログイン機能
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

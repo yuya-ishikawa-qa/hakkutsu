@@ -13,15 +13,15 @@
                     <div class="row mt-5 mb-5">
                         <div class="col-sm-6 offset-sm-3">
 
-                            {!! Form::open(['route' => 'signup']) !!}
+                            {!! Form::open(['route' => 'signup.confirm', 'method' => 'post']) !!}
                             <div class="form-group">
                                 {!! Form::label('name', 'お名前') !!}
-                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '発掘 太郎']) !!}
+                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '例）発掘 太郎']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('name_kana', 'お名前（フリガナ）') !!}
-                                {!! Form::text('name_kana', old('name_kana'), ['class' => 'form-control', 'placeholder' => 'ハックツ タロウ']) !!}
+                                {!! Form::text('name_kana', old('name_kana'), ['class' => 'form-control', 'placeholder' => '例）ハックツ タロウ']) !!}
                             </div>
 
                             <div class="form-group">
@@ -70,7 +70,7 @@
                             </div>
 
 
-                            {!! Form::submit('登録する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+                            {!! Form::submit('確認する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
                             {!! Form::close() !!}
 
 
