@@ -53,7 +53,7 @@ class ItemsController extends Controller
 
         $data = array(
             'temp_path' => $temp_path,
-            'read_temp_path' => $read_temp_path, 
+            'read_temp_path' => $read_temp_path,
             'store' => $store,
             'taxes' => $taxes,
         );
@@ -62,7 +62,7 @@ class ItemsController extends Controller
             'post_data' => $post_data,
         ]);
 
-        //確認画面でtax_idが1なら8%,それ以外なら10%を表示 
+        //確認画面でtax_idが1なら8%,それ以外なら10%を表示
         if($post_data['tax_id'] == '1'){
             $post_data['tax_id'] = '8%';
         }else{
@@ -107,7 +107,7 @@ class ItemsController extends Controller
         }
 
         public function edit($store_id,$item_id)
-        {   
+        {
             $taxes = \App\Tax::orderBy('code','asc')->pluck('tax_rate', 'code');
             $user = \Auth::user();
             $store = Store::findOrFail($store_id);
@@ -133,7 +133,7 @@ class ItemsController extends Controller
                 $item->image_path = $read_path;
                 $item->save();
                 }
-                
+
             $post_data = $request->except('image_path');
             $params = array(
                 'item_name' => $post_data['item_name'],
@@ -142,16 +142,16 @@ class ItemsController extends Controller
                 'price' => $post_data['price'],
                 'description' => $post_data['description'],
                 'tax_id' => $post_data['tax_id'],
-            );  
+            );
             $item = Item::findOrFail($item_id);
             $item->fill($params)->save();
             return redirect()->route('stores.management')->with([
                 'flash_message' => '商品を編集しました',
             ]);
-        } 
+        }
 
         public function destroy($store_id,$item_id)
-        {   
+        {
             $store = Store::findOrFail($store_id);
             $item = Item::findOrFail($item_id);
             $item->delete();

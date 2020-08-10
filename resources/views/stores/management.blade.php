@@ -16,7 +16,7 @@
 
 <div class="container">
       <!-- Shop Toolbar-->
-      　<div class="row justify-content-between">
+        <div class="row justify-content-between">
             <div class="mb-2 ml-4 shop-sorting">
               <p>総件数: {{ $stores -> total() }}件</p>
                 <form action="/stores" method="get">

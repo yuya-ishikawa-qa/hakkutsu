@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <div class="text-right">
 ユーザー名:{{ Auth::user()->name }}<br>
 店名:{{ $store->store_name}}

@@ -10,45 +10,47 @@
 
           @csrf
 
+          <div class="p-3 mb-2 bg-warning text-dark text-center">
+            <p class="pl-2">この内容でよろしければ<br>「登録する」ボタンを押してください。</p>
+          </div>
+
           <div class="row mt-5 mb-5">
             <div class="col-sm-6 offset-sm-3">
-              <p class="pl-2">この内容でよろしければ「登録する」ボタンを押してください。</p>
-              {!! Form::open(['route' => ['users.edit', Auth::user()->id], 'method' => 'get']) !!}
-              <!-- {!! Form::open(['route' => ['users.destroy', Auth::user()->id], 'method' => 'delete']) !!} -->
+              {!! Form::open(['route' => 'signup.post', 'method' => 'post']) !!}
               <div class="form-group">
                 {!! Form::label('name', '【お名前】：' . $data['name']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('name_kana', 'お名前（フリガナ）：' . $data['name_kana']) !!}
+                {!! Form::label('name_kana', '【フリガナ】：' . $data['name_kana']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('postal_code', '郵便番号：' . $data['postal_code']) !!}
+                {!! Form::label('postal_code', '【郵便番号】：' . $data['postal_code']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_1', '住所１' . $data['address_1']) !!}
+                {!! Form::label('address_1', '【住所 1】：' . $data['address_1']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_2', '住所２' . $data['address_2']) !!}
+                {!! Form::label('address_2', '【住所 2】：' . $data['address_2']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_3', '住所３' . $data['address_3']) !!}
+                {!! Form::label('address_3', '【住所 3】：' . $data['address_3']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('tel', '電話番号' . $data['tel']) !!}
+                {!! Form::label('tel', '【電話番号】：' . $data['tel']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('email', 'メールアドレス' . $data['email']) !!}
+                {!! Form::label('email', '【メールアドレス】：' . $data['email']) !!}
               </div>
 
 
-              {!! Form::submit('登録する', ['name' => 'action', 'class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+              {!! Form::submit('登録する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
               {!! Form::close() !!}
 
 
