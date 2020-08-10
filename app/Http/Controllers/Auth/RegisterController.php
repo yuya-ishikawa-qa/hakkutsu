@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignupRequest;
-use Illuminate\Validation\Rule;    // 追加
 
 class RegisterController extends Controller
 {
@@ -44,28 +42,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => 'required | string | max:255',
-    //         'name_kana' => 'required | string | max:255',
-    //         'postal_code' => 'required | string | max:255',
-    //         'address_1' => 'required | string | max:255',
-    //         'address_2' => 'required | string | max:255',
-    //         'address_3' => 'required | string | max:255',
-    //         'tel' => 'required | string | max:255',
-    //         'email' => 'required | string | email | max:255',
-    //         Rule::unique('users', 'email')->whereNull('deleted_at'),
-    //         // 8文字以上＆英数字(アルファベット・数字は最低1文字以上は使用する)
-    //         'password' => 'required | string | min:6 | confirmed',
-    //     ]);
-    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -75,29 +51,10 @@ class RegisterController extends Controller
      */
 
 
-     // 確認フォーム
-    public function signup_confirm(SignupRequest $request)
-    {
-        $data = $request->all();
-
-
-        // $request->session()->put($data);
-        $request->session()->put([
-            'data' => $data,
-        ]);
-
-        return view('auth.confirm', compact("data"));
-    }
-
-
     public function store(Request $request)
     {
-        // dd($request);
 
         $data = $request->session()->get('data');
-        // $request->session()->forget('data');
-        // dd($data);
-
 
         $users = new User();
         $users->name = $data['name'];
@@ -114,20 +71,16 @@ class RegisterController extends Controller
     }
 
 
-    // protected function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'name_kana' => $data['name_kana'],
-    //         'postal_code' => $data['postal_code'],
-    //         'address_1' => $data['address_1'],
-    //         'address_2' => $data['address_2'],
-    //         'address_3' => $data['address_3'],
-    //         'tel' => $data['tel'],
-    //         'email' => $data['email'],
-    //         'password' => Hash::make($data['password']),
-    //     ]);
-    // }
+     // 確認フォーム
+    public function signup_confirm(SignupRequest $request)
+    {
+        $data = $request->all();
+        $request->session()->put([
+            'data' => $data,
+        ]);
+
+        return view('auth.confirm', compact("data"));
+    }
 
 
     /**

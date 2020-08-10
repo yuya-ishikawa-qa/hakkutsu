@@ -32,9 +32,8 @@ class SignupRequest extends FormRequest
             'address_2' => 'required | string | max:255',
             'address_3' => 'required | string | max:255',
             'tel' => 'required | string | max:255',
-            'email' => 'required | string | email | max:255',
-            Rule::unique('users', 'email')->whereNull('deleted_at'),
-            // 8文字以上＆英数字(アルファベット・数字は最低1文字以上は使用する)
+            'email' => ['required', 'string', 'email', 'max:255', 
+            Rule::unique('users', 'email')->whereNull('deleted_at')],
             'password' => 'required | string | min:6 | confirmed',
         ];
     }
