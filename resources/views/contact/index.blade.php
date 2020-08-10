@@ -40,7 +40,7 @@
 
             <div class="row  justify-content-center">
                 <div class="col-sm-12 mt-3">
-                    {!! Form::submit('お問い合わせ内容を確認する', ['class' => 'btn btn-primary btn-block']) !!}
+                    {!! Form::submit('お問い合わせ内容を確認する', ['class' => 'btn btn-outline-primary btn-block']) !!}
                 </div>
             </div>
 
