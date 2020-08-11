@@ -20,6 +20,7 @@ class ContactController extends Controller
         ]);
 
         $inputs = $request->all();
+        // dd($inputs);
 
         return view ('contact.confirm',[
             'inputs' => $inputs
@@ -30,6 +31,7 @@ class ContactController extends Controller
     {
         //確認画面で修正するが選択された時にお問い合わせフォームに戻る
         $input = $request->except('action');
+        // dd($input);
         if($request->action === '修正する'){
             return redirect()->route('contact.index')->withInput($input);
         }
