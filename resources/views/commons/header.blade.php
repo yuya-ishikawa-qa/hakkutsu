@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <div class="shopping_cart">
-                <a href="cart/index" class="nav-link"><img src="{{ asset('image/shopping_cart.png') }}" width="50" alt="shopping_cart.png"></a>
+                <a href="/cart/index" class="nav-link"><img src="{{ asset('image/shopping_cart.png') }}" width="50" alt="shopping_cart.png"></a>
             </div>
         </div>
     </nav>
