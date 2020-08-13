@@ -61,7 +61,7 @@ class ItemsController extends Controller
         //上記で取得した変数を代入
         $data = array(
             'temp_path' => $temp_path,
-            'read_temp_path' => $read_temp_path, 
+            'read_temp_path' => $read_temp_path,
             'store' => $store,
             'taxes' => $taxes,
         );
@@ -71,7 +71,7 @@ class ItemsController extends Controller
             'post_data' => $post_data,
         ]);
 
-        //確認画面でtax_idが1なら8%,それ以外なら10%を表示 
+        //確認画面でtax_idが1なら8%,それ以外なら10%を表示
         if($post_data['tax_id'] == '1'){
             $post_data['tax_id'] = '8%';
         }else{
@@ -157,8 +157,12 @@ class ItemsController extends Controller
                 $item->image_path = $read_path;
                 $item->save();
                 }
+<<<<<<< HEAD
             
             //image_pathを除いて変数に代入
+=======
+
+>>>>>>> develop
             $post_data = $request->except('image_path');
             //上記の変数を変数に代入
             $params = array(
@@ -168,8 +172,12 @@ class ItemsController extends Controller
                 'price' => $post_data['price'],
                 'description' => $post_data['description'],
                 'tax_id' => $post_data['tax_id'],
+<<<<<<< HEAD
             );  
             //item情報を取得し、変数に代入
+=======
+            );
+>>>>>>> develop
             $item = Item::findOrFail($item_id);
             //データベースに保存
             $item->fill($params)->save();
@@ -177,11 +185,15 @@ class ItemsController extends Controller
             return redirect()->route('stores.management')->with([
                 'flash_message' => '商品を編集しました',
             ]);
-        } 
+        }
 
         public function destroy($store_id,$item_id)
+<<<<<<< HEAD
         {   
             //情報を取得し、変数に代入
+=======
+        {
+>>>>>>> develop
             $store = Store::findOrFail($store_id);
             $item = Item::findOrFail($item_id)
             ;

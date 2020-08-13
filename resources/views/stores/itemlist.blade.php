@@ -72,7 +72,7 @@
 </div>
 
 <div class = "text-center">
-  <a class="btn btn-primary btn-lg" href= {{route('items.create',['store' => $store])}}>              
+  <a class="btn btn-primary btn-lg" href= {{route('items.create',['store' => $store])}}>
           新規の出品はこちら
   </a>
 </div>

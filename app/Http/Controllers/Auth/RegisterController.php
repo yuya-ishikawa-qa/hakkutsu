@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;	// 追加
+use App\Http\Requests\SignupRequest;
 
 class RegisterController extends Controller
 {
@@ -31,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
 
-    protected $redirectTo = 'users/index';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -41,6 +40,46 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+
+
+    public function store(Request $request)
+    {
+
+        $data = $request->session()->get('data');
+
+        $users = new User();
+        $users->name = $data['name'];
+        $users->name_kana = $data['name_kana'];
+        $users->postal_code = $data['postal_code'];
+        $users->address_1 = $data['address_1'];
+        $users->address_2 = $data['address_2'];
+        $users->address_3 = $data['address_3'];
+        $users->tel = $data['tel'];
+        $users->email = $data['email'];
+        $users->password = Hash::make($data['password']);
+        $users->save();
+        return redirect('/')->with('my_status', __('会員登録が完了しました'));
+    }
+
+
+     // 確認フォーム
+    public function signup_confirm(SignupRequest $request)
+    {
+        $data = $request->all();
+        $request->session()->put([
+            'data' => $data,
+        ]);
+
+        return view('auth.confirm', compact("data"));
     }
 
 
@@ -57,48 +96,4 @@ class RegisterController extends Controller
         return redirect('users')->with('my_status', __('会員登録が完了しました'));
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'name_kana' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
-            'address_1' => ['required', 'string', 'max:255'],
-            'address_2' => ['required', 'string', 'max:255'],
-            'address_3' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'string', 'max:255'],
-            'email' => [
-            	'required', 'string', 'email', 'max:255', 
-            	Rule::unique('users', 'email')->whereNull('deleted_at'),
-            ],
-            'password' => ['required', 'string', 'min:7', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'name_kana' => $data['name_kana'],
-            'postal_code' => $data['postal_code'],
-            'address_1' => $data['address_1'],
-            'address_2' => $data['address_2'],
-            'address_3' => $data['address_3'],
-            'tel' => $data['tel'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
 }

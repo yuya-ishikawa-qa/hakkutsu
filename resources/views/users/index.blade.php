@@ -38,7 +38,7 @@
           {!! link_to_route('store.request', '出店依頼はこちら') !!}
         </li>
         <li class="button-hover">
-          {!! link_to_route('signup', '会員登録内容の変更') !!}
+          {!! link_to_route('users.edit', '会員登録内容の変更') !!}
         </li>
         <li class="button-hover">
           {!! link_to_route('users.delete_confirm', '退会手続き') !!}
