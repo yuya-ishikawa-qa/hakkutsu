@@ -157,12 +157,8 @@ class ItemsController extends Controller
                 $item->image_path = $read_path;
                 $item->save();
                 }
-<<<<<<< HEAD
-            
-            //image_pathを除いて変数に代入
-=======
 
->>>>>>> develop
+            //image_pathを除いて変数に代入
             $post_data = $request->except('image_path');
             //上記の変数を変数に代入
             $params = array(
@@ -172,12 +168,8 @@ class ItemsController extends Controller
                 'price' => $post_data['price'],
                 'description' => $post_data['description'],
                 'tax_id' => $post_data['tax_id'],
-<<<<<<< HEAD
             );  
             //item情報を取得し、変数に代入
-=======
-            );
->>>>>>> develop
             $item = Item::findOrFail($item_id);
             //データベースに保存
             $item->fill($params)->save();
@@ -188,12 +180,8 @@ class ItemsController extends Controller
         }
 
         public function destroy($store_id,$item_id)
-<<<<<<< HEAD
         {   
             //情報を取得し、変数に代入
-=======
-        {
->>>>>>> develop
             $store = Store::findOrFail($store_id);
             $item = Item::findOrFail($item_id)
             ;
