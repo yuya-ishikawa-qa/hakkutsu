@@ -8,7 +8,7 @@
     <div class="row pb-5">
 
       <div class="col-md-8">
-        <img class="img-fluid item-primary-display" src="{{asset('storage/images/'.$review->item->image_path)}}" alt="">
+        <img class="img-fluid item-primary-display" src="{{asset($review->item->image_path)}}" alt="">
       </div>
 
       <div class="col-md-4">
@@ -45,7 +45,7 @@
       @foreach ($randomItemInformation as $item)
       <div class="col-md-3 col-sm-6 mb-4">
         <a href="/items/{{$item->id}}">
-        <img class="img-fluid item-four-display" src="{{asset('storage/images/'.$item->image_path)}}" alt="">
+        <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="">
       </div>
       @endforeach
 
