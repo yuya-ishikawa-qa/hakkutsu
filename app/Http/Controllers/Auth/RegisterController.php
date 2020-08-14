@@ -56,7 +56,7 @@ class RegisterController extends Controller
 
         $data = $request->except('action');
 
-        if($request->action === '修正する'){
+        if ($request->action === '修正する') {
             return redirect()->route('signup')->withInput($data);
         }
 
@@ -75,15 +75,14 @@ class RegisterController extends Controller
     }
 
 
-     // 確認フォーム
+    // 確認フォーム
     public function signup_confirm(SignupRequest $request)
     {
 
         $data = $request->all();
 
-        return view ('auth.confirm',[
+        return view('auth.confirm', [
             'data' => $data
         ]);
     }
-
 }
