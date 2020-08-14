@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+@endif
 <div class="container">
   <div class="row">
 
@@ -25,7 +29,7 @@
               {{$item->description}}
             @endif
           </p>
-          <div class="row mt-5">
+          <!-- <div class="row mt-5">
             <div class="col-md-3">
               <div class="form-group">
                 <label for="quantity">数量</label>
@@ -41,9 +45,11 @@
             <div class="sp-buttons col-md-9 mt-4">
               <a href="">
                 <button class="btn btn-primary">カートに入れる</button>
-              </a>
+              </a> -->
+            <div class="clearfix">
+        	    <a href="{{route('cart.addToCart',['id'=>$item->id])}}" class="btn btn-success pull-right" role="button">カートに入れる</a>
             </div>
-          </div>
+    </form>
         </div>
         <div class="col-md-12 d-flex mt-5">
           <div class="col-md-4 mt-4 text-center">
@@ -80,6 +86,7 @@
 
     </div>
   </div>
+
 
 
   @endsection

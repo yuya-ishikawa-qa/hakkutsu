@@ -17,6 +17,7 @@
             {!! Form::open(['route' => 'stores.store', 'method' => 'post']) !!}
             <div class = "form-group">
                     {!! Form::label('store_name', '【店名】: '. $post_data["store_name"]) !!}
+                    <input type="hidden" value="{{$post_data["store_name"]}}">
                 </div>
                 <div class = "form-group">
                     {!! Form::label('postal', '【店舗郵便番号】 '. $post_data["postal"]) !!}
