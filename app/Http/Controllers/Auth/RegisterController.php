@@ -53,12 +53,9 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
 
-        // $data = $request->session()->get('data');
-        //確認画面で修正するが選択された時にお問い合わせフォームに戻る
         $data = $request->except('action');
-        // dd($data);
+
         if($request->action === '修正する'){
             return redirect()->route('signup')->withInput($data);
         }
@@ -81,13 +78,7 @@ class RegisterController extends Controller
      // 確認フォーム
     public function signup_confirm(SignupRequest $request)
     {
-        // $data = $request->all();
-        // // dd($data);
-        // $request->session()->put([
-        //     'data' => $data,
-        // ]);
 
-        // return view('auth.confirm', compact("data"));
         $data = $request->all();
 
         return view ('auth.confirm',[
