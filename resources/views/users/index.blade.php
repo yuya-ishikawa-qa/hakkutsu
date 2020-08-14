@@ -51,7 +51,7 @@
 
 <section class="sub-title">
   <div class="container">
-    <h3 class="content-text m-5">購入履歴一覧</h3>
+    <h3 class="content-text m-5">おすすめのHakkutsuアイテムはこちら</h3>
   </div>
 </section>
 
