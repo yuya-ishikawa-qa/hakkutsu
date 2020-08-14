@@ -63,7 +63,7 @@
 
 
               {!! Form::submit('登録する', ['name' => 'action', 'class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
-              {!! Form::submit('修正する', ['name' => 'action', 'class' => 'btn btn-secondary mt-5 p-3 btn-lg btn-block']) !!}
+              {!! Form::submit('戻る', ['name' => 'action', 'class' => 'btn btn-secondary mt-5 p-3 btn-lg btn-block']) !!}
               {!! Form::close() !!}
 
 

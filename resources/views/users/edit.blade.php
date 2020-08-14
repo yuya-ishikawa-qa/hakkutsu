@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h3 class="p-3 mb-2 bg-warning text-dark text-center">会員登録</h3>
+      <h3 class="p-3 mb-2 bg-warning text-dark text-center">会員登録内容の変更</h3>
       <div class="card">
         <div class="card-body">
 
@@ -62,7 +62,7 @@
               </div>
 
 
-              {!! Form::submit('修正する', ['class' => 'btn btn-secondary mt-5 p-3 btn-lg btn-block']) !!}
+              {!! Form::submit('変更する', ['class' => 'btn btn-secondary mt-5 p-3 btn-lg btn-block']) !!}
               {!! Form::close() !!}
 
 

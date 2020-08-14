@@ -32,7 +32,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $user->fill($request->all())->save();
-        return redirect('/')->with('my_status', __('変更が更新されました'));
+        return redirect('/')->with('my_status', __('登録内容が更新されました'));
     }
 
 
