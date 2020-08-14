@@ -54,11 +54,13 @@ class ReviewsController extends Controller
     {
         $review = Review::with('item', 'user')->find($id);
         $item = Item::where('id', '=', $id)->select('item_name')->first();
+        $user = User::where('id', '=', $review->user_id)->select('name')->first();
         $randomItemInformation = Item::select('image_path','id')->inRandomOrder()->take(4)->get();
 
         return view('reviews.show')->with([
             'review' => $review,
             'item' => $item,
+            'user' => $user,
             'randomItemInformation' => $randomItemInformation,
         ]);
     }

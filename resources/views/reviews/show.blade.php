@@ -13,7 +13,7 @@
 
       <div class="col-md-4">
         <h3 class="my-3">タイトル：{{ $review->title }}</h3>
-        <h3 class="my-3">投稿者名：{{ Auth::user()->name}}</h3>
+        <h3 class="my-3">投稿者名：{{ $user->name}}</h3>
         <h3 class="my-3">商品名：{{ $item->item_name}}</h3>
         <h3 class="my-3">投稿日時：{{ $review->created_at->format('Y年m月d日')}}</h3>
         <p>{{ $review->body }}</p>
