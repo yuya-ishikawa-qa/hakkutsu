@@ -20,7 +20,8 @@ class Cart
     	}
     }
 
-    public function add($item, $id){
+    //カートの商品群を追加するメソッド
+    public function add(Item $item, $id){
         //配列を変数に代入
     	$storedItem =['qty' => 0, 'price' =>$item->price, 'item'=>$item];
 
@@ -43,7 +44,8 @@ class Cart
         //取得したitemの金額を合計金額に加える
     	$this->totalPrice += $item->price;
     }
-
+    
+    //カートの指定の商品群の数量を1増やすメソッド
     public function increaseByOne($id){
         //1を足す
         $this->cart_items[$id]['qty']++;
@@ -60,6 +62,7 @@ class Cart
         }
     }
 
+    //カートの指定の商品群の数量を1減らすメソッド
     public function reduceByOne($id){
         //１減らす
         $this->cart_items[$id]['qty']--;
@@ -76,6 +79,7 @@ class Cart
         }
     }
 
+    //カートから商品群ごと削除するメソッド
     public function removeItem($id){
         //cartの合計の量から、cartの指定の商品の合計量を減らす
         $this->totalQty -= $this->cart_items[$id]['qty'];
