@@ -28,8 +28,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // マイページ関連
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'store', 'edit', 'update', 'destroy']]);
-    Route::get('users/edit', 'UsersController@edit')->name('users.edit');
+    Route::resource('users', 'UsersController', ['only' => ['index', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('edit', 'UsersController@edit')->name('users.edit');
     Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
 });

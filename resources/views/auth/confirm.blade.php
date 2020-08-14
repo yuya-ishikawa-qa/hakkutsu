@@ -10,47 +10,60 @@
 
           @csrf
 
-          <div class="p-3 mb-2 bg-warning text-dark text-center">
-            <p class="pl-2">この内容でよろしければ<br>「登録する」ボタンを押してください。</p>
-          </div>
-
           <div class="row mt-5 mb-5">
             <div class="col-sm-6 offset-sm-3">
+
               {!! Form::open(['route' => 'signup.post', 'method' => 'post']) !!}
               <div class="form-group">
-                {!! Form::label('name', '【お名前】：' . $data['name']) !!}
+                {!! Form::label('name', 'お名前') !!}
+                {!! Form::text('name', $data['name'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('name_kana', '【フリガナ】：' . $data['name_kana']) !!}
+                {!! Form::label('name_kana', 'お名前（フリガナ）') !!}
+                {!! Form::text('name_kana', $data['name_kana'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('postal_code', '【郵便番号】：' . $data['postal_code']) !!}
+                {!! Form::label('postal_code', '郵便番号') !!}
+                {!! Form::text('postal_code', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_1', '【住所 1】：' . $data['address_1']) !!}
+                {!! Form::label('address_1', '住所１') !!}
+                {!! Form::text('address_1', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_2', '【住所 2】：' . $data['address_2']) !!}
+                {!! Form::label('address_2', '住所２') !!}
+                {!! Form::text('address_2', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('address_3', '【住所 3】：' . $data['address_3']) !!}
+                {!! Form::label('address_3', '住所３') !!}
+                {!! Form::text('address_3', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('tel', '【電話番号】：' . $data['tel']) !!}
+                {!! Form::label('tel', '電話番号') !!}
+                {!! Form::text('tel', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
-                {!! Form::label('email', '【メールアドレス】：' . $data['email']) !!}
+                {!! Form::label('email', 'メールアドレス') !!}
+                {!! Form::text('email', $data['email'], ['class' => 'form-control','readonly']) !!}
+              </div>
+
+              <div class="form-group">
+                <label for="password">パスワード</label>
+                <input id="password" type="hidden" name="password" class="form-control" value="{{ $data['password'] }}">
+                <input id="password" type="password" name="password" class="form-control" value="{{ $data['password'] }}" disabled>
               </div>
 
 
-              {!! Form::submit('登録する', ['class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+
+              {!! Form::submit('登録する', ['name' => 'action', 'class' => 'btn btn-info mt-5 p-3 btn-lg btn-block']) !!}
+              {!! Form::submit('戻る', ['name' => 'action', 'class' => 'btn btn-secondary mt-5 p-3 btn-lg btn-block']) !!}
               {!! Form::close() !!}
 
 

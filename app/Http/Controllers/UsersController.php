@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use View;
 
 class UsersController extends Controller
 {
@@ -17,31 +19,22 @@ class UsersController extends Controller
         return view('users.index', $user);
     }
 
-    public function show()
+
+    public function edit()
     {
         $id = Auth::id();
         $user = User::findOrFail($id);
-
-        return view('users.show', $user);
+        return View::make('users.edit')->with('user', $user);
     }
 
-    public function store(User $request)
-    {
-        return redirect('users.index')->with('my_status', __('Created new user.'));
-    }
 
-    public function edit(User $user)
+    public function update(Request $request, $id)
     {
-        $id = Auth::id();
         $user = User::findOrFail($id);
-
-        return view('users.edit', $user);
+        $user->fill($request->all())->save();
+        return redirect('/')->with('my_status', __('登録内容が更新されました'));
     }
 
-    public function update(Request $request, User $user)
-    {
-        return redirect('/' . $user->id)->with('my_status', __('Updated a user.'));
-    }
 
     public function delete_confirm(User $user)
     {
@@ -51,6 +44,7 @@ class UsersController extends Controller
         return view('users.delete_confirm', $user);
     }
 
+
     public function destroy($id)
     {
         $id = Auth::id();
@@ -59,5 +53,4 @@ class UsersController extends Controller
         $user->delete();
         return redirect('/')->with('my_status', __('退会しました'));
     }
-
 }

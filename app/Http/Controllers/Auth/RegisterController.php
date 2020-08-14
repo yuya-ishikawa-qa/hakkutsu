@@ -54,7 +54,11 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
 
-        $data = $request->session()->get('data');
+        $data = $request->except('action');
+
+        if ($request->action === '修正する') {
+            return redirect()->route('signup')->withInput($data);
+        }
 
         $users = new User();
         $users->name = $data['name'];
@@ -71,29 +75,14 @@ class RegisterController extends Controller
     }
 
 
-     // 確認フォーム
+    // 確認フォーム
     public function signup_confirm(SignupRequest $request)
     {
+
         $data = $request->all();
-        $request->session()->put([
-            'data' => $data,
+
+        return view('auth.confirm', [
+            'data' => $data
         ]);
-
-        return view('auth.confirm', compact("data"));
     }
-
-
-    /**
-     * ユーザー登録後の処理
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function registered(Request $request)
-    {
-        // 登録したら、そのユーザーのプロフィール・ページへ移動
-        return redirect('users')->with('my_status', __('会員登録が完了しました'));
-    }
-
 }

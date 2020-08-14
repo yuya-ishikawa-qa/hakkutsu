@@ -35,7 +35,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-
     }
 
 
@@ -67,5 +66,4 @@ class LoginController extends Controller
         // ログアウトしたら、トップページへ移動
         return $this->loggedOut($request) ?: redirect('/')->with('my_status', __('ログアウトしました'));
     }
-
 }
