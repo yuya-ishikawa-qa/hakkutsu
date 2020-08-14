@@ -87,7 +87,7 @@ class StoresController extends Controller
 
         public function store(Request $request)
         {
-            dd($request);
+
             //セッションから必要なデータを取得
             $data = $request->session()->get('data');
             $post_data = $request->session()->get('post_data');
@@ -99,7 +99,7 @@ class StoresController extends Controller
             $filename = str_replace('public/temp/', '', $temp_path);
             //画像を保存するパスは"public/stores_image/xxx.jpeg"
             $storage_path = 'public/stores_image/'.$filename;
-            
+
             //dataのセッション情報を破棄
             $request->session()->forget('data');
             //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
@@ -130,7 +130,7 @@ class StoresController extends Controller
             //情報を取得し、変数に代入
             $user = \Auth::user();
             $store = Store::findOrFail($id);
-            
+
             $data=[
                 'user' => $user,
                 'store' => $store,
@@ -156,7 +156,7 @@ class StoresController extends Controller
                 $store->image_path = $read_path;
                 $store->save();
                 }
-            
+
             //image_pathを除く情報を変数に代入
             $post_data = $request->except('image_path');
             //上記の変数の配列をそれぞれ代入
@@ -185,7 +185,7 @@ class StoresController extends Controller
             $user = \Auth::user();
             $store = Store::findOrFail($id);
             $items = $store->items()->orderBy('id', 'asc')->paginate(9);
-            
+
             $data = [
                 'user' => $user,
                 'store' => $store,

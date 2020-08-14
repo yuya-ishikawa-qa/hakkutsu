@@ -30,7 +30,7 @@
           @endif
               <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card">
-                  <img class="card-img-top store-display" src="{{asset('storage/images/'.$store->image_path)}}" alt="">
+                  <img class="card-img-top store-display" src="{{asset($store->image_path)}}" alt="">
                   <div class="card-body">
                     <h4 class="card-title">{{$store->store_name}}</h4>
                   <p class="card-text">
