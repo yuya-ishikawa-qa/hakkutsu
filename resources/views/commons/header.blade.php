@@ -6,10 +6,7 @@
             <div class="collapse navbar-collapse justify-content-left" id="nav-bar">
                 <ul class="navbar-nav">
                     <li class="nav-item">{!! link_to_route('stores.index', '店舗から探す', [], ['class' => 'nav-link']) !!}</li>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="キーワードから検索" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-                    </form>
+                    <li class="nav-item">{!! link_to_route('items.index', '商品から探す', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
 
