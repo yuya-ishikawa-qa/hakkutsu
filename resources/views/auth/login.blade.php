@@ -17,7 +17,7 @@
 
                             <div class="form-group">
                                 {!! Form::label('email', 'メールアドレス') !!}
-                                {!! Form::email('email', old('email'), ['class' => 'form-control',  'placeholder' => 'sample@sample.com']) !!}
+                                {!! Form::email('email', old('email'), ['class' => 'form-control',  'placeholder' => '例）hakkutsu@example.com']) !!}
                             </div>
 
                             @error('email')
@@ -28,7 +28,7 @@
 
                             <div class="form-group">
                                 {!! Form::label('password', 'パスワード') !!}
-                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字６文字以上で入力']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '再度入力してください  ']) !!}
                             </div>
 
                             <div class="form-group row">

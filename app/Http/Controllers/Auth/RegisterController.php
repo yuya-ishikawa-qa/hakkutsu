@@ -56,7 +56,7 @@ class RegisterController extends Controller
 
         $data = $request->except('action');
 
-        if ($request->action === '修正する') {
+        if ($request->action === '戻る') {
             return redirect()->route('signup')->withInput($data);
         }
 
