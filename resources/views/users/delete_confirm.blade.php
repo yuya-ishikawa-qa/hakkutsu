@@ -2,13 +2,10 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('users/delete_confirm'))
+
 <section class="title">
-  <div class="container">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb bg-transparent">
-    <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ ＞ 退会手続き</a></li>
-  </ol>
-</nav>
+  <div class="container pt-5">
     <h3 class="p-3 mb-2 bg-warning text-dark text-center">退会手続き</h3>
     <h3 class="font-weight-bold m-5">
       @if(Auth::check())
@@ -18,10 +15,6 @@
     </h3>
   </div>
 </section>
-
-
-
-
 
 <section class="member-information">
   <div class="container">

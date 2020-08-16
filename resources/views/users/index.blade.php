@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('users'))
+
 {{-- フラッシュ・メッセージ --}}
 @if (session('my_status'))
 <div class="container mt-2">
@@ -11,14 +13,8 @@
 </div>
 @endif
 
-<section class="title">
+<section class="title my-5">
   <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb bg-transparent">
-        <li class="breadcrumb-item active" aria-current="page"><a href="" class="nav-link text-secondary">Home ＞ マイページ</a></li>
-      </ol>
-    </nav>
-
     <h3 class="p-3 mb-2 bg-warning text-dark text-center">マイページ</h3>
     <h3 class="font-weight-bold m-5">
       @if(Auth::check())

@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('stores/create'))
+
 <div class="text-right">
 {{ Auth::user()->name }}
 </div>
@@ -49,6 +51,3 @@
     </div>
 
 @endsection('content')
-
-
-

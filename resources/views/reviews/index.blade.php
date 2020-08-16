@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section('breadcrumbs', Breadcrumbs::render('reviews'))
+
   <div class="container mt-4">
       @foreach ($reviews as $review)
       <div class="card mt-5">
