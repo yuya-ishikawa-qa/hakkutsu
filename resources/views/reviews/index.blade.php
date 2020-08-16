@@ -9,7 +9,7 @@
         </div>
           <div class="card-body row no-gutters">
             <div class="col-lg-6 z-depth-2">
-              <img class="img-fluid item-display" src="{{asset('storage/images/'.$review->item->image_path)}}" alt="Sample image">
+              <img class="img-fluid item-display" src="{{asset($review->item->image_path)}}" alt="Sample image">
             </div>
             <div class="card-text col-lg-6">
               <p>{{ $review->title }}</p>

@@ -40,7 +40,7 @@ class ReviewsTableSeeder extends Seeder
             'user_id' => '5',
             'item_id' => '5',
             'title' => '静岡の和牛',
-            'body' => '静岡の和牛ブランドです。あまり聞いたことがありませんでしたが、侮れない！',
+            'body' => '静岡の和牛ブランドです。あまり_聞いたことがありませんでしたが、侮れない！',
         ]);
         DB::table('reviews')->insert([
             'user_id' => '1',

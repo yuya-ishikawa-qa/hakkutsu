@@ -18,7 +18,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1000',
-            'image_path' => 'cherry01.jpg',
+            'image_path' => 'storage/stores_image/cherry01.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -28,7 +28,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '500',
-            'image_path' => 'cherry02.jpg',
+            'image_path' => 'storage/stores_image/cherry02.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -38,7 +38,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1500',
-            'image_path' => 'cherry03.jpg',
+            'image_path' => 'storage/stores_image/cherry03.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -48,7 +48,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '2000',
-            'image_path' => 'cherry04.jpg',
+            'image_path' => 'storage/stores_image/cherry04.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -58,7 +58,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1500',
-            'image_path' => 'beef01.png',
+            'image_path' => 'storage/stores_image/beef01.png',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -68,7 +68,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1000',
-            'image_path' => 'beef02.jpg',
+            'image_path' => 'storage/stores_image/beef02.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -78,7 +78,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '5000',
-            'image_path' => 'beef03.jpg',
+            'image_path' => 'storage/stores_image/beef03.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -88,7 +88,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1000',
-            'image_path' => 'beef04.jpg',
+            'image_path' => 'storage/stores_image/beef04.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -98,7 +98,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1500',
-            'image_path' => 'cheese01.jpg',
+            'image_path' => 'storage/stores_image/cheese01.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -108,7 +108,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '800',
-            'image_path' => 'milk01.jpg',
+            'image_path' => 'storage/stores_image/milk01.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -118,7 +118,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '3000',
-            'image_path' => 'cheese02.jpg',
+            'image_path' => 'storage/stores_image/cheese02.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -128,7 +128,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1250',
-            'image_path' => 'cheese03.jpg',
+            'image_path' => 'storage/stores_image/cheese03.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -138,7 +138,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '2500',
-            'image_path' => 'orange01.jpg',
+            'image_path' => 'storage/stores_image/orange01.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -148,7 +148,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '1150',
-            'image_path' => 'orange02.jpg',
+            'image_path' => 'storage/stores_image/orange02.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -158,7 +158,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '3000',
-            'image_path' => 'orange03.jpg',
+            'image_path' => 'storage/stores_image/orange03.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -168,7 +168,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '950',
-            'image_path' => 'orange04.jpg',
+            'image_path' => 'storage/stores_image/orange04.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -178,7 +178,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '3500',
-            'image_path' => 'orange05.jpg',
+            'image_path' => 'storage/stores_image/orange05.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -188,7 +188,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '3500',
-            'image_path' => 'orange06.jpg',
+            'image_path' => 'storage/stores_image/orange06.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -198,7 +198,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '3500',
-            'image_path' => 'wine01.jpg',
+            'image_path' => 'storage/stores_image/wine01.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -208,7 +208,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '2500',
-            'image_path' => 'wine02.jpg',
+            'image_path' => 'storage/stores_image/wine02.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
         DB::table('items')->insert([
@@ -218,7 +218,7 @@ class ItemsTableSeeder extends Seeder
             'status' => 'status',
             'stock' => 'stock',
             'price' => '6500',
-            'image_path' => 'wine03.jpg',
+            'image_path' => 'storage/stores_image/wine03.jpg',
             'description' => 'ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。'
         ]);
     }

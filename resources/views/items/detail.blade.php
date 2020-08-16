@@ -15,7 +15,7 @@
         <div class="col-md-6">
           <div class="product-gallery">
             <div class="gallery-wrapper">
-              <img src="{{asset('storage/images/'.$item->image_path)}}" alt="" class="img-fluid item-primary-display">
+              <img src="{{asset($item->image_path)}}" alt="" class="img-fluid item-primary-display">
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@
         @foreach ($newItemInformation as $item)
         <div class="col-md-3 col-sm-6 mb-4">
         <a href="{{$item->id}}">
-            <img class="img-fluid item-four-display" src="{{asset('storage/images/'.$item->image_path)}}" alt="item">
+            <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="item">
           </a>
         </div>
         @endforeach
