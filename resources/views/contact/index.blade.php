@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    {!! Form::label('email', 'メールアドレス確認用 :', ['class' => 'col']) !!}
+                    {!! Form::label('email2', 'メールアドレス確認用 :', ['class' => 'col']) !!}
                     <div class="col-12">
-                        {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                        {!! Form::email('email2', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="row form-group">

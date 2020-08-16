@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('stores/management'))
+
 <br><br>
 
 <div class = "p-3 mb-2 bg-warning text-dark">管理店舗</div>
