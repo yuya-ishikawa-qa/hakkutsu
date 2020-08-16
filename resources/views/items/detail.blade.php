@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section('breadcrumbs', Breadcrumbs::render('items/{id}'))
+
 @if(Session::has('flash_message'))
         <div class="alert alert-success">
             {{ session('flash_message') }}
         </div>
 @endif
+
 <div class="container">
   <div class="row">
 

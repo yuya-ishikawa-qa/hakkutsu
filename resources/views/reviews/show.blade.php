@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('reviews/{id}'))
+
 <div class="container mt-4">
   <div class="row mt-5">
   <h1 class="my-5">商品レビュー</h1>
