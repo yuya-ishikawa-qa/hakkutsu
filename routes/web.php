@@ -104,6 +104,19 @@ Route::get('/checkout',[
     'as' => 'checkout',
     'middleware' => 'auth'
     ]);
+//注文を行う
+Route::post('/checkout',[
+    'uses' => 'CartController@postCheckout',
+    'as' => 'checkout',
+    'middleware' => 'auth'
+    ]);
+Route::get('/orderHistory',[
+    'uses' => 'CartController@orderHistory',
+    'as' => 'orderHistory',
+    'middleware' => 'auth'
+    ]);
+
+
 //←りょうた作成
 
 //お問い合わせ関連

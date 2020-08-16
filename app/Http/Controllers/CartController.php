@@ -8,6 +8,7 @@ use App\User;
 use App\Item;
 use Session;
 use App\Cart;
+use App\Order;
 
 class CartController extends Controller
 {
@@ -126,6 +127,75 @@ class CartController extends Controller
         $total = $cart->totalPrice;
         
         return view('cart.delivery', ['total' => $total]);
+    }
+
+    public function postCheckout(Request $request){
+
+
+        if(!Session::has('cart')){
+            return redirect()->route('shop.shoppingCart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        // dd($cart);
+
+//         Stripe::setApiKey('sk_test_1XytYloBhgG4tUEvdXfU8MsP');
+
+        try{
+//            $charge = Charge::create(array(
+//   "amount" => $cart->totalPrice*100,
+//   "currency" => "aud",
+//   //"source" => $request->input('stripeToken'), // obtained with Stripe.js
+//   "source" => [
+//     "number" => $request->input('card-number'),
+//     "cvc" => $request->input('card-cvc'),
+//     "exp_month" => $request->input('card-expiry-month'),
+//     "exp_year" => $request->input('card-expiry-year')]
+//   ,
+//   "description" => "Test Charge"
+//         ));
+
+           $order = new Order();
+           $order->cart = serialize($cart);
+           $order->destination = $request->input('destination');
+           
+           $order->name = $request->input('name');
+           
+        //    $order->payment_id = $charge->id;
+           
+           Auth::user()->orders()->save($order);
+        //    dd($order);
+        }catch(\Exception $e){
+
+            return redirect()->route('checkout')->with('error',$e->getMessage());
+        }
+        
+        //don't want the cart in the checkout anymore
+        Session::forget('cart');
+          //console.log("123" +source);
+
+
+        return redirect()->route('items.index')->with('success','Successfully purchased products!');
+    }
+
+    public function orderHistory()
+    {
+        //ログインしているuserのidを変数に代入
+        $id = Auth::id();
+        //上記のidよりuser情報を取得
+        $user = User::findOrFail($id);
+        //userのもつstoreデータをidで昇順で並べ、変数に代入
+        $orders = $user->orders()->orderBy('id', 'asc')->paginate(9);
+        dd($orders);
+
+        //上記の変数を配列型式で変数に代入
+        $data = [
+            'user' => $user,
+            'orders' => $orders,
+        ];
+
+        return view('users.orderHistory', $data);
     }
 
 }

@@ -21,8 +21,8 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label for="address">送付先</label>
-                        <input type="text" id="address" class="form-control" required name="address">
+                        <label for="destination">送付先</label>
+                        <input type="text" id="destination" class="form-control" required name="destination">
                     </div>
                 </div>
                 <hr>

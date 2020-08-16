@@ -109,6 +109,7 @@ class StoresController extends Controller
 
             //データベースへの保存処理
             $store = new Store();
+            dd($store);
             $store->image_path = $read_path;
             $store->store_name = $post_data['store_name'];
             $store->address = $post_data['address'];
