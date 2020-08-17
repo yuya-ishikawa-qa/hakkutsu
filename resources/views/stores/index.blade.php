@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('stores'))
+
   <div class="container">
       <!-- Shop Toolbar-->
       　<div class="row justify-content-between">

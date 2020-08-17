@@ -9,6 +9,10 @@ use App\Item;
 use Session;
 use App\Cart;
 use App\Order;
+use App\Orders_detail;
+use Illuminate\Support\Collection;
+use DB;
+use Illuminate\Support\Arr;
 
 class CartController extends Controller
 {
@@ -121,6 +125,7 @@ class CartController extends Controller
         }
         //指定のsession変数を変数に代入する
         $oldCart = Session::get('cart');
+        // dd($oldCart);
         //インスタンスを生成
         $cart = new Cart($oldCart);
         //インスタンスの合計金額を変数に代入
@@ -138,7 +143,6 @@ class CartController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        // dd($cart);
 
 //         Stripe::setApiKey('sk_test_1XytYloBhgG4tUEvdXfU8MsP');
 
@@ -159,24 +163,30 @@ class CartController extends Controller
            $order = new Order();
            $order->cart = serialize($cart);
            $order->destination = $request->input('destination');
-           
-           $order->name = $request->input('name');
-           
+           $order->name = $request->
+           input('name');
         //    $order->payment_id = $charge->id;
-           
            Auth::user()->orders()->save($order);
         //    dd($order);
         }catch(\Exception $e){
-
             return redirect()->route('checkout')->with('error',$e->getMessage());
         }
+
+        foreach ((array)$cart->cart_items as $cart_items) {
+                $orders_details = new Orders_detail();
+                $orders_details->order_id = $order->id; 
+                $orders_details->item_id = $cart_items['item']['id'];
+                $orders_details->item_name = $cart_items['item']['item_name'];
+                $orders_details->price = $cart_items['price'];
+                $orders_details->amount = $cart_items['qty'];
+                $orders_details->image_path = $cart_items['item']['image_path'];        
+                $orders_details->save();
+            }        
         
-        //don't want the cart in the checkout anymore
-        Session::forget('cart');
-          //console.log("123" +source);
+            Session::forget('cart');
 
-
-        return redirect()->route('items.index')->with('success','Successfully purchased products!');
+            session()->flash('flash_message', '注文を行いました');
+        return redirect()->route('cart.index');
     }
 
     public function orderHistory()
@@ -187,7 +197,7 @@ class CartController extends Controller
         $user = User::findOrFail($id);
         //userのもつstoreデータをidで昇順で並べ、変数に代入
         $orders = $user->orders()->orderBy('id', 'asc')->paginate(9);
-        dd($orders);
+        // dd($orders);
 
         //上記の変数を配列型式で変数に代入
         $data = [

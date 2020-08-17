@@ -2,7 +2,10 @@
 
 @section('content')
 
+@section('breadcrumbs', Breadcrumbs::render('stores/{id}'))
+
       <div class="container">
+
         <div class="row">
 
           <h3 class="my-4">店舗コード：

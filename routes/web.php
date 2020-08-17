@@ -143,3 +143,8 @@ Route::get('items/{id}', 'ItemsDisplayController@show')->name('items.detail');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('reviews', 'ReviewsController', ['only' => ['index','create','store','show','destroy']]);
 });
+
+// // HTTPステータスコードを引数に、該当するエラーページを表示させる
+// Route::get('error/{code}', function ($code) {
+//     abort($code);
+// });

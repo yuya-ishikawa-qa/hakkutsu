@@ -52,7 +52,7 @@ class ReviewsController extends Controller
 
     public function show(Request $request, $id)
     {
-        $review = Review::with('item', 'user')->find($id);
+        $review = Review::with('item', 'user')->findOrFail($id);
         $item = Item::where('id', '=', $review->item_id)->select('item_name')->first();
         $user = User::where('id', '=', $review->user_id)->select('name')->first();
         $randomItemInformation = Item::select('image_path','id')->inRandomOrder()->take(4)->get();
