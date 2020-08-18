@@ -11,7 +11,7 @@
 </head>
 <body>
   @include('commons.header')
-  @include('commons.error_messages')
+  <!-- @include('commons.error_messages') -->
   @yield('breadcrumbs')
   @yield('content')
   @include('commons.footer')

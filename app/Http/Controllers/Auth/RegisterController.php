@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Http\Requests\SignupRequest;
+use App\Http\Requests\UsersRequest;
 
 class RegisterController extends Controller
 {
@@ -76,7 +76,7 @@ class RegisterController extends Controller
 
 
     // 確認フォーム
-    public function signup_confirm(SignupRequest $request)
+    public function signup_confirm(UsersRequest $request)
     {
 
         $data = $request->all();
