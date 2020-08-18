@@ -19,7 +19,7 @@ Route::get('/', function () {
 // ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup_confirm','Auth\RegisterController@signup_confirm')->name('signup.confirm');
-Route::post('signup', 'Auth\RegisterController@store')->name('signup.post');
+Route::post('signup_post', 'Auth\RegisterController@store')->name('signup.post');
 
 // ログイン機能
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -113,7 +113,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('reviews', 'ReviewsController', ['only' => ['index','create','store','show','destroy']]);
 });
 
-// // HTTPステータスコードを引数に、該当するエラーページを表示させる
-// Route::get('error/{code}', function ($code) {
-//     abort($code);
-// });
+// HTTPステータスコードを引数に、該当するエラーページを表示させる
+Route::get('error/{code}', function ($code) {
+    abort($code);
+});

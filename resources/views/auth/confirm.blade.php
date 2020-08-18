@@ -31,22 +31,22 @@
 
               <div class="form-group">
                 {!! Form::label('address_1', '住所１') !!}
-                {!! Form::text('address_1', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
+                {!! Form::text('address_1', $data['address_1'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
                 {!! Form::label('address_2', '住所２') !!}
-                {!! Form::text('address_2', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
+                {!! Form::text('address_2', $data['address_2'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
                 {!! Form::label('address_3', '住所３') !!}
-                {!! Form::text('address_3', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
+                {!! Form::text('address_3', $data['address_3'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">
                 {!! Form::label('tel', '電話番号') !!}
-                {!! Form::text('tel', $data['postal_code'], ['class' => 'form-control','readonly']) !!}
+                {!! Form::text('tel', $data['tel'], ['class' => 'form-control','readonly']) !!}
               </div>
 
               <div class="form-group">

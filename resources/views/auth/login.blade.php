@@ -17,19 +17,26 @@
 
                             <div class="form-group">
                                 {!! Form::label('email', 'メールアドレス') !!}
-                                {!! Form::email('email', old('email'), ['class' => 'form-control',  'placeholder' => 'sample@sample.com']) !!}
+                                {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '例）hakkutsu@example.com']) !!}
                             </div>
+                            @if (count($errors) > 0)
+                            @foreach ($errors->get('email') as $error)
+                            <div class="text-danger">{{ $error }}</div>
+                            @endforeach
+                            </ul>
+                            @endif
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
 
                             <div class="form-group">
                                 {!! Form::label('password', 'パスワード') !!}
-                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字６文字以上で入力']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '半角英数字６文字以上']) !!}
                             </div>
+                            @if (count($errors) > 0)
+                            @foreach ($errors->get('password') as $error)
+                            <div class="text-danger">{{ $error }}</div>
+                            @endforeach
+                            </ul>
+                            @endif
 
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
