@@ -26,6 +26,7 @@
                     </div>
                 </div>
                 <hr>
+                
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="card-name">カード名義</label>
@@ -69,11 +70,7 @@
                 <br>
                 <h4>支払い金額: {{$total}}円</h4>
                 <br>
-                <a href="/cart/index">
-                    <button type="" class="btn btn-warning col-md-6">
-                        前のページに戻る
-                    </button>
-                </a>
+
                 <button type="submit" class="btn btn-warning">購入する</button>
         </form>
     </div>

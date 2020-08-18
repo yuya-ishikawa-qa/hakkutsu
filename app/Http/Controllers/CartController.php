@@ -131,7 +131,7 @@ class CartController extends Controller
         //インスタンスの合計金額を変数に代入
         $total = $cart->totalPrice;
         
-        return view('cart.delivery', ['total' => $total]);
+        return view('cart.checkout', ['total' => $total]);
     }
 
     public function postCheckout(Request $request){
@@ -143,6 +143,7 @@ class CartController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
+        // dd($cart->totalPrice);
 
 //         Stripe::setApiKey('sk_test_1XytYloBhgG4tUEvdXfU8MsP');
 
@@ -161,12 +162,15 @@ class CartController extends Controller
 //         ));
 
            $order = new Order();
-           $order->cart = serialize($cart);
-           $order->destination = $request->input('destination');
-           $order->name = $request->
-           input('name');
+        //    $order->cart = serialize($cart);
+               
+            $order->destination = $request->input('destination');
+            $order->name = $request->input('name');
+            // dd($order);
+            $order->total = $cart->totalPrice;
+            Auth::user()->orders()->save($order);
         //    $order->payment_id = $charge->id;
-           Auth::user()->orders()->save($order);
+           
         //    dd($order);
         }catch(\Exception $e){
             return redirect()->route('checkout')->with('error',$e->getMessage());
@@ -189,23 +193,6 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function orderHistory()
-    {
-        //ログインしているuserのidを変数に代入
-        $id = Auth::id();
-        //上記のidよりuser情報を取得
-        $user = User::findOrFail($id);
-        //userのもつstoreデータをidで昇順で並べ、変数に代入
-        $orders = $user->orders()->orderBy('id', 'asc')->paginate(9);
-        // dd($orders);
 
-        //上記の変数を配列型式で変数に代入
-        $data = [
-            'user' => $user,
-            'orders' => $orders,
-        ];
-
-        return view('users.orderHistory', $data);
-    }
 
 }

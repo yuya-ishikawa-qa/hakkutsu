@@ -19,16 +19,6 @@
         <div class="row justify-content-between">
             <div class="mb-2 ml-4 shop-sorting">
               <p>総件数: {{ $orders -> total() }}件</p>
-                <form action="/orderHistory" method="get">
-                    表示件数：
-                    <select id="" name="disp_list" onchange="submit();">
-                      <option>選択してください</option>
-                      <option>10</option>
-                      <option>15</option>
-                      <option>20</option>
-                  </select>
-                </form>
-            </div>
               {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
 
@@ -43,9 +33,12 @@
               <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card">
                  <div class="card-body">
-                    <h4 class="card-title">{{$order->name}}</h4>
+                    <a class="card-title" href={{route('users.ordersdetails',['order'=> $order])}}>
+                    注文日時：{{$order->created_at}}
+                    </a>
                   <p class="card-text">
-                  <a>{{$order->cart}}</a>
+                  <a>注文金額：{{$order->total}}円</a>
+                  
                   </p>
                   </div>
                 </div>

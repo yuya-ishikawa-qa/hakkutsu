@@ -186,7 +186,6 @@ class StoresController extends Controller
             $user = \Auth::user();
             $store = Store::findOrFail($id);
             $items = $store->items()->orderBy('id', 'asc')->paginate(9);
-
             $data = [
                 'user' => $user,
                 'store' => $store,

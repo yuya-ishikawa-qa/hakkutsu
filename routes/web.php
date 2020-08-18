@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
 });
 
+Route::get('users/orderlist', 'UsersController@orderlist')->name('users.orderlist');
+Route::get('users/ordersdetails/{id}', 'UsersController@ordersdetails')->name('users.ordersdetails');
 
 //りょうた作成
 // 8-2表示用
@@ -110,11 +112,7 @@ Route::post('/checkout',[
     'as' => 'checkout',
     'middleware' => 'auth'
     ]);
-Route::get('/orderHistory',[
-    'uses' => 'CartController@orderHistory',
-    'as' => 'orderHistory',
-    'middleware' => 'auth'
-    ]);
+
 
 
 //←りょうた作成

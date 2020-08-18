@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
+use App\Order;
+use App\Orders_detail;
 
 class UsersController extends Controller
 {
@@ -52,5 +54,45 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect('/')->with('my_status', __('退会しました'));
+    }
+
+    public function orderlist()
+    {
+        //ログインしているuserのidを変数に代入
+        $id = Auth::id();
+        //上記のidよりuser情報を取得
+        $user = User::findOrFail($id);
+        //userのもつstoreデータをidで昇順で並べ、変数に代入
+        $orders = $user->orders()->orderBy('id', 'asc')->paginate(9);
+        // dd($orders);
+
+        //上記の変数を配列型式で変数に代入
+        $data = [
+            'user' => $user,
+            'orders' => $orders,
+        ];
+
+        return view('users.orderlist', $data);
+    }
+
+    public function ordersdetails($id)
+    {
+        //情報を取得し、変数に代入
+        $user = \Auth::user();
+        $order = Order::findOrFail($id);
+        
+        $orders_details = $order->orders_details()->orderBy('id', 'asc')->paginate(9);
+        // dd($orders_details);
+
+
+
+
+        $data = [
+            'user' => $user,
+            'order' => $order,
+            'orders_details' => $orders_details,
+        ];
+
+        return view('users.ordersdetails', $data);
     }
 }
