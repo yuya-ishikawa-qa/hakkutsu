@@ -22,7 +22,6 @@
                             @foreach ($errors->get('name') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -33,7 +32,6 @@
                             @foreach ($errors->get('name_kana') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -44,7 +42,6 @@
                             @foreach ($errors->get('postal_code') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -55,7 +52,6 @@
                             @foreach ($errors->get('address_1') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -66,7 +62,6 @@
                             @foreach ($errors->get('address_2') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -77,7 +72,6 @@
                             @foreach ($errors->get('address_3') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -88,7 +82,6 @@
                             @foreach ($errors->get('tel') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -99,7 +92,6 @@
                             @foreach ($errors->get('email') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -110,7 +102,6 @@
                             @foreach ($errors->get('email_confirmation') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -121,7 +112,6 @@
                             @foreach ($errors->get('password') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
                             <div class="form-group">
@@ -132,7 +122,6 @@
                             @foreach ($errors->get('password_confirmation') as $error)
                             <div class="text-danger">{{ $error }}</div>
                             @endforeach
-                            </ul>
                             @endif
 
 

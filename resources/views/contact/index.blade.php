@@ -17,24 +17,44 @@
                     <div class="col-12">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
+                    @if (count($errors) > 0)
+                    @foreach ($errors->get('name') as $error)
+                    <div class="text-danger">{{ $error }}</div>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="row form-group">
                     {!! Form::label('email', 'メールアドレス :', ['class' => 'col']) !!}
                     <div class="col-12">
                         {!! Form::email('email', null, ['class' => 'form-control']) !!}
                     </div>
+                    @if (count($errors) > 0)
+                    @foreach ($errors->get('email') as $error)
+                    <div class="text-danger">{{ $error }}</div>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="row form-group">
                     {!! Form::label('email2', 'メールアドレス確認用 :', ['class' => 'col']) !!}
                     <div class="col-12">
                         {!! Form::email('email2', null, ['class' => 'form-control']) !!}
                     </div>
+                    @if (count($errors) > 0)
+                    @foreach ($errors->get('email2') as $error)
+                    <div class="text-danger">{{ $error }}</div>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="row form-group">
                     {!! Form::label('body', '内容 :', ['class' => 'col']) !!}
                     <div class="col-12">
                         {!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => '6']) !!}
                     </div>
+                    @if (count($errors) > 0)
+                    @foreach ($errors->get('body') as $error)
+                    <div class="text-danger">{{ $error }}</div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
 
