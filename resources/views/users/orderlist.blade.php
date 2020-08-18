@@ -4,7 +4,7 @@
 
 <br><br>
 
-<div class = "p-3 mb-2 bg-warning text-dark">注文確認</div>
+<div class = "p-3 mb-2 bg-warning text-dark">注文履歴</div>
 <div class = "text-right">
 {{ Auth::user()->name }}
 </div>

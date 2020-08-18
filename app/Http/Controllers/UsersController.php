@@ -63,8 +63,7 @@ class UsersController extends Controller
         //上記のidよりuser情報を取得
         $user = User::findOrFail($id);
         //userのもつstoreデータをidで昇順で並べ、変数に代入
-        $orders = $user->orders()->orderBy('id', 'asc')->paginate(9);
-        // dd($orders);
+        $orders = $user->orders()->orderBy('id', 'desc')->paginate(9);
 
         //上記の変数を配列型式で変数に代入
         $data = [
@@ -80,13 +79,9 @@ class UsersController extends Controller
         //情報を取得し、変数に代入
         $user = \Auth::user();
         $order = Order::findOrFail($id);
-        
         $orders_details = $order->orders_details()->orderBy('id', 'asc')->paginate(9);
-        // dd($orders_details);
-
-
-
-
+        
+        //配列型式で変数に代入
         $data = [
             'user' => $user,
             'order' => $order,
