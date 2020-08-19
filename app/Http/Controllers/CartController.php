@@ -8,6 +8,10 @@ use App\User;
 use App\Item;
 use Session;
 use App\Cart;
+use App\Order;
+use App\OrdersDetail;
+use Illuminate\Support\Collection;
+use DB;
 
 class CartController extends Controller
 {
@@ -112,8 +116,26 @@ class CartController extends Controller
  
        return redirect()->route('cart.index');
      }
-
+     
+     //会計画面に遷移
      public function getCheckout(){
+        //指定のsession変数がない場合、viewを返す
+        if(!Session::has('cart')){
+            return view('cart.index');
+        }
+
+        //指定のsession変数を変数に代入する
+        $oldCart = Session::get('cart');
+        //インスタンスを生成
+        $cart = new Cart($oldCart);
+        //インスタンスの合計金額を変数に代入
+        $total = $cart->totalPrice;
+        
+        return view('cart.checkout', ['total' => $total]);
+    }
+
+    //注文
+    public function postCheckout(Request $request){
         //指定のsession変数がない場合、viewを返す
         if(!Session::has('cart')){
             return view('cart.index');
@@ -122,10 +144,39 @@ class CartController extends Controller
         $oldCart = Session::get('cart');
         //インスタンスを生成
         $cart = new Cart($oldCart);
-        //インスタンスの合計金額を変数に代入
-        $total = $cart->totalPrice;
+          
+        //インスタンスを生成
+        $order = new Order();
+        //指定の値をインスタンスに代入
+        $order->name = $request->input('name');
+        $order->destination = $request->input('destination');
+        $order->total = $cart->totalPrice;
+        //$order->payment_id = $charge->id;
+
+        //インスタンスを保存
+        Auth::user()->orders()->save($order);
         
-        return view('cart.delivery', ['total' => $total]);
+        //注文の詳細情報を保存を数の分繰り返す
+        foreach ((array)$cart->cart_items as $cart_items) {
+                //注文の詳細情報に関わるインスタンスを生成
+                $orders_details = new OrdersDetail();
+                //指定の値をインスタンスに代入
+                $orders_details->order_id = $order->id; 
+                $orders_details->item_id = $cart_items['item']['id'];
+                $orders_details->item_name = $cart_items['item']['item_name'];
+                $orders_details->price = $cart_items['price'];
+                $orders_details->amount = $cart_items['qty'];
+                $orders_details->image_path = $cart_items['item']['image_path'];        
+                //インスタンスに保存
+                $orders_details->save();
+        }
+
+        //指定のsessionを破棄
+        Session::forget('cart');
+        //フラッシュメッセージを登録
+        session()->flash('flash_message', '注文を行いました');
+
+        return redirect()->route('cart.index');
     }
 
 }

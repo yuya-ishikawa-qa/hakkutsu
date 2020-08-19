@@ -16,16 +16,17 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="name">名前</label>
-                        <input type="text" id="name" class="form-control" required name="name">
+                        <input type="text" id="name" class="form-control" required name="name" >
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label for="address">送付先</label>
-                        <input type="text" id="address" class="form-control" required name="address">
+                        <label for="destination">送付先</label>
+                        <input type="text" id="destination" class="form-control" required name="destination">
                     </div>
                 </div>
                 <hr>
+                
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="card-name">カード名義</label>
@@ -69,11 +70,7 @@
                 <br>
                 <h4>支払い金額: {{$total}}円</h4>
                 <br>
-                <a href="/cart/index">
-                    <button type="" class="btn btn-warning col-md-6">
-                        前のページに戻る
-                    </button>
-                </a>
+
                 <button type="submit" class="btn btn-warning">購入する</button>
         </form>
     </div>

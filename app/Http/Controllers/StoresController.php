@@ -87,7 +87,6 @@ class StoresController extends Controller
 
         public function store(Request $request)
         {
-
             //セッションから必要なデータを取得
             $data = $request->session()->get('data');
             $post_data = $request->session()->get('post_data');
@@ -179,20 +178,19 @@ class StoresController extends Controller
             ]);
         }
 
-        public function itemlist($id)
+        public function itemList($id)
         {
             //情報を取得し、変数に代入
             $user = \Auth::user();
             $store = Store::findOrFail($id);
             $items = $store->items()->orderBy('id', 'asc')->paginate(9);
-
             $data = [
                 'user' => $user,
                 'store' => $store,
                 'items' => $items,
             ];
 
-            return view('stores.itemlist', $data);
+            return view('stores.item_list', $data);
         }
 
 }

@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('edit', 'UsersController@edit')->name('users.edit');
     Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
+    Route::get('users/orderList', 'UsersController@orderList')->name('users.orderList');
+    Route::get('users/ordersDetails/{id}', 'UsersController@ordersDetails')->name('users.ordersDetails');
 });
 
 
@@ -41,10 +43,7 @@ Route::get('/store/management/request', function () {
     return view('store.management.request');
 })->name('store.request');
 
-// 9-2表示用
-Route::get('/cart/delivery', function () {
-    return view('cart.delivery');
-});
+
 // 9-3表示用
 Route::get('/buy/index', function () {
     return view('buy.index');
@@ -59,7 +58,7 @@ Route::get('/privacy', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
     Route::get('/stores/management', 'StoresController@management')->name('stores.management');
-    Route::get('/stores/itemlist/{id}', 'StoresController@itemlist')->name('stores.itemlist');
+    Route::get('/stores/itemList/{id}', 'StoresController@itemList')->name('stores.itemList');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
 });
 
@@ -72,38 +71,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('items/update/{store_id}/{item_id}', 'ItemsController@update')->name('items.update');
     Route::delete('/items/destroy/{store_id}/{item_id}', 'ItemsController@destroy')->name('items.destroy');
 });
-//カートに追加
-Route::get('/add-to-cart/{id}',[
-	'uses' => 'CartController@getAddToCart',
-	'as' => 'cart.addToCart'
-    ]);
-//カート表示
-Route::get('/cart/index',[
-    'uses' => 'CartController@getCart',
-    'as' => 'cart.index'
-    ]);
 
-//カートの数量を１増やす
-Route::get('/increase/{id}',[
-    'uses' => 'CartController@getIncreaseByOne',
-    'as' => 'items.increaseByOne'
-    ]);
-//カートの数量を1減らす
-Route::get('/reduce/{id}',[
-    'uses' => 'CartController@getReduceByOne',
-    'as' => 'items.reduceByOne'
-    ]);
-//カートの指定の商品を削除
-Route::get('/remove/{id}',[
-    'uses' => 'CartController@getRemoveItem',
-    'as' => 'items.remove'
-    ]);
-//会計画面に遷移
-Route::get('/checkout',[
-    'uses' => 'CartController@getCheckout',
-    'as' => 'checkout',
-    'middleware' => 'auth'
-    ]);
+//カート機能
+Route::get('/add-to-cart/{id}', 'CartController@getAddToCart')->name('cart.addToCart');
+Route::get('/cart/index', 'CartController@getCart')->name('cart.index');
+Route::get('/increase/{id}', 'CartController@getIncreaseByOne')->name('items.increaseByOne');
+Route::get('/reduce/{id}', 'CartController@getReduceByOne')->name('items.reduceByOne');
+Route::get('/remove/{id}', 'CartController@getRemoveItem')->name('items.remove');
+
+//注文機能
+    Route::group(['middleware' => 'auth'], function () {
+    Route::get('/checkout', 'CartController@getCheckout')->name('checkout');
+    Route::post('/checkout', 'CartController@postCheckout')->name('checkout');
+});
+
 //←りょうた作成
 
 //お問い合わせ関連

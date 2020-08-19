@@ -192,4 +192,5 @@ class ItemsController extends Controller
                 'flash_message' => '商品を削除しました。',
             ]);
         }
+        
 }
