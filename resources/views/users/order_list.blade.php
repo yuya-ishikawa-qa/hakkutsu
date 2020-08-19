@@ -33,7 +33,7 @@
               <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card">
                  <div class="card-body">
-                    <a class="card-title" href={{route('users.ordersdetails',['order'=> $order])}}>
+                    <a class="card-title" href={{route('users.ordersDetails',['order'=> $order])}}>
                     注文日時：{{$order->created_at}}
                     </a>
                   <p class="card-text">

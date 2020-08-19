@@ -87,7 +87,6 @@ class StoresController extends Controller
 
         public function store(Request $request)
         {
-
             //セッションから必要なデータを取得
             $data = $request->session()->get('data');
             $post_data = $request->session()->get('post_data');
@@ -109,7 +108,6 @@ class StoresController extends Controller
 
             //データベースへの保存処理
             $store = new Store();
-            dd($store);
             $store->image_path = $read_path;
             $store->store_name = $post_data['store_name'];
             $store->address = $post_data['address'];
@@ -180,7 +178,7 @@ class StoresController extends Controller
             ]);
         }
 
-        public function itemlist($id)
+        public function itemList($id)
         {
             //情報を取得し、変数に代入
             $user = \Auth::user();
@@ -192,7 +190,7 @@ class StoresController extends Controller
                 'items' => $items,
             ];
 
-            return view('stores.itemlist', $data);
+            return view('stores.item_list', $data);
         }
 
 }

@@ -15,7 +15,7 @@
 						<li class="list-group-item">
                             <p><img src = "/{{ $orders_detail -> image_path }}" width="100px"></p>
 							<strong>{{$orders_detail -> item_name }}</strong>
-                            <span class="badge">{{$orders_detail -> amount }}個</span>
+                            <span class="label label-success">{{$orders_detail -> amount }}個</span>
 							<span class="label label-success">1個あたり{{$orders_detail -> price}}円</span></br>
                             <span class="label label-success">小計{{$orders_detail -> amount * $orders_detail -> price}}円</span>
 

@@ -32,10 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('edit', 'UsersController@edit')->name('users.edit');
     Route::get('delete_confirm', 'UsersController@delete_confirm')->name('users.delete_confirm');
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
-    Route::get('users/orderlist', 'UsersController@orderlist')->name('users.orderlist');
-    Route::get('users/ordersdetails/{id}', 'UsersController@ordersdetails')->name('users.ordersdetails');
+    Route::get('users/orderList', 'UsersController@orderList')->name('users.orderList');
+    Route::get('users/ordersDetails/{id}', 'UsersController@ordersDetails')->name('users.ordersDetails');
 });
-
 
 
 //りょうた作成
@@ -59,7 +58,7 @@ Route::get('/privacy', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('stores', 'StoresController', ['only' => ['create','store', 'destroy','edit','update']]);
     Route::get('/stores/management', 'StoresController@management')->name('stores.management');
-    Route::get('/stores/itemlist/{id}', 'StoresController@itemlist')->name('stores.itemlist');
+    Route::get('/stores/itemList/{id}', 'StoresController@itemList')->name('stores.itemList');
     Route::post('stores/confirm','StoresController@confirm')->name('stores.confirm');
 });
 

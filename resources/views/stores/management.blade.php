@@ -57,7 +57,7 @@
                     <a class = "btn btn-primary" href={{route('stores.edit',['store'=> $store])}}>
                           店舗編集
                       </a>
-                      <a class = "btn btn-warning" href={{route('stores.itemlist',['store'=> $store])}}>
+                      <a class = "btn btn-warning" href={{route('stores.itemList',['store'=> $store])}}>
                           商品一覧
                       </a>
                       <a class = "btn btn-secondary" href={{route('stores.detail',['store'=> $store])}}>

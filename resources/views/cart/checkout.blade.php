@@ -16,7 +16,7 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="name">名前</label>
-                        <input type="text" id="name" class="form-control" required name="name">
+                        <input type="text" id="name" class="form-control" required name="name" >
                     </div>
                 </div>
                 <div class="col-xs-12">

@@ -9,10 +9,9 @@ use App\Item;
 use Session;
 use App\Cart;
 use App\Order;
-use App\Orders_detail;
+use App\OrdersDetail;
 use Illuminate\Support\Collection;
 use DB;
-use Illuminate\Support\Arr;
 
 class CartController extends Controller
 {
@@ -145,40 +144,22 @@ class CartController extends Controller
         $oldCart = Session::get('cart');
         //インスタンスを生成
         $cart = new Cart($oldCart);
-
-//         Stripe::setApiKey('sk_test_1XytYloBhgG4tUEvdXfU8MsP');
-
-        try{
-//            $charge = Charge::create(array(
-//   "amount" => $cart->totalPrice*100,
-//   "currency" => "aud",
-//   //"source" => $request->input('stripeToken'), // obtained with Stripe.js
-//   "source" => [
-//     "number" => $request->input('card-number'),
-//     "cvc" => $request->input('card-cvc'),
-//     "exp_month" => $request->input('card-expiry-month'),
-//     "exp_year" => $request->input('card-expiry-year')]
-//   ,
-//   "description" => "Test Charge"
-//         ));
           
-            //インスタンスを生成
-            $order = new Order();
-            //指定の値をインスタンスに代入
-            $order->name = $request->input('name');
-            $order->destination = $request->input('destination');
-            $order->total = $cart->totalPrice;
-            //$order->payment_id = $charge->id;
-            //インスタンスを保存
-            Auth::user()->orders()->save($order);
-        }catch(\Exception $e){
-            return redirect()->route('checkout')->with('error',$e->getMessage());
-        }
+        //インスタンスを生成
+        $order = new Order();
+        //指定の値をインスタンスに代入
+        $order->name = $request->input('name');
+        $order->destination = $request->input('destination');
+        $order->total = $cart->totalPrice;
+        //$order->payment_id = $charge->id;
+
+        //インスタンスを保存
+        Auth::user()->orders()->save($order);
         
         //注文の詳細情報を保存を数の分繰り返す
         foreach ((array)$cart->cart_items as $cart_items) {
                 //注文の詳細情報に関わるインスタンスを生成
-                $orders_details = new Orders_detail();
+                $orders_details = new OrdersDetail();
                 //指定の値をインスタンスに代入
                 $orders_details->order_id = $order->id; 
                 $orders_details->item_id = $cart_items['item']['id'];
@@ -197,7 +178,5 @@ class CartController extends Controller
 
         return redirect()->route('cart.index');
     }
-
-
 
 }

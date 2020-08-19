@@ -37,7 +37,7 @@
           {!! link_to_route('users.edit', '会員登録内容の変更') !!}
         </li>
         <li class="button-hover">
-          {!! link_to_route('users.orderlist', '注文履歴') !!}
+          {!! link_to_route('users.orderList', '注文履歴') !!}
         </li>
         <li class="button-hover">
           {!! link_to_route('users.delete_confirm', '退会手続き') !!}
