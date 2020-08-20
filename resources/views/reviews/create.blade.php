@@ -21,16 +21,20 @@
     <div class="form-group mb-5">
       <h3>タイトル</h3>
       <input id="title" name="title" class="form-control" value="{{old('title')}}" type="text">
-      <div class="text-danger">
-        {{$errors->first('title')}}
-      </div>
+      @if (count($errors) > 0)
+        @foreach ($errors->get('title') as $error)
+        <div class="text-danger">{{ $error }}</div>
+        @endforeach
+        @endif
     </div>
     <div class="form-group mb-5">
       <h3>レビュー</h3>
       <textarea id="body" name="body" class="form-control" rows="4">{{old('body')}}</textarea>
-      <div class="text-danger">
-        {{$errors->first('body')}}
-      </div>
+      @if (count($errors) > 0)
+        @foreach ($errors->get('body') as $error)
+        <div class="text-danger">{{ $error }}</div>
+        @endforeach
+        @endif
     </div>
 
     <input type="hidden" id="item_id" name="item_id" value="{{$data}}">

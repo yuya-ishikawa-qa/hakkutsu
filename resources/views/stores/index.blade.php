@@ -41,9 +41,9 @@
                     @endif
                   </p>
                   </div>
-                  <div class="card-footer bg-white">
-                  <a href='stores/{{$store->id}}'>
-                      <button class="btn btn-secondary">お店の詳細</button>
+                  <div class="card-footer bg-white text-center">
+                    <a href='stores/{{$store->id}}'>
+                        <button class="btn btn-block btn-outline-secondary">お店の詳細はこちら</button>
                     </a>
                   </div>
                 </div>

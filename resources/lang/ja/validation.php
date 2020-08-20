@@ -117,6 +117,7 @@ return [
         'email_confirmation'=>'※メールアドレス',
         'password'=>'※パスワード',
         'password_confirmation'=>'※パスワード',
+        'title'=>'※タイトル',
         'body'=>'※内容',
         'store_name'=>'※店名',
         'postal'=>'※店舗郵便番号',
