@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 
 use App\Review;
 use App\Store;
@@ -36,7 +37,7 @@ class ReviewsController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
         $review = new Review();
         $review->user_id = auth()->id();

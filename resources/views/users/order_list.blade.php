@@ -22,9 +22,11 @@
               {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
 
+        </div>
+
       <!-- Page Content-->
 
-        <div class="card-deck row">
+        <div class="row">
           @foreach($orders as $key => $order)
           @if($loop->iteration % 3 == 1 && $loop->iteration !=1)
             </div>
@@ -38,7 +40,7 @@
                     </a>
                   <p class="card-text">
                   <a>注文金額：{{$order->total}}円</a>
-                  
+
                   </p>
                   </div>
                 </div>
@@ -49,6 +51,8 @@
           {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
   </div>
+  </div>
+
 
 
 @endsection
