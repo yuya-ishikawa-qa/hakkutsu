@@ -15,6 +15,7 @@
 Route::get('/', function () {
     return view('toppage');
 });
+Route::get('/', 'UsersController@toppage');
 
 // ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');

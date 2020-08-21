@@ -57,24 +57,19 @@
 
 
 
-<section class="purchase-history m-5">
-  <div class="container">
-    <div class="d-flex">
-      <a href="">
-        <img class="d-block w-75" src="{{ asset('image/food_img.jpg') }}">
-      </a>
-      <a href="">
-        <img class="d-block w-75" src="{{ asset('image/food_img.jpg') }}">
-      </a>
-      <a href="">
-        <img class="d-block w-75" src="{{ asset('image/food_img.jpg') }}">
-      </a>
-      <a href="">
-        <img class="d-block w-75" src="{{ asset('image/food_img.jpg') }}">
-      </a>
-    </div>
+<!-- 商品の新着 -->
+<h3 class="my-5">おすすめのHakkutsuアイテムはこちら</h3>
+
+<div class="row">
+  @foreach ($newItemInformation as $item)
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="{{$item->id}}">
+      <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="item">
+    </a>
   </div>
-</section>
+  @endforeach
+</div>
+<!-- /.row -->
 
 
 
