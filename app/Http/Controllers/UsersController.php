@@ -10,16 +10,37 @@ use View;
 use App\Order;
 use App\OrdersDetail;
 use App\Http\Requests\UsersDestinationRequest;
+use App\Item;
 
 class UsersController extends Controller
 {
+
+    public function toppage()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        $item = Item::findOrFail($id);
+
+        $newItemInformation = Item::latest()->take(4)->get();
+
+        return view('toppage')->with([
+            'item' => $item,
+            'newItemInformation' => $newItemInformation,
+        ]);
+    }
 
     public function index()
     {
         $id = Auth::id();
         $user = User::findOrFail($id);
 
-        return view('users.index', $user);
+        $item = Item::findOrFail($id);
+        $newItemInformation = Item::where('id', '!=', $id)->inRandomOrder()->take(4)->get();
+
+        return view('users.index', $user)->with([
+            'item' => $item,
+            'newItemInformation' => $newItemInformation,
+        ]);
     }
 
 
@@ -81,7 +102,7 @@ class UsersController extends Controller
         $user = \Auth::user();
         $order = Order::findOrFail($id);
         $orders_details = $order->ordersDetails()->orderBy('id', 'asc')->paginate(9);
-        
+
         //配列型式で変数に代入
         $data = [
             'user' => $user,

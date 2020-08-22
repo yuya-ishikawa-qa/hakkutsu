@@ -63,6 +63,21 @@ Breadcrumbs::for('users/edit', function ($trail) {
     $trail->push('会員登録内容の変更', url('users/edit'));
 });
 
+// Home > Users > OrderList
+Breadcrumbs::for('users/orderList', function ($trail) {
+    $trail->parent('/');
+    $trail->push('マイページ', url('users'));
+    $trail->push('注文履歴', url('users/orderList'));
+});
+
+// Home > Users > OrderList > OrdersDetails
+Breadcrumbs::for('users/ordersDetails', function ($trail) {
+    $trail->parent('/');
+    $trail->push('マイページ', url('users'));
+    $trail->push('注文履歴', url('users/orderList'));
+    $trail->push('注文詳細', url('users/ordersDetails'));
+});
+
 // Home > Users > Delete_confirm
 Breadcrumbs::for('users/delete_confirm', function ($trail) {
     $trail->parent('/');
@@ -82,7 +97,7 @@ Breadcrumbs::for('stores/management', function ($trail) {
     $trail->parent('/');
     $trail->push('マイページ', url('users'));
     $trail->push('出店依頼', url('store/management/request'));
-    $trail->push('管理店舗', url('stores/management'));
+    $trail->push('店舗管理', url('stores/management'));
 });
 
 // Home > Users > Store/management/request > Stores/create
@@ -90,5 +105,14 @@ Breadcrumbs::for('stores/create', function ($trail) {
     $trail->parent('/');
     $trail->push('マイページ', url('users'));
     $trail->push('出店依頼', url('store/management/request'));
-    $trail->push('管理店舗', url('stores/create'));
+    $trail->push('店舗登録', url('stores/create'));
+});
+
+// Home > Users > Store/management/request > Stores/create
+Breadcrumbs::for('stores/edit', function ($trail) {
+    $trail->parent('/');
+    $trail->push('マイページ', url('users'));
+    $trail->push('出店依頼', url('store/management/request'));
+    $trail->push('店舗管理', url('stores/management'));
+    $trail->push('店舗編集', url('stores/edit'));
 });
