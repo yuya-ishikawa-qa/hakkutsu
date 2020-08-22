@@ -20,8 +20,8 @@
             <div class="mb-2 ml-4 shop-sorting">
               <p>総件数: {{ $orders -> total() }}件</p>
               {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
+            </div>
         </div>
-
       <!-- Page Content-->
 
         <div class="card-deck row">
@@ -37,8 +37,7 @@
                     注文日時：{{$order->created_at}}
                     </a>
                   <p class="card-text">
-                  <a>注文金額：{{$order->total}}円</a>
-                  
+                    <a>注文金額：{{$order->total}}円</a>
                   </p>
                   </div>
                 </div>
@@ -49,6 +48,6 @@
           {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
   </div>
-
+</div>
 
 @endsection
