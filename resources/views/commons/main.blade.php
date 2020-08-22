@@ -70,3 +70,29 @@
   </div>
 </section>
 
+
+<section class="news">
+  <div class="container">
+    <h2 class="text-center mb-5 p-3 text-dark">新着特集<br>ー News ー</h2>
+    <div class="row">
+      @foreach ($newItemInformation as $item)
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="bg-white rounded shadow-sm">
+          <a href="/items/{{$item->id}}">
+            <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="item">
+            <div class="p-4">
+              <h3 class="mt-3 text-normal">商品名:{{$item->item_name}}</h3>
+              <h3 class="mt-3 text-normal">価格：{{$item->price}}</h3>
+              <p class="my-3">
+                @if(isset($item->description))
+                {{$item->description}}
+                @endif
+              </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+  </div>
+</section>

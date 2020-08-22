@@ -55,11 +55,10 @@
 <section class="sub-title">
   <div class="container">
     <h3 class="my-5">おすすめのHakkutsuアイテムはこちら</h3>
-
     <div class="row">
       @foreach ($newItemInformation as $item)
       <div class="col-md-3 col-sm-6 mb-4">
-        <a href="{{$item->id}}">
+        <a href="/items/{{$item->id}}">
           <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="item">
         </a>
       </div>
