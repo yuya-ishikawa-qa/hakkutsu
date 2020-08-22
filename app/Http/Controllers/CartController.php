@@ -158,13 +158,12 @@ class CartController extends Controller
         //指定の値をインスタンスに代入
         $order->name = $user->name;
         $order->total = $cart->totalPrice;
-        //userインスタンスが送付先郵便番号を持つなら注文情報に
+        //userインスタンスが送付先郵便番号を持つなら、注文情報にuserの送付先郵便番号と送付先住所を登録
         if($user -> destination_postal_code){
-          //userの送付先郵便番号と送付先住所を登録
           $order->destination_postal_code = $user->destination_postal_code;
           $order->destination = $user->destination_1.$user->destination_2.$user->destination_3;
         }else{
-          //userの郵便番号と住所登録
+          //userインスタンスが送付先郵便番号を持たないなら、userの郵便番号と住所登録
           $order->destination_postal_code = $user->postal_code;
           $order->destination = $user->address_1.$user->address_2.$user->address_3;
         }
