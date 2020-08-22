@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
         <div class="w-50 pr-2">
             <a href="/stores/management">
-                <button type="submit" class="btn btn-warning col-md-6">
+                <button type="submit" class="button-hover btn btn-warning col-md-6">
                     既存の方はこちら
                 </button>
             </a>
@@ -24,7 +24,7 @@
         <br>
         <div class="w-50">
             <a href="/stores/create">
-                <button type="submit" class="btn btn-warning col-md-6">
+                <button type="submit" class="button-hover btn btn-warning col-md-6">
                     新規出店はこちら
                 </button>
             </a>

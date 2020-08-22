@@ -1,16 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-
+@section('breadcrumbs', Breadcrumbs::render('users/orderList'))
 <br><br>
 
-<div class="p-3 mb-2 bg-warning text-dark">注文履歴</div>
-<div class="text-right">
-  {{ Auth::user()->name }}
-</div>
-@if(Session::has('flash_message'))
-<div class="alert alert-success">
-  {{ session('flash_message') }}
+<div class="container">
+  <h3 class="p-3 mb-2 bg-warning text-dark text-center">注文履歴</h3>
+  <h3 class="font-weight-bold m-5">
+    @if(Auth::check())
+    {{ Auth::user()->name }}
+    @endif
+    様
+  </h3>
+  @if(Session::has('flash_message'))
+  <div class="alert alert-success">
+    {{ session('flash_message') }}
+  </div>
 </div>
 @endif
 

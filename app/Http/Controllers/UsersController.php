@@ -16,10 +16,14 @@ class UsersController extends Controller
 
     public function toppage()
     {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        $item = Item::findOrFail($id);
 
         $newItemInformation = Item::latest()->take(4)->get();
 
         return view('toppage')->with([
+            'item' => $item,
             'newItemInformation' => $newItemInformation,
         ]);
     }
