@@ -22,9 +22,11 @@
               {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
             </div>
         </div>
+      </div>
+
       <!-- Page Content-->
 
-        <div class="card-deck row">
+        <div class="row">
           @foreach($orders as $key => $order)
           @if($loop->iteration % 3 == 1 && $loop->iteration !=1)
             </div>
@@ -48,6 +50,6 @@
           {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
         </div>
   </div>
-</div>
-
+  </div>
+ 
 @endsection

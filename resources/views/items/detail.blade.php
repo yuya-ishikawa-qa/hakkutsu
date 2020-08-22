@@ -63,7 +63,7 @@
           </div>
           <div class="col-md-4 mt-4 text-center">
             <a href="{{route('reviews.index')}}">
-              <button class="btn btn-outline-secondary w-75">商品レビューを見る</button>
+              <button class="btn btn-outline-secondary w-75">商品レビュー一覧を見る</button>
             </a>
           </div>
           <div class="col-md-4 mt-4 text-center">
