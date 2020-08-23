@@ -24,14 +24,14 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'store_name' => 'required|string|max:255',
-            'postal' => 'required|string|max:20',
-            'address' => 'required|string|max:255',
-            'tel' => 'required|string|max:50',
-            'mail' => 'required|string|max:50',
-            'business_hours' => 'required|string|max:50',
-            'description' => 'required|string|max:255',
-            'image_path' =>  'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'store_name' => ['required', 'string', 'max:30'],
+            'postal' => ['required', 'string', 'max:7', 'regex:/^(([0-9]{3}-[0-9]{4})|([0-9]{7}))$/'],
+            'address' => ['required', 'string', 'max:100'],
+            'tel' => ['required', 'string', 'max:15' , 'regex:/^(0{1}\d{9,10})$/'],
+            'mail' => ['required', 'string', 'email', 'max:60'],
+            'business_hours' => ['required', 'string', 'max:60'],
+            'description' => ['required', 'string', 'max:255'],
+            'image_path' => ['required', 'file', 'image','mimes:jpeg,png,jpg,gif','max:2048'],
         ];
     }
 }

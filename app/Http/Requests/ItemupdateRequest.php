@@ -24,13 +24,13 @@ class ItemupdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'item_name' => 'required|string|max:255',
-            'status' => 'required|string|max:20',
-            'stock' => 'required|string|max:50',
-            'price' => 'required|integer',
-            'description' => 'required|string|max:255',
-            'tax_id' => 'required|string|max:255',
-            'image_path' =>  'file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'item_name' => ['required', 'string', 'max:30'],
+            'status' => ['required', 'string', 'max:30'],
+            'stock' => ['required', 'string', 'max:30'],
+            'price' => ['required', 'integer'],
+            'description' => ['required', 'string', 'max:255'],
+            'tax_id' => ['required','integer', 'max:30'],
+            'image_path' => ['file','image','mimes:jpeg,png,jpg,gif','max:2048'],
         ];
     }
 }
