@@ -18,14 +18,17 @@
 
 <section class="member-information">
   <div class="container">
-  <h3 class="message m-5 mb-5">退会手続きを実行しますか？</h3>
-    <div class="col-md-2 col-md-offset-5 mb-5">
+    <h3 class="message m-5 mb-5">退会手続きを実行しますか？</h3>
+    <div class="d-flex justify-content-center">
+      <div class="col-md-5 w-50">
+        {!! link_to_route('users.index', '退会しない', ['id' => Auth::user()->id],
+        ['class' => 'btn btn-secondary btn-block btn-lg p-4']) !!}
+      </div>
+      <div class="col-md-5 w-50">
         {!! Form::open(['route' => ['users.destroy', Auth::user()->id], 'method' => 'delete']) !!}
-            {!! Form::submit('退会する', ['class' => 'btn btn-danger btn-block btn-lg']) !!}
+        {!! Form::submit('退会する', ['class' => 'btn btn-danger btn-block btn-lg p-4']) !!}
         {!! Form::close() !!}
-    </div>
-    <div class="col-md-2 col-md-offset-5 spacer">
-        {!! link_to_route('users.index', '退会しない', ['id' => Auth::user()->id], ['class' => 'btn btn-secondary btn-block btn-lg']) !!}
+      </div>
     </div>
   </div>
 </section>

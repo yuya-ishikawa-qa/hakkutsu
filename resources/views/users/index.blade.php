@@ -28,26 +28,38 @@
 
 <section class="member-information">
   <div class="container">
-    <a href="/store/management/request">
-      <button type="submit" class="button-hover btn btn-warning col-md-6">
-        出店依頼はこちら
-      </button>
-    </a>
-    <a href="/edit">
-      <button type="submit" class="button-hover btn btn-warning col-md-6">
-        会員登録内容の変更
-      </button>
-    </a>
-    <a href="/users/orderList">
-      <button type="submit" class="button-hover btn btn-warning col-md-6">
-        注文履歴
-      </button>
-    </a>
-    <a href="/delete_confirm">
-      <button type="submit" class="button-hover btn btn-warning col-md-6">
-        退会手続き
-      </button>
-    </a>
+    <div class="d-flex justify-content-center">
+      <div class="w-50">
+        <a href="/users/orderList">
+          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
+            注文履歴
+          </button>
+        </a>
+      </div>
+      <div class="w-50">
+        <a href="/store/management/request">
+          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
+            出店依頼はこちら
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="w-50">
+        <a href="/edit">
+          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
+            会員登録内容の変更
+          </button>
+        </a>
+      </div>
+      <div class="w-50">
+        <a href="/delete_confirm">
+          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
+            退会手続き
+          </button>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
