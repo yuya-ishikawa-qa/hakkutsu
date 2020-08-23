@@ -29,7 +29,6 @@ class StoreRequest extends FormRequest
             'address' => ['required', 'string', 'max:100'],
             'tel' => ['required', 'string', 'max:15' , 'regex:/^(0{1}\d{9,10})$/'],
             'mail' => ['required', 'string', 'email', 'max:60'],
-            'business_hours' => ['required', 'string', 'max:60'],
             'description' => ['required', 'string', 'max:255'],
             'image_path' => ['required', 'file', 'image','mimes:jpeg,png,jpg,gif','max:2048'],
         ];

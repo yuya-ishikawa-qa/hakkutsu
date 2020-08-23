@@ -73,16 +73,6 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('business_hours', '【営業時間】') !!}
-                        {!! Form::text('business_hours', $store->business_hours, ['class' => 'form-control', 'placeholder' => '例）土日休み']) !!}
-                    </div>
-                    @if (count($errors) > 0)
-                    @foreach ($errors->get('business_hours') as $error)
-                    <div class="text-danger">{{ $error }}</div>
-                    @endforeach
-                    @endif
-
-                    <div class="form-group">
                         {!! Form::label('description', '【店舗の説明】') !!}
                         {!! Form::textarea('description', $store->description, ['class' => 'form-control', 'placeholder' => '例）岐阜の長良ぶどうを産地直送でお送り致します。']) !!}
                     </div>

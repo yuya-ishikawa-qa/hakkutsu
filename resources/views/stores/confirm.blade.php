@@ -32,9 +32,6 @@
                 <div class = "form-group">
                      <p>【画像】：<img src = "/{{ $data['read_temp_path'] }}" width="450px"></p>
                 </div>
-                <div class = "form-group">
-                    {!! Form::label('business_hours', '【営業時間】: '. $post_data["business_hours"]) !!}
-                </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $post_data["description"]) !!}
                 </div>

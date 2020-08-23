@@ -23,7 +23,6 @@
               <h3 class="my-3">所在地：{{$store->address}}</h3>
               <h3 class="my-3">電話番号：{{$store->tel}}</h3>
               <h3 class="my-3">メールアドレス：{{$store->mail}}</h3>
-              <h3 class="my-3">営業時間：{{$store->business_hours}}</h3>
             </div>
 
           </div>
