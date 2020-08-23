@@ -2,11 +2,13 @@
 
 @section('content')
 
-<div class="text-right">
-ユーザー名:{{ Auth::user()->name }}<br>
-店名:{{ $store->store_name}}
-</div>
+
 <div class="container">
+  <h3 class="p-3 mb-2 bg-warning text-dark text-center">商品管理画面</h3>
+    <div class="text-right">
+    ユーザー名:{{ Auth::user()->name }}<br>
+    店名:{{ $store->store_name}}
+    </div>
 　<!-- Shop Toolbar-->
     <div class="row justify-content-between">
       <div class="mb-2 ml-4 shop-sorting">

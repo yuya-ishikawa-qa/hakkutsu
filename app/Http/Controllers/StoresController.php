@@ -113,7 +113,6 @@ class StoresController extends Controller
             $store->address = $post_data['address'];
             $store->tel = $post_data['tel'];
             $store->mail = $post_data['mail'];
-            $store->business_hours = $post_data['business_hours'];
             $store->postal = $post_data['postal'];
             $store->description = $post_data['description'];
             $store->user_id = auth()->id();
@@ -165,7 +164,6 @@ class StoresController extends Controller
                 'address' => $post_data['address'],
                 'tel' => $post_data['tel'],
                 'mail' => $post_data['mail'],
-                'business_hours' => $post_data['business_hours'],
                 'description' => $post_data['description'],
             );
 

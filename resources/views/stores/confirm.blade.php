@@ -3,14 +3,12 @@
 @section('content')
 
 
-<div class="p-3 mb-2 bg-warning text-dark">出店依頼はこちら</div>
-<br>
-
-<div class="text-right">
-    {{ Auth::user()->name }}
-</div>
 
 <div class="container">
+    <h3 class="p-3 mb-2 bg-warning text-dark text-center">確認画面</h3>
+        <div class="text-right">
+        {{ Auth::user()->name }}様
+        </div>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8">
             <p class="pl-2">この内容でよろしければ「送信する」ボタンを押してください。</p>
@@ -33,9 +31,6 @@
                 </div>
                 <div class = "form-group">
                      <p>【画像】：<img src = "/{{ $data['read_temp_path'] }}" width="450px"></p>
-                </div>
-                <div class = "form-group">
-                    {!! Form::label('business_hours', '【営業時間】: '. $post_data["business_hours"]) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $post_data["description"]) !!}

@@ -44,7 +44,7 @@
         <div class="card">
           <img class="card-img-top store-display" src="{{asset($store->image_path)}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">{{$store->store_name}}</h4>
+            <h4> <a href="/stores/{{$store->id}}" class="text-dark" "card-title">{{$store->store_name}}</a></h4>
             <p class="card-text">
               @if(isset($store->description))
               {{$store->description}}
@@ -56,10 +56,7 @@
               店舗編集
             </a>
             <a class="btn btn-warning" href={{route('stores.itemList',['store'=> $store])}}>
-              商品一覧
-            </a>
-            <a class="btn btn-secondary" href={{route('stores.detail',['store'=> $store])}}>
-              店舗の詳細
+              商品画面
             </a>
           </div>
         </div>
