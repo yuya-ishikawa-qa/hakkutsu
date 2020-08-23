@@ -15,16 +15,12 @@ use App\Item;
 class UsersController extends Controller
 {
 
-    public function toppage()
+    public function toppage(Request $request)
     {
-        $id = Auth::id();
-        $user = User::findOrFail($id);
-        $item = Item::findOrFail($id);
+        $items = Item::paginate($request->disp_list);
+        $newItemInformation = Item::latest()->take(3)->get();
 
-        $newItemInformation = Item::latest()->take(4)->get();
-
-        return view('toppage')->with([
-            'item' => $item,
+        return view('toppage', ['items' => $items])->with([
             'newItemInformation' => $newItemInformation,
         ]);
     }
@@ -34,11 +30,10 @@ class UsersController extends Controller
         $id = Auth::id();
         $user = User::findOrFail($id);
 
-        $item = Item::findOrFail($id);
         $newItemInformation = Item::where('id', '!=', $id)->inRandomOrder()->take(4)->get();
 
-        return view('users.index', $user)->with([
-            'item' => $item,
+        return view('users.index')->with([
+            'user' => $user,
             'newItemInformation' => $newItemInformation,
         ]);
     }
