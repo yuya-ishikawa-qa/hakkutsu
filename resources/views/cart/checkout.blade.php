@@ -2,15 +2,15 @@
 
 @section('content')
 
- <h3 class="p-3 mb-2 bg-warning text-dark text-center">会計</h3>
-<br>
+
 @if(Session::has('flash_message'))
         <div class="alert alert-success">
             {{ session('flash_message') }}
         </div>
 @endif
-
+<div class="container">
 <div class = "text-center">
+    <h3 class="p-3 mb-2 bg-warning text-dark text-center">会計</h3><br>
     <div class="mx-auto" style="width: 600px;">
         <div class="card">
             <div class="card-header">
@@ -48,6 +48,7 @@
         <a>確認の上、よろしければ、</a><br>
         <a>決済画面へお進み下さい。</a>
     </div>
+
     
     <br>
     <div class = "text-center">
@@ -67,5 +68,4 @@
         </form>
     </div>          
 </div>
-
 @endsection
