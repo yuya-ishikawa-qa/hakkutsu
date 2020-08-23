@@ -2,7 +2,6 @@
 
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('users/orderList'))
-<br><br>
 
 <div class="container">
   <h3 class="p-3 mb-2 bg-warning text-dark text-center">注文履歴</h3>
@@ -16,11 +15,10 @@
   <div class="alert alert-success">
     {{ session('flash_message') }}
   </div>
+  @endif
 </div>
-@endif
 
 <div class="container">
-
   <!-- Shop Toolbar-->
   <div class="row justify-content-between">
     <div class="mb-2 ml-4 shop-sorting">
@@ -28,6 +26,8 @@
       {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
     </div>
   </div>
+
+
 
   <!-- Page Content-->
 
@@ -54,6 +54,6 @@
   <div class="d-flex justify-content-end">
     {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
   </div>
+</div>
 
 @endsection
-
