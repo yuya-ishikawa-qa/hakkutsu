@@ -2,15 +2,13 @@
 
 @section('content')
 
-<div class="text-right">
-ユーザー名:{{ Auth::user()->name }}<br>
-店名:{{ $store->store_name}}<br>
-消費税{{$taxes[1]}}
-</div>
-    <div class = "text-center">
-        <h1><i class = "fas fa-store"></i>商品編集</h1>
+<div class="container">
+  <h3 class="p-3 mb-2 bg-warning text-dark text-center">商品編集画面</h3>    
+  <div class="text-right">
+    ユーザー名:{{ Auth::user()->name }}<br>
+    店名:{{ $store->store_name}}<br>
     </div>
-    <div class = "row">
+    <div class = "row"> 
         <div class = "col-sm-6 offset-sm-3">
             {!! Form::open(['route' => ['items.update',$store,$item], 'method' => 'put','enctype'=>'multipart/form-data']) !!}
                 <div class = "form-group">
@@ -49,5 +47,6 @@
             {!! Form::close() !!}
         </div>
     </div>
+</div>
 
 @endsection('content')
