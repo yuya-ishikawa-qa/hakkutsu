@@ -125,6 +125,10 @@ return [
         'business_hours'=>'※営業時間',
         'description'=>'※店舗の説明',
         'image_path'=>'※店舗イメージ',
+        'destination_postal_code'=>'送付先郵便番号',
+        'destination_1'=>'送付先1',
+        'destination_2'=>'送付先2',
+        'destination_3'=>'送付先3',
     ],
 
 ];

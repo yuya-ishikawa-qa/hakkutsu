@@ -25,6 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('destination_postal_code')->nullable();  // 送付先郵便番号
+            $table->string('destination_1')->nullable();  // 送付先 1
+            $table->string('destination_2')->nullable();  // 送付先 2
+            $table->string('destination_3')->nullable();  // 送付先 3
             $table->rememberToken();
             $table->timestamps();
         });
