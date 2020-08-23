@@ -20,6 +20,7 @@
 @endif
 
 <div class="container">
+
   <!-- Shop Toolbar-->
   <div class="row justify-content-between">
     <div class="mb-2 ml-4 shop-sorting">
@@ -44,7 +45,6 @@
           </a>
           <p class="card-text">
             <a>注文金額：{{$order->total}}円</a>
-
           </p>
         </div>
       </div>
@@ -54,7 +54,6 @@
   <div class="d-flex justify-content-end">
     {{ $orders -> appends(request() -> input() )-> links('pagination::default') }}
   </div>
-</div>
-</div>
 
 @endsection
+

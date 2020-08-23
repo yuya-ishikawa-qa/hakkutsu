@@ -12,6 +12,8 @@ use App\Order;
 use App\OrdersDetail;
 use Illuminate\Support\Collection;
 use DB;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 class CartController extends Controller
 {
@@ -123,6 +125,7 @@ class CartController extends Controller
         if(!Session::has('cart')){
             return view('cart.index');
         }
+        $user = \Auth::user();
 
         //指定のsession変数を変数に代入する
         $oldCart = Session::get('cart');
@@ -131,11 +134,14 @@ class CartController extends Controller
         //インスタンスの合計金額を変数に代入
         $total = $cart->totalPrice;
         
-        return view('cart.checkout', ['total' => $total]);
+        return view('cart.checkout', [
+          'user' => $user,
+          'total' => $total
+          ]);
     }
-
-    //注文
-    public function postCheckout(Request $request){
+    
+    //注文・決済
+    public function pay(Request $request){
         //指定のsession変数がない場合、viewを返す
         if(!Session::has('cart')){
             return view('cart.index');
@@ -144,15 +150,23 @@ class CartController extends Controller
         $oldCart = Session::get('cart');
         //インスタンスを生成
         $cart = new Cart($oldCart);
+        $user = \Auth::user();
+
           
         //インスタンスを生成
         $order = new Order();
         //指定の値をインスタンスに代入
-        $order->name = $request->input('name');
-        $order->destination = $request->input('destination');
+        $order->name = $user->name;
         $order->total = $cart->totalPrice;
-        //$order->payment_id = $charge->id;
-
+        //userインスタンスが送付先郵便番号を持つなら、注文情報にuserの送付先郵便番号と送付先住所を登録
+        if($user -> destination_postal_code){
+          $order->destination_postal_code = $user->destination_postal_code;
+          $order->destination = $user->destination_1.$user->destination_2.$user->destination_3;
+        }else{
+          //userインスタンスが送付先郵便番号を持たないなら、userの郵便番号と住所登録
+          $order->destination_postal_code = $user->postal_code;
+          $order->destination = $user->address_1.$user->address_2.$user->address_3;
+        }
         //インスタンスを保存
         Auth::user()->orders()->save($order);
         
@@ -170,13 +184,22 @@ class CartController extends Controller
                 //インスタンスに保存
                 $orders_details->save();
         }
-
         //指定のsessionを破棄
         Session::forget('cart');
+
+        //シークレットキーを読み込み
+        Stripe::setApiKey(env('STRIPE_SECRET'));  
+        //金額と円とトークンを作成
+        $charge = Charge::create(array(
+            'amount' => $order->total,
+            'currency' => 'jpy',
+            'source'=> request()->stripeToken,
+        ));
         //フラッシュメッセージを登録
         session()->flash('flash_message', '注文を行いました');
 
         return redirect()->route('cart.index');
-    }
+      }
 
 }
+

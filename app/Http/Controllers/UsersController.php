@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Order;
 use App\OrdersDetail;
+use App\Http\Requests\UsersDestinationRequest;
 use App\Item;
 
 class UsersController extends Controller
@@ -110,5 +111,24 @@ class UsersController extends Controller
         ];
 
         return view('users.orders_details', $data);
+    }
+    //送付先の登録画面表示
+    public function createDestination()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return View::make('users.create_destination')->with('user', $user);
+    }
+    //送付先情報の登録・更新
+    public function storeDestination(UsersDestinationRequest $request)
+    {
+        $id = Auth::id();   
+        $user = User::findOrFail($id);
+        //ユーザーインスタンスにリクエスト情報を更新
+        $user->fill($request->all())->save();
+        //フラッシュメッセージの登録
+        session()->flash('flash_message', '登録内容が更新されました');
+
+        return redirect()->route('checkout');
     }
 }

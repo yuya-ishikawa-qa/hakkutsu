@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('users/destroy', 'UsersController@destroy')->name('users.destroy');
     Route::get('users/orderList', 'UsersController@orderList')->name('users.orderList');
     Route::get('users/ordersDetails/{id}', 'UsersController@ordersDetails')->name('users.ordersDetails');
+    Route::get('users/createDestination', 'UsersController@createDestination')->name('users.createDestination');
+    Route::put('users/storeDestination/{id}', 'UsersController@storeDestination')->name('users.storeDestination');
 });
 
 
@@ -44,11 +46,6 @@ Route::get('/store/management/request', function () {
     return view('store.management.request');
 })->name('store.request');
 
-
-// 9-3表示用
-Route::get('/buy/index', function () {
-    return view('buy.index');
-});
 // 7-1表示用
 Route::get('/privacy', function () {
     return view('privacy');
@@ -83,7 +80,7 @@ Route::get('/remove/{id}', 'CartController@getRemoveItem')->name('items.remove')
 //注文機能
     Route::group(['middleware' => 'auth'], function () {
     Route::get('/checkout', 'CartController@getCheckout')->name('checkout');
-    Route::post('/checkout', 'CartController@postCheckout')->name('checkout');
+    Route::post('/pay', 'CartController@pay')->name('pay');
 });
 
 //←りょうた作成
