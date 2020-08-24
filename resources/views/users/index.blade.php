@@ -28,15 +28,15 @@
 
 <section class="member-information">
   <div class="container">
-    <div class="d-flex justify-content-center">
-      <div class="w-50">
+    <div class="d-flex">
+      <div class="w-50 text-center">
         <a href="/users/orderList">
           <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
             注文履歴
           </button>
         </a>
       </div>
-      <div class="w-50">
+      <div class="w-50 text-center">
         <a href="/store/management/request">
           <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
             出店依頼はこちら
@@ -44,15 +44,15 @@
         </a>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="w-50">
+    <div class="d-flex">
+      <div class="w-50  text-center">
         <a href="/edit">
           <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
             会員登録内容の変更
           </button>
         </a>
       </div>
-      <div class="w-50">
+      <div class="w-50  text-center">
         <a href="/delete_confirm">
           <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
             退会手続き
