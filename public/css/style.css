@@ -193,3 +193,7 @@ margin-right: 4px;
   width: 100%;
   height: 250px;
 }
+
+.stripe-button {
+  width: 50%;
+}

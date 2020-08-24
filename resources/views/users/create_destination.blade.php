@@ -48,7 +48,7 @@
                 @endif
 
               <div class="form-group">
-                {!! Form::label('destination_3', '送付先3') !!}
+                {!! Form::label('destination_3', '送付先 3') !!}
                 {{ Form::text('destination_3', null, ['class' => 'form-control', 'placeholder' => '番地・マンション名・号室など']) }}
               </div>
                 @if (count($errors) > 0)
