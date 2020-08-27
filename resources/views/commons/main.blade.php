@@ -49,7 +49,7 @@
   <div class="container">
     <h2 class="text-center mb-5 p-3 text-dark">HAKKUTSUとは<br>ー Concept ー</h2>
     <div class="row">
-      <img class="concept_visual_01 w-50" src="{{ asset('image/concept_visual_01.jpg') }}" alt="Card image cap">
+      <img class="concept_visual" src="{{ asset('image/concept_visual_01.jpg') }}" alt="Card image cap">
       <div class="col-md-6 d-flex align-items-center">
         <p class="about_text">
           全国にはあなたが知らない地域ブランドが数多く眠っています。
@@ -59,13 +59,13 @@
       </div>
 
       <div class="col-md-6 d-flex align-items-center">
-        <p class="about-text">
+        <p class="about_text">
           肉や魚、野菜や果物など、全国各地の選りすぐりの商品からご購入いただけます。
           私たちが商品を購入することで『地域の活性化』に繋がり
           『地域を応援する』きっかけになれば、これほど嬉しいことはありません。
         </p>
       </div>
-      <img class="concept_visual_02 w-50 mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
+      <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
 </section>

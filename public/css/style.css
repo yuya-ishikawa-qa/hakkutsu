@@ -194,6 +194,85 @@ margin-right: 4px;
   height: 250px;
 }
 
-.stripe-button {
+.concept_visual {
   width: 50%;
+}
+
+.mypage_button {
+  width: 50%;
+  text-align: center;
+}
+
+
+/*======================
+スマホ用のレスポンシブ
+======================*/
+
+@media only screen and (max-width:767px) {
+  /*======================
+  header
+  ======================*/
+  .nav-link {
+    font-size: 20px;
+  }
+
+  /*======================
+  main
+  ======================*/
+  .about p {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .concept_visual {
+    width: 100%;
+  }
+
+  /*======================
+  mypage
+  ======================*/
+
+  /* .wrapper {
+    flex-wrap: wrap;
+  } */
+
+  .mypage_button button {
+    /* text-align: none; */
+    width: 100%;
+    display: block;
+  }
+
+  .img-fluid {
+    width: 100%;
+  }
+
+}
+
+/*======================
+タブレット用のレスポンシブ
+======================*/
+
+@media only screen and (max-width:1024px) {
+  /*======================
+  header
+  ======================*/
+  .nav-link {
+    font-size: 20px;
+  }
+
+  /*======================
+  main
+  ======================*/
+  .about p {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .concept_visual {
+    width: 100%;
+  }
+
 }
