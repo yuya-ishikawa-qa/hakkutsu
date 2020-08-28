@@ -17,14 +17,14 @@ class OrderMail extends Mailable
      * @return void
      */
 
-    protected $order;
-    protected $total;
+    protected $content;
+    protected $viewStr;
 
-    public function __construct($order)
+    public function __construct($content,$viewStr = 'to')
     {
-        
-        $this->order = $order;
-        // dd($this->order);
+        //指定の変数を代入
+        $this->content = $content;
+        $this->viewStr = $viewStr;
     }
 
     /**
@@ -34,9 +34,13 @@ class OrderMail extends Mailable
      */
     public function build()
     {
-        return $this->view('buy.mail')
+        //メール送付文指示と変数を渡す指示
+        return $this->view('cart.emails.'.$this->viewStr)
+        ->to($this->content['to'],$this->content['to_name'])
+        ->from($this->content['from'],$this->content['from_name'])
+        ->subject($this->content['subject'])
         ->with([
-            'order' => $this->order,
+            'content'=>$this->content,
         ]);
     }
 }
