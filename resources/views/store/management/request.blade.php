@@ -12,18 +12,16 @@
 <div class="container pt-5">
     <div class="p-3 mb-5 bg-warning text-dark text-center">出店依頼はこちら</div>
     <div class="d-flex">
-        <div class="col-md-6 w-50 text-center">
-            <a href="/stores/management">
-                <button type="submit" class="button-hover btn btn-warning text-dark">
-                    既存の方はこちら
-                </button>
+        <div class="mypage_button">
+            <a href="/stores/management" class="button-hover btn btn-warning text-dark">
+                既存の方はこちら
             </a>
         </div>
-        <div class="col-md-6 w-50  text-center">
-            <a href="/stores/create">
-                <button type="submit" class="button-hover btn btn-warning text-dark">
-                    新規出店はこちら
-                </button>
+    </div>
+    <div class="d-flex">
+        <div class="mypage_button">
+            <a href="/stores/create" class="button-hover btn btn-warning text-dark">
+                新規出店はこちら
             </a>
         </div>
     </div>

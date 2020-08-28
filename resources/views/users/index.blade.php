@@ -29,34 +29,30 @@
 <section class="member-information">
   <div class="container">
     <div class="d-flex">
-      <div class="w-50 text-center">
-        <a href="/users/orderList">
-          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
-            注文履歴
-          </button>
-        </a>
-      </div>
-      <div class="w-50 text-center">
-        <a href="/store/management/request">
-          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
-            出店依頼はこちら
-          </button>
+      <div class="mypage_button">
+        <a href="/users/orderList" class="button-hover btn btn-warning text-dark">
+          注文履歴
         </a>
       </div>
     </div>
     <div class="d-flex">
-      <div class="w-50  text-center">
-        <a href="/edit">
-          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
-            会員登録内容の変更
-          </button>
+      <div class="mypage_button">
+        <a href="/store/management/request" class="button-hover btn btn-warning text-dark">
+          出店依頼はこちら
         </a>
       </div>
-      <div class="w-50  text-center">
-        <a href="/delete_confirm">
-          <button type="submit" class="button-hover btn btn-warning text-dark col-md-6">
-            退会手続き
-          </button>
+    </div>
+    <div class="d-flex">
+      <div class="mypage_button">
+        <a href="/edit" class="button-hover btn btn-warning text-dark">
+          会員登録内容の変更
+        </a>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="mypage_button">
+        <a href="/delete_confirm" class="button-hover btn btn-warning text-dark">
+          退会手続き
         </a>
       </div>
     </div>

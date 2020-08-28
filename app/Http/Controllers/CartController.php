@@ -219,7 +219,7 @@ class CartController extends Controller
       ],'to'));
 
         //フラッシュメッセージを登録
-        session()->flash('flash_message', '注文を行いました');
+        session()->flash('flash_message', '決済が完了しました');
 
         return redirect()->route('cart.index');
       }

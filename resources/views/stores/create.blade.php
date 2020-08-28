@@ -80,7 +80,7 @@
                     <div class="text-danger">{{ $error }}</div>
                     @endforeach
                     @endif
-                    
+
                     {!! Form::submit('内容を確認する', ['class' => 'btn btn-primary mt-5 mb-3 p-3 btn-lg btn-block']) !!}
                     {!! Form::close() !!}
                 </div>

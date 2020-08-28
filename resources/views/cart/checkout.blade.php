@@ -3,12 +3,12 @@
 @section('content')
 
 
-@if(Session::has('flash_message'))
-<div class="alert alert-success">
-    {{ session('flash_message') }}
-</div>
-@endif
 <div class="container">
+    @if(Session::has('flash_message'))
+    <div class="alert alert-success">
+        {{ session('flash_message') }}
+    </div>
+    @endif
     <div class="text-center">
         <h3 class="p-3 mb-2 bg-warning text-dark text-center">会計</h3><br>
         <div class="mx-auto" style="width: 600px;">
