@@ -14,6 +14,8 @@ use Illuminate\Support\Collection;
 use DB;
 use Stripe\Stripe;
 use Stripe\Charge;
+use App\Mail\OrderMail;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -195,8 +197,24 @@ class CartController extends Controller
             'currency' => 'jpy',
             'source'=> request()->stripeToken,
         ));
+
+        $id = Auth::id();
+        $order = Order::where('user_id', '=', $id)->latest()->first();
+          // 二重送信防止のためトークンを発行
+      //  $request->session()->regenerateToken();
+        
+        // //購入者へ送付
+        Mail::to(Auth::user()->email)->send(new OrderMail($order));
+      //   \Mail::send(new OrderMail([
+      //     'from'      => 'hakkutsu.mrs@gmail.com',
+      //     'from_name' => 'Hakkutsu',
+      //     'subject'   => '注文受付完了のお知らせ',
+      //     'order'      => $order
+      // ],'to'));
+
         //フラッシュメッセージを登録
         session()->flash('flash_message', '注文を行いました');
+
 
         return redirect()->route('cart.index');
       }
