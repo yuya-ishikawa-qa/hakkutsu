@@ -235,14 +235,14 @@ margin-right: 4px;
   mypage
   ======================*/
 
-  /* .wrapper {
-    flex-wrap: wrap;
-  } */
-
-  .mypage_button button {
-    /* text-align: none; */
-    width: 100%;
+  .d-flex {
     display: block;
+  }
+
+
+  .mypage_button {
+      display: block;
+      width: 100%;
   }
 
   .img-fluid {
