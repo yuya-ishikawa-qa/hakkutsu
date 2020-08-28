@@ -63,7 +63,9 @@
 
                     <div class='form-group'>
                         {!! Form::label('image_path','【店舗イメージ】') !!}
-                        <img src="/{{$store->image_path}}" width="450px">
+                        <div class="col-md-7">
+                        <img class="img-fluid" src="/{{$store->image_path}}" alt="">
+                    </div>
                         {!! Form::file('image_path') !!}
                     </div>
                     @if (count($errors) > 0)
