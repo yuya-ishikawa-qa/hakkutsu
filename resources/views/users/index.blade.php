@@ -34,6 +34,8 @@
           注文履歴
         </a>
       </div>
+    </div>
+    <div class="d-flex">
       <div class="mypage_button">
         <a href="/store/management/request" class="button-hover btn btn-warning text-dark">
           出店依頼はこちら
@@ -46,6 +48,8 @@
           会員登録内容の変更
         </a>
       </div>
+    </div>
+    <div class="d-flex">
       <div class="mypage_button">
         <a href="/delete_confirm" class="button-hover btn btn-warning text-dark">
           退会手続き
