@@ -54,8 +54,10 @@
 
                 <div class = 'form-group'>
                     {!! Form::label('image_path','【商品画像】') !!}
-                    <img src = "/{{$item->image_path}}" width="450px">
-                    {!! Form::file('image_path') !!}
+                    <div class="col-md-7">
+                    <img class="img-fluid" src="/{{$item->image_path}}" alt="">
+                    </div>
+                {!! Form::file('image_path') !!}
                 </div>
                 @if (count($errors) > 0)
                 @foreach ($errors->get('image_path') as $error)

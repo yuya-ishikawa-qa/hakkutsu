@@ -25,7 +25,7 @@
                     </div>
                     @else
                     <div>
-                        郵便番号：{{$user -> postal_code}}<br>
+                        郵便番号：〒{{$user -> postal_code}}<br>
                         住所：{{$user -> address_1.$user -> address_2.$user -> address_3}}
                     </div>
                     @endif
