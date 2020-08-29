@@ -24,7 +24,7 @@
         </div>
       </div>
       <!-- Product Info-->
-      <div class="col-md-6 ml-3">
+      <div class="col-md-6">
         <span class="text-muted">商品コード：{{$item->id}}</span>
         <h3 class="mt-3 text-normal">商品名:{{$item->item_name}}</h3>
         <h3 class="mt-3 text-normal">価格：{{$item->price}}</h3>

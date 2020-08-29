@@ -249,8 +249,8 @@ body {
         height: auto;
     }
 
-    header {
-        margin-right: 0;
+    .row {
+        margin: 0;
     }
 
     .d-flex {
@@ -283,4 +283,14 @@ body {
     .concept_visual {
         width: 100%;
     }
+
+    /*======================
+  items
+  ======================*/
+
+    .item-primary-display {
+        height: auto;
+    }
+
+
 }
