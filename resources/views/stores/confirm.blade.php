@@ -11,7 +11,7 @@
         </div>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8">
-            <p class="pl-2">この内容でよろしければ「送信する」ボタンを押してください。</p>
+            <p class="pl-2">この内容でよろしければ「送信する」を押してください。</p>
             {!! Form::open(['route' => 'stores.store', 'method' => 'post']) !!}
             <div class = "form-group">
                     {!! Form::label('store_name', '【店名】: '. $post_data["store_name"]) !!}
