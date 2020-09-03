@@ -21,16 +21,7 @@ class StoresTableSeeder extends Seeder
             'image_path' => 'storage/stores_image/image_path1.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
-        DB::table('stores')->insert([
-            'user_id' => '2',
-            'store_name' => '牛屋',
-            'postal' => '1234567',
-            'address' => '○県△町×番地',
-            'tel' => '09012345678',
-            'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path2.png',
-            'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
-        ]);
+
         DB::table('stores')->insert([
             'user_id' => '3',
             'store_name' => 'ミルキーミルキー',
