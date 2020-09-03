@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->bigInteger('item_id')->unsigned();
             $table->string('title',60)->null();
             $table->string('body')->null();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
         });
     }
