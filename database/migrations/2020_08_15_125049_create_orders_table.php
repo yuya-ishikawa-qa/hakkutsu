@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('total');
             $table->string('payment_id')->nullable();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
