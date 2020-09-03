@@ -64,7 +64,8 @@ class StoresController extends Controller
         //アップロードされたfileに関する情報としてimage_pathを変数に代入
         $path = $request->file('image_path');
         //$pathをpublic/tempに保存し、位置を変数に代入
-        $temp_path = $path->store('public/temp');
+        // $temp_path = $path->store('public/temp');
+        $temp_path = Storage::disk('s3')->put('public/temp',$file, 'public');
         //str_replaceメソッドで、public/をstorage/に置き換え
         $read_temp_path = str_replace('public/', 'storage/', $temp_path);
 

@@ -42,7 +42,8 @@
       @endif
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card">
-          <img class="card-img-top store-display" src="{{asset($store->image_path)}}" alt="">
+          <!-- <img class="card-img-top store-display" src="{{asset($store->image_path)}}" alt=""> -->
+          <img class="card-img-top store-display" src="{{ Storage::disk('s3')->url($store->image_path) }}">
           <div class="card-body">
             <h4> <a href="/stores/{{$store->id}}" class="text-dark" "card-title">{{$store->store_name}}</a></h4>
             <p class="card-text">

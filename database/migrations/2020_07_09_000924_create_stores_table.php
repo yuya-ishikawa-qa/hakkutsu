@@ -23,7 +23,7 @@ class CreateStoresTable extends Migration
             $table->string('mail');
             $table->string('image_path');
             $table->text('description')->null();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
