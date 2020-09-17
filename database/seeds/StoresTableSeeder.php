@@ -18,7 +18,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path1.png',
+            'image_path' => 'public/stores_image/image_path1.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -28,7 +28,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path2.png',
+            'image_path' => 'public/stores_image/image_path2.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -38,7 +38,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path3.png',
+            'image_path' => 'public/stores_image/image_path3.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -48,7 +48,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path4.png',
+            'image_path' => 'public/stores_image/image_path4.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -58,7 +58,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path5.png',
+            'image_path' => 'public/stores_image/image_path5.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -68,7 +68,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path6.png',
+            'image_path' => 'public/stores_image/image_path6.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -78,7 +78,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path7.png',
+            'image_path' => 'public/stores_image/image_path7.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -88,7 +88,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path8.png',
+            'image_path' => 'public/stores_image/image_path8.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -98,7 +98,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path9.png',
+            'image_path' => 'public/stores_image/image_path9.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -108,7 +108,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path10.png',
+            'image_path' => 'public/stores_image/image_path10.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -118,7 +118,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path11.png',
+            'image_path' => 'public/stores_image/image_path11.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -128,7 +128,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path12.png',
+            'image_path' => 'public/stores_image/image_path12.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -138,7 +138,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path13.png',
+            'image_path' => 'public/stores_image/image_path13.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -148,7 +148,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path14.png',
+            'image_path' => 'public/stores_image/image_path14.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
 
@@ -159,7 +159,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path15.png',
+            'image_path' => 'public/stores_image/image_path15.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -169,7 +169,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path16.png',
+            'image_path' => 'public/stores_image/image_path16.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -179,7 +179,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path17.png',
+            'image_path' => 'public/stores_image/image_path17.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -189,7 +189,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path18.png',
+            'image_path' => 'public/stores_image/image_path18.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
         DB::table('stores')->insert([
@@ -199,7 +199,7 @@ class StoresTableSeeder extends Seeder
             'address' => '○県△町×番地',
             'tel' => '09012345678',
             'mail' => 'hakkutsu@example.com',
-            'image_path' => 'storage/stores_image/image_path19.png',
+            'image_path' => 'public/stores_image/image_path19.png',
             'description' => 'ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。'
         ]);
 

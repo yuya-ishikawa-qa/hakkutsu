@@ -18,7 +18,7 @@
 
 					@foreach($cart_items as $cart_item)
 					<li class="list-group-item mb-5">
-						<p><img src="/{{ $cart_item['item']['image_path'] }}" width="100px" class="mb-2"></p>
+						<p><img src="{{Storage::disk('s3')->url($cart_item['item']['image_path'])}}" width="100px" class="mb-2"></p>
 						<strong>{{$cart_item['item']['item_name']}}</strong>
 						<span class="label label-success">{{$cart_item['qty']}}個</span><br>
 						<span class="label label-success">1個あたり{{$cart_item['item']['price']}}円</span><br>

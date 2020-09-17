@@ -30,7 +30,7 @@
                     {!! Form::label('mail', '【メールアドレス】: '. $post_data["mail"]) !!}
                 </div>
                 <div class = "form-group">
-                     <p>【画像】：<img src = "/{{ $data['read_temp_path'] }}" width="450px"></p>
+                     <p>【画像】：<img src = "{{ Storage::disk('s3')->url($temp_path) }}" width="450px"></p>
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $post_data["description"]) !!}

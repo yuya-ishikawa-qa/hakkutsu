@@ -52,7 +52,7 @@
       <img class="concept_visual" src="{{ asset('image/concept_visual_01.jpg') }}" alt="Card image cap">
       <div class="col-md-6 d-flex align-items-center">
         <p class="about_text">
-          全国にはあなたが知らない地域ブランドが数多く眠っています。
+          あなたが知らない地域ブランドが数多く眠っています。
           少しでも多くの人達に地域ブランドの魅力を広めて地域に貢献したい！
           そんな思いで私たちは地域ブランドの原石を発掘するサイト『HAKKUTSU』を立ち上げました。
         </p>
@@ -81,7 +81,7 @@
       @endif
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="bg-white rounded shadow-sm">
-          <img src="{{asset($item->image_path)}}" alt="" class="item-display img-fluid card-img-top ">
+          <img src="{{asset(Storage::disk('s3')->url($item->image_path))}}" alt="" class="item-display img-fluid card-img-top ">
           <div class="p-4">
             <h5><a href="items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
             <h5 class="mt-3 text-normal">価格：{{$item->price}}</h5>

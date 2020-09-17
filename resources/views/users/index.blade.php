@@ -67,7 +67,7 @@
       @foreach ($newItemInformation as $item)
       <div class="col-md-3 col-sm-6 mb-4">
         <a href="/items/{{$item->id}}">
-          <img class="img-fluid item-four-display" src="{{asset($item->image_path)}}" alt="item">
+          <img class="img-fluid item-four-display" src="{{asset(Storage::disk('s3')->url($item->image_path))}}" alt="item">
         </a>
       </div>
       @endforeach

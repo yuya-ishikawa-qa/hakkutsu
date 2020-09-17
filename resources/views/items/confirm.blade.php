@@ -29,7 +29,7 @@
                     {!! Form::label('price', '【販売価格（税込）】: '. $post_data["price"]) !!}円
                 </div>
                 <div class = "form-group">
-                     <p>【商品画像】：<img src = "/{{ $data['read_temp_path'] }}" width="450px"></p>
+                     <p>【商品画像】：<img src = "{{ Storage::disk('s3')->url($temp_path) }}" width="450px"></p>
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【商品の説明文】: '. $post_data["description"]) !!}
@@ -45,16 +45,18 @@
                         {!! Form::submit('送信する', ['name' => 'action', 'class' => 'btn btn-warning btn-block']) !!}
                     </div>
                 </div>
-    {!! Form::close() !!}
-    <a href={{route('items.create',['store'=> $data["store"]])}} >
-        <div class="row  justify-content-center">
-            <div class="col-sm-6 mt-3">
-                <button type="submit" class="btn btn-secondary btn-block">
-                    修正する
-                </button>
-            </div>    
-        </div>
-     </a>
+            {!! Form::close() !!}
+            <a href={{route('items.create',['store'=> $data["store"]])}} >
+                <div class="row  justify-content-center">
+                    <div class="col-sm-6 mt-3">
+                        <button type="submit" class="btn btn-secondary btn-block">
+                            修正する
+                        </button>
+                    </div>    
+                </div>
+            </a>
+        </div>   
+    </div>
 </div>
 
 @endsection

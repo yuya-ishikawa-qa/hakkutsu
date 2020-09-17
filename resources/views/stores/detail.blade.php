@@ -15,7 +15,7 @@
           <div class="row">
 
             <div class="col-md-7">
-              <img class="img-fluid" src="{{asset($store->image_path)}}" alt="">
+              <img class="img-fluid" src="{{asset(Storage::disk('s3')->url($store->image_path))}}" alt="">
             </div>
 
             <div class="col-md-5">
