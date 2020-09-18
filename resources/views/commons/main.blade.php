@@ -45,7 +45,7 @@
 
 
 
-
+<section class="about py-5">
   <div class="container">
     <h2 class="text-center mb-5 p-3 text-dark">HAKKUTSUとは<br>ー Concept ー</h2>
     <div class="row">
@@ -68,7 +68,7 @@
       <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
-
+</section>
 
 <section class="news">
   <div class="container">
@@ -81,7 +81,7 @@
       @endif
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="bg-white rounded shadow-sm">
-          <img src="{{asset(Storage::disk('s3')->url($item->image_path))}}" alt="" class="item-display img-fluid card-img-top ">
+          <img src="{{asset($item->image_path)}}" alt="" class="item-display img-fluid card-img-top ">
           <div class="p-4">
             <h5><a href="items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
             <h5 class="mt-3 text-normal">価格：{{$item->price}}</h5>
