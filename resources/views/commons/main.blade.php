@@ -65,7 +65,7 @@
           『地域を応援する』きっかけになれば、これほど嬉しいことはありません。
         </p>
       </div>
-      <img class="concept_visual mt-5 col-md-6 d-flex align-items-center" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
+      <img class="concept_visual mt-5 d-flex align-items-center" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
 </section>
