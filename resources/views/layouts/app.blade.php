@@ -9,6 +9,7 @@
   <script src="{{ asset('js/app.js') }}"></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <style type="text/css">
     <!--
     button.stripe-button-el,
     button.stripe-button-el>span {
