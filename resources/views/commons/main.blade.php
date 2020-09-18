@@ -11,7 +11,6 @@
 <section class="top">
   <div class="container">
     <img class="d-block w-100" src="{{ asset('image/top_image.jpg') }}" alt="top">
-    <img class="d-block w-100" src="{{ asset('image/concept_visual_01.jpg') }}" alt="top">
   </div>
 </section>
 
@@ -49,9 +48,9 @@
 <section class="about py-5">
   <div class="container">
     <h2 class="text-center mb-5 p-3 text-dark">HAKKUTSUとは<br>ー Concept ー</h2>
-    <div class="row">
+    <div class="row d-flex align-items-center">
       <img class="concept_visual" src="{{ asset('image/concept_visual_01.jpg') }}" alt="Card image cap">
-      <div class="col-md-6 d-flex align-items-center">
+      <div class="col-md-6">
         <p class="about_text">
           あなたが知らない地域ブランドが数多く眠っています。
           少しでも多くの人達に地域ブランドの魅力を広めて地域に貢献したい！
@@ -59,14 +58,15 @@
         </p>
       </div>
 
-      <div class="col-md-6 d-flex align-items-center">
+      <div class="col-md-6 d-flex align-items-start">
         <p class="about_text">
           肉や魚、野菜や果物など、全国各地の選りすぐりの商品からご購入いただけます。
           私たちが商品を購入することで『地域の活性化』に繋がり
           『地域を応援する』きっかけになれば、これほど嬉しいことはありません。
         </p>
-      </div>
+      
       <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
+      </div>
     </div>
   </div>
 </section>
