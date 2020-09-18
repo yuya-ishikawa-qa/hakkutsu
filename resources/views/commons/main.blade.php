@@ -45,7 +45,7 @@
 
 
 
-<section class="about py-5">
+
   <div class="container">
     <h2 class="text-center mb-5 p-3 text-dark">HAKKUTSUとは<br>ー Concept ー</h2>
     <div class="row">
@@ -68,7 +68,7 @@
       <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
-</section>
+
 
 <section class="news">
   <div class="container">
