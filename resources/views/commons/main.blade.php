@@ -50,6 +50,7 @@
     <h2 class="text-center mb-5 p-3 text-dark">HAKKUTSUとは<br>ー Concept ー</h2>
     <div class="row">
       <img class="concept_visual" src="{{ asset('image/concept_visual_01.jpg') }}" alt="Card image cap">
+    </div>
       <div class="col-md-6 d-flex align-items-center">
         <p class="about_text">
           あなたが知らない地域ブランドが数多く眠っています。
@@ -65,6 +66,7 @@
           『地域を応援する』きっかけになれば、これほど嬉しいことはありません。
         </p>
       </div>
+    <div class="row">
       <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
