@@ -192,6 +192,7 @@ body {
 
 .concept_visual {
     width: 50%;
+    -webkit-appearance: none;
 }
 
 .mypage_button {
@@ -225,6 +226,7 @@ body {
 
     .concept_visual {
         width: 100%;
+        -webkit-appearance: none;
     }
 
     /*======================
@@ -282,6 +284,7 @@ body {
 
     .concept_visual {
         width: 100%;
+        -webkit-appearance: none;
     }
 
     /*======================
