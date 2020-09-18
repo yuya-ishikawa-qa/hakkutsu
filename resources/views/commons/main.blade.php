@@ -58,15 +58,14 @@
         </p>
       </div>
 
-      <div class="col-md-6 d-flex align-items-start">
+      <div class="col-md-6 d-flex align-items-center">
         <p class="about_text">
           肉や魚、野菜や果物など、全国各地の選りすぐりの商品からご購入いただけます。
           私たちが商品を購入することで『地域の活性化』に繋がり
           『地域を応援する』きっかけになれば、これほど嬉しいことはありません。
         </p>
-      
-      <img class="concept_visual mt-5" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
       </div>
+      <img class="concept_visual mt-5 col-md-6 d-flex align-items-center" src="{{ asset('image/concept_visual_02.jpg') }}" alt="Card image cap">
     </div>
   </div>
 </section>
