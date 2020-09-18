@@ -81,7 +81,7 @@
       @endif
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="bg-white rounded shadow-sm">
-          <img src="{{asset($item->image_path)}}" alt="" class="item-display img-fluid card-img-top ">
+          <img src="{{asset(Storage::disk('s3')->url($item->image_path))}}" alt="" class="item-display img-fluid card-img-top ">
           <div class="p-4">
             <h5><a href="items/{{$item->id}}" class="text-dark">商品名：{{$item->item_name}}</a></h5>
             <h5 class="mt-3 text-normal">価格：{{$item->price}}</h5>
