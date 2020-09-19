@@ -27,7 +27,7 @@ class Cart
 
     	if($this->cart_items){
         //idがcart_itemに存在する場合、
-    		if(property_exists($id,$this->cart_items)){
+    		if(array_key_exists($id,$this->cart_items)){
                 //元々のcart_itemsを変数に代入する
     			$storedItem =$this->cart_items[$id];
     		}
