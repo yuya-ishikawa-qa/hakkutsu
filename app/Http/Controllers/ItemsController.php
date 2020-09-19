@@ -54,11 +54,8 @@ class ItemsController extends Controller
         //アップロードされた情報を変数に代入
         $path = $request->file('image_path');
         //ファイルを指定した位置に保存し、変数に代入
-        // $temp_path = $path->store('public/temp');
         $temp_path = Storage::disk('s3')->put('public/temp',$path, 'public');
-        //str_replaceメソッドで、public/をstorage/に置き換え
-        // $read_temp_path = str_replace('public/', 'storage/', $temp_path);
-        // dd($temp_path);
+
         //上記で取得した変数を代入
         $data = array(
             'temp_path' => $temp_path,
@@ -92,6 +89,7 @@ class ItemsController extends Controller
             $data = $request->session()->get('data');
             $post_data = $request->session()->get('post_data');
             $temp_path = $request->session()->get('temp_path');
+            
             //上記のデータを変数に代入
             $store = $data['store'];
 
@@ -104,7 +102,6 @@ class ItemsController extends Controller
             $request->session()->forget('data');
             //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
             Storage::disk('s3')->move($temp_path, $storage_path);
-            //publicをstorage/img/public/に置き換え、保存ファイルに移動
             
             //データベースへの保存処理
             $item = new Item();

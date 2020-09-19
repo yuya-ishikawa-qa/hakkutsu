@@ -63,19 +63,8 @@ class StoresController extends Controller
 
         //アップロードされたfileに関する情報としてimage_pathを変数に代入
         $path = $request->file('image_path');
-        //$pathをpublic/tempに保存し、位置を変数に代入
-        // $temp_path = $path->store('public/temp');
+        //$pathをS3のpublic/tempに保存し、位置を変数に代入   
         $temp_path = Storage::disk('s3')->put('public/temp',$path, 'public');
-        //str_replaceメソッドで、public/をstorage/に置き換え
-        // $read_temp_path = str_replace('public/', 'storage/', $temp_path);
-        
-        // $disk = Storage::disk('s3');
-        // $files = $disk->files('$temp_path');
-        
-        // dd($files);
-        //一時保存ディレクトリと一時読み込みディレクトリを配列に代入
-
-
 
         //セッションにデータを保存
         $request->session()->put([
@@ -103,10 +92,7 @@ class StoresController extends Controller
             //dataのセッション情報を破棄
             $request->session()->forget('data');
             //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
-            // Storage::move($temp_path, $storage_path);
             Storage::disk('s3')->move($temp_path, $storage_path);
-            //publicをstorageに置き換え、読み込みディレクトリを変数に保存
-            // $read_path = str_replace('public/', 'storage/', $storage_path);
 
             //データベースへの保存処理
             $store = new Store();
