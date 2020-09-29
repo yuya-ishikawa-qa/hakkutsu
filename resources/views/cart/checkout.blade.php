@@ -11,7 +11,7 @@
     @endif
     <div class="text-center">
         <h3 class="p-3 mb-2 bg-warning text-dark text-center">会計</h3><br>
-        <div class="mx-auto" style="width: 600px;">
+        <div class="col-sm-6 offset-sm-3">
             <div class="card">
                 <div class="card-header">
                     送付先の確認
