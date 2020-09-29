@@ -108,7 +108,7 @@ class StoresController extends Controller
             $store->save();
 
             return redirect('store/management/request')->with([
-                'flash_message' => '送信しました',
+                'flash_message' => '作成しました',
             ]);
         }
 

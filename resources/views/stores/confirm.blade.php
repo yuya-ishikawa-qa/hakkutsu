@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col-sm-6 mt-3">
-                    {!! Form::submit('送信する', ['name' => 'action', 'class' => 'btn btn-warning btn-block']) !!}
+                    {!! Form::submit('作成する', ['name' => 'action', 'class' => 'btn btn-warning btn-block']) !!}
                 </div>
             </div>
             {!! Form::close() !!}
