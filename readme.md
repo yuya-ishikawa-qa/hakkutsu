@@ -7,6 +7,10 @@
 
 ## デモ
 ![トップ画](https://github.com/yuya-ishikawa-qa/hakkutsu.git/images/hakkutsu_intro.jpeg)
+![トップ画](https://github.com/yuya-ishikawa-qa/hakkutsu/images/hakkutsu_intro.jpeg)
+![トップ画]/(https://github.com/yuya-ishikawa-qa/hakkutsu/images/hakkutsu_intro.jpeg)
+![トップ画](/https://github.com/yuya-ishikawa-qa/hakkutsu/images/hakkutsu_intro.jpeg)
+![トップ画](hakkutsu_intro.jpeg)
 
 
 http://hakkutsu-ec.herokuapp.com/
