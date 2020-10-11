@@ -6,7 +6,8 @@
 　地域には、まだブランド展開までできてないけどいいものを作れている地域のブランドが隠れています。その生産者に簡単に直販できるプラットフォームとして開発しました。
 
 ## デモ
-![トップ画](https://github.com/yuya-ishikawa-qa/hakkutsu/images/hakkutsu_intro.jpeg)
+![トップ画]（https://github.com/yuya-ishikawa-qa/hakkutsu.git/images/hakkutsu_intro.jpeg）
+
 
 http://hakkutsu-ec.herokuapp.com/
 
@@ -53,6 +54,7 @@ http://hakkutsu-ec.herokuapp.com/
 * SHUN
 * MASARU
 * RYOTA
+<br>
 講師
 * YUYA
 * YUKIHIRO
