@@ -2,7 +2,7 @@
 
 
 # HAKKUTSU
-　地域ブランドを原石を発掘するECモール【hakkutsu】です。
+　地域ブランドを原石を発掘するECモール【hakkutsu】です。<br>
 　地域には、まだブランド展開までできてないけどいいものを作れている地域のブランドが隠れています。その生産者に簡単に直販できるプラットフォームとして開発しました。
 
 ## デモ
@@ -55,6 +55,7 @@ http://hakkutsu-ec.herokuapp.com/
 * MASARU
 * RYOTA
 <br>
+
 講師
 * YUYA
 * YUKIHIRO
