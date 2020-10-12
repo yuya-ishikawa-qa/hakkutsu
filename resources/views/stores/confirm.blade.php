@@ -11,7 +11,7 @@
         </div>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8">
-            <p class="pl-2">この内容でよろしければ「送信する」ボタンを押してください。</p>
+            <p class="pl-2">この内容でよろしければ「送信する」を押してください。</p>
             {!! Form::open(['route' => 'stores.store', 'method' => 'post']) !!}
             <div class = "form-group">
                     {!! Form::label('store_name', '【店名】: '. $post_data["store_name"]) !!}
@@ -30,7 +30,7 @@
                     {!! Form::label('mail', '【メールアドレス】: '. $post_data["mail"]) !!}
                 </div>
                 <div class = "form-group">
-                     <p>【画像】：<img src = "/{{ $data['read_temp_path'] }}" width="450px"></p>
+                     <p>【画像】：<img src = "{{ Storage::disk('s3')->url($temp_path) }}" width="450px"></p>
                 </div>
                 <div class="form-group">
                     {!! Form::label('description', '【店舗の説明】: '. $post_data["description"]) !!}
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col-sm-6 mt-3">
-                    {!! Form::submit('送信する', ['name' => 'action', 'class' => 'btn btn-warning btn-block']) !!}
+                    {!! Form::submit('作成する', ['name' => 'action', 'class' => 'btn btn-warning btn-block']) !!}
                 </div>
             </div>
             {!! Form::close() !!}

@@ -13,7 +13,7 @@
 
 				@foreach($orders_details as $orders_detail)
 				<li class="list-group-item">
-					<p><img src="/{{ $orders_detail -> image_path }}" width="100px"></p>
+					<p><img src="{{ asset(Storage::disk('s3')->url($orders_detail->image_path)) }}" width="100px"></p>
 					<strong>{{$orders_detail -> item_name }}</strong>
 					<span class="label label-success">{{$orders_detail -> amount }}個</span><br>
 					<span class="label label-success">1個あたり{{$orders_detail -> price}}円</span><br>

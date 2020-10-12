@@ -231,4 +231,5 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
     ],
 
+    'log' => 'errorlog'
 ];

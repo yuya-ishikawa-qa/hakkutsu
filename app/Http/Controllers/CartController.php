@@ -158,6 +158,7 @@ class CartController extends Controller
         //指定の値をインスタンスに代入
         $order->name = $user->name;
         $order->total = $cart->totalPrice;
+        
         //userインスタンスが送付先郵便番号を持つなら、注文情報にuserの送付先郵便番号と送付先住所を登録
         if($user -> destination_postal_code){
           $order->destination_postal_code = $user->destination_postal_code;
@@ -167,6 +168,7 @@ class CartController extends Controller
           $order->destination_postal_code = $user->postal_code;
           $order->destination = $user->address_1.$user->address_2.$user->address_3;
         }
+        $order->timestamps = false;
         //インスタンスを保存
         Auth::user()->orders()->save($order);
         
@@ -180,7 +182,8 @@ class CartController extends Controller
                 $orders_details->item_name = $cart_items['item']['item_name'];
                 $orders_details->price = $cart_items['price'];
                 $orders_details->amount = $cart_items['qty'];
-                $orders_details->image_path = $cart_items['item']['image_path'];        
+                $orders_details->image_path = $cart_items['item']['image_path'];
+                $orders_details->timestamps = false;        
                 //インスタンスに保存
                 $orders_details->save();
         }

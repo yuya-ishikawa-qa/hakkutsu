@@ -63,37 +63,27 @@ class StoresController extends Controller
 
         //アップロードされたfileに関する情報としてimage_pathを変数に代入
         $path = $request->file('image_path');
-        //$pathをpublic/tempに保存し、位置を変数に代入
-        $temp_path = $path->store('public/temp');
-        //str_replaceメソッドで、public/をstorage/に置き換え
-        $read_temp_path = str_replace('public/', 'storage/', $temp_path);
+        //$pathをS3のpublic/tempに保存し、位置を変数に代入   
+        $temp_path = Storage::disk('s3')->put('public/temp',$path, 'public');
 
-        //一時保存ディレクトリと一時読み込みディレクトリを配列に代入
-        $data = array(
-            'temp_path' => $temp_path,
-            'read_temp_path' => $read_temp_path,
-        );
         //セッションにデータを保存
         $request->session()->put([
-            'data' => $data,
+            'temp_path' => $temp_path,
             'post_data' => $post_data,
         ]);
 
         return view('stores.confirm')->with([
             'post_data' => $post_data,
-            'data' => $data,
+            'temp_path' => $temp_path,
         ]);
     }
 
         public function store(Request $request)
         {
             //セッションから必要なデータを取得
-            $data = $request->session()->get('data');
+            $temp_path = $request->session()->get('temp_path');
             $post_data = $request->session()->get('post_data');
 
-            //上記のデータを変数に代入
-            $temp_path = $data['temp_path'];
-            $read_temp_path = $data['read_temp_path'];
             //ファイル名は$temp_pathから"public/temp/を空白で除いたもの
             $filename = str_replace('public/temp/', '', $temp_path);
             //画像を保存するパスは"public/stores_image/xxx.jpeg"
@@ -102,13 +92,11 @@ class StoresController extends Controller
             //dataのセッション情報を破棄
             $request->session()->forget('data');
             //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
-            Storage::move($temp_path, $storage_path);
-            //publicをstorageに置き換え、読み込みディレクトリを変数に保存
-            $read_path = str_replace('public/', 'storage/', $storage_path);
+            Storage::disk('s3')->move($temp_path, $storage_path);
 
             //データベースへの保存処理
             $store = new Store();
-            $store->image_path = $read_path;
+            $store->image_path = $storage_path;
             $store->store_name = $post_data['store_name'];
             $store->address = $post_data['address'];
             $store->tel = $post_data['tel'];
@@ -116,10 +104,11 @@ class StoresController extends Controller
             $store->postal = $post_data['postal'];
             $store->description = $post_data['description'];
             $store->user_id = auth()->id();
+            $store->timestamps = false;
             $store->save();
 
             return redirect('store/management/request')->with([
-                'flash_message' => '送信しました',
+                'flash_message' => '作成しました',
             ]);
         }
 

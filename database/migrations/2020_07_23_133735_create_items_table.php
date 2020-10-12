@@ -23,7 +23,6 @@ class CreateItemsTable extends Migration
             $table->string('price');
             $table->string('image_path');
             $table->text('description')->null();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->softDeletes();
 

@@ -102,8 +102,6 @@ Route::get('stores/{id}', 'StoreDisplayController@show')->name('stores.detail');
 //一覧表示
 Route::get('/items', 'ItemsDisplayController@index')->name('items.index');
 Route::get('items/{id}', 'ItemsDisplayController@show')->name('items.detail');
-// Route::resource('/items', 'ItemsDisplayController');
-//↑Itemscontrollerとぶつかったのでコメントアウトしました
 
 //レビュー関連
 Route::group(['middleware' => 'auth'], function () {

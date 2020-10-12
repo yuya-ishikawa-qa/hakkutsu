@@ -3,17 +3,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container">
             <a href="/" class="nav-link"><img src="{{ asset('image/logo.png') }}" width="250" alt="logo.png"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-left" id="nav-bar">
                 <ul class="navbar-nav">
                     <li class="nav-item">{!! link_to_route('stores.index', '店舗から探す', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('items.index', '商品から探す', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             </div>
-
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
 
             <div class="collapse navbar-collapse nav-pills" id="nav-bar">
                 <ul class="navbar-nav mr-auto"></ul>

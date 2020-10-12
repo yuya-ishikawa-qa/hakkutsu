@@ -64,7 +64,7 @@
                     <div class='form-group'>
                         {!! Form::label('image_path','【店舗イメージ】') !!}
                         <div class="col-md-7">
-                        <img class="img-fluid" src="/{{$store->image_path}}" alt="">
+                        <img class="img-fluid" src="{{ Storage::disk('s3')->url($store->image_path)}}" alt="">
                     </div>
                         {!! Form::file('image_path') !!}
                     </div>
