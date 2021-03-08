@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<hr>
-
+		あ
 		<div class="d-flex justify-content-center">
 			<a href="{{route('checkout')}}" type="button" class="btn btn-success mt-5 p-3 btn-lg btn-block w-50 mx-auto">会計に進む</a>
 		</div>
